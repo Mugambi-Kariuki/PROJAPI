@@ -8,7 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-            background-color: #87CEEB; /* Sky Blue */
+            background-color: #87CEEB; 
             font-family: Arial, sans-serif;
         }
 
@@ -24,11 +24,11 @@
         }
 
         input.form-control {
-            transition: background-color 0.3s ease; /* Smooth transition */
+            transition: background-color 0.3s ease; 
         }
 
         input.form-control:hover {
-            background-color: #f0f0f0; /* Light grey on hover */
+            background-color: #f0f0f0; 
         }
 
         .btn-signup {

@@ -4,94 +4,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
+            background-color: #f0f8ff; /* Light background */
             font-family: Arial, sans-serif;
-            background-color: #f0f8ff;
-            margin: 0;
-            padding: 20px;
         }
         .form-container {
-            max-width: 400px;
-            margin: auto;
-            background: #ffffff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
-            text-align: center;
-            color: #333333;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
         label {
-            display: block;
-            margin-bottom: 8px;
-            color: #555555;
+            color: black;
         }
-        input[type="text"],
-        input[type="password"],
-        input[type="tel"] {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #dddddd;
-            border-radius: 4px;
-            transition: background-color 0.3s ease;
-        }
-        /* Hover effect for input fields */
-        input[type="text"]:hover,
-        input[type="password"]:hover,
-        input[type="tel"]:hover {
-            background-color: #e0e0e0; /* Grey on hover */
-        }
-        button {
-            width: 100%;
-            padding: 10px;
-            background-color: #4caf50;
+        .btn-login {
+            background-color: grey;
             color: white;
             border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
         }
-        /* Hover effect for buttons */
-        button:hover {
-            background-color: #45a049; /* Slightly darker green */
-        }
-        p {
-            text-align: center;
-        }
-        a {
-            color: #1e90ff;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
+        .btn-login:hover {
+            background-color: darkgrey;
         }
     </style>
 </head>
 <body>
-    <div class="form-container">
-        <h1>Login</h1>
-        <form action="login_process.php" method="POST">
-            <label for="firstname">First Name:</label>
-            <input type="text" id="firstname" name="firstname" placeholder="Enter your first name" required>
-            
-            <label for="lastname">Last Name:</label>
-            <input type="text" id="lastname" name="lastname" placeholder="Enter your last name" required>
-            
-            <label for="mobile">Mobile Number:</label>
-            <input type="tel" id="mobile" name="mobile" placeholder="Enter your mobile number" required>
-            
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" placeholder="Enter your username" required>
-            
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" placeholder="Enter your password" required>
-            
-            <button type="submit">Login</button>
-        </form>
-        <p>Don't have an account? <a href="signup.php">Sign up here</a>.</p>
+    <div class="container d-flex justify-content-center align-items-center vh-100">
+        <div class="form-container col-md-6">
+            <h1 class="text-center mb-4">Login</h1>
+            <form action="login_process.php" method="POST">
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email:</label>
+                    <input type="email" id="email" name="email" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="username" class="form-label">Username:</label>
+                    <input type="text" id="username" name="username" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password:</label>
+                    <input type="password" id="password" name="password" class="form-control" required>
+                </div>
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-login">Login</button>
+                </div>
+            </form>
+            <p class="text-center mt-3">
+                Don't have an account? <a href="signup.php">Sign up here</a>.
+            </p>
+        </div>
     </div>
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
