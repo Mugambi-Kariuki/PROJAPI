@@ -56,7 +56,7 @@
     <div class="container d-flex justify-content-center align-items-center vh-100">
         <div class="form-container col-md-6">
             <h1 class="text-center mb-4">Sign Up</h1>
-            <form action="process_Signup.php" method="POST">
+            <form action="signup_process.php" method="POST">
                 <div class="mb-3">
                     <label for="firstname" class="form-label">First Name:</label>
                     <input type="text" id="firstname" name="firstname" class="form-control" required>
