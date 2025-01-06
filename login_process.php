@@ -1,14 +1,15 @@
 <?php
-// Database configuration
-$servername = "localhost:3308";
-$username = "root";
-$password = "caleb"; // Replace with your database password
-$dbname = "api_proj";
+// login_process.php
 
-// Create connection
+// Database connection
+$servername = "localhost:3308";
+$username = "root"; 
+$password = "caleb"; 
+$dbname = "api_proj"; 
+
 $conn = new mysqli($servername, $username, $password, $dbname);
 
-// Check connection
+// Check for connection errors
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
@@ -26,18 +27,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Fetch user from the database
-    $stmt = $conn->prepare("SELECT id, password FROM Users WHERE email = ? AND username = ?");
+    $stmt = $conn->prepare("SELECT username, email, password FROM user WHERE email = ? AND username = ?");
+    if ($stmt === false) {
+        die('MySQL prepare error: ' . $conn->error);  // Check if the statement preparation failed
+    }
+
+    // Bind the parameters (email and username)
     $stmt->bind_param("ss", $email, $username);
+    
+    // Execute the query
     $stmt->execute();
-    $stmt->store_result();
-    $stmt->bind_result($id, $stored_password);
+    $stmt->store_result();  // Store the result of the query
+    $stmt->bind_result($stored_username, $stored_email, $stored_password);  // Bind result columns to variables
 
     if ($stmt->num_rows > 0) {
-        // User found, verify password
+        // User found, fetch the result
         $stmt->fetch();
+        
+        // Verify password
         if (password_verify($password, $stored_password)) {
             echo "Login successful. Welcome!";
-            // You can set a session or redirect to another page
+            // Redirect to the dashboard or home page
+            header("Location: verification.php"); // Replace 'dashboard.php' with the page you want to redirect to
+            exit();
         } else {
             echo "Invalid password.";
         }
@@ -45,8 +57,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "No user found with that email and username.";
     }
 
+    // Close the statement
     $stmt->close();
 }
 
+// Close the connection
 $conn->close();
 ?>

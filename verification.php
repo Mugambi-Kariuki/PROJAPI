@@ -3,6 +3,7 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
+require 'dcConnection.php'; 
 require 'vendor/autoload.php'; 
 
 session_start();
