@@ -81,7 +81,8 @@
                 <div class="mb-3">
                     <label for="password" class="form-label">Password:</label>
                     <input type="password" id="password" name="password" class="form-control" required>
-                </div>
+                
+                    </div>
                 <div class="d-grid gap-2">
                     <button type="submit" class="btn btn-signup">Sign Up</button>
                 </div>
