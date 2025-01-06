@@ -1,56 +1,45 @@
 <?php
-// Database configuration
+// signup_process.php
+
+// Database connection
 $servername = "localhost:3308";
-$username = "root";
+$username = "root"; 
 $password = "caleb"; 
-$dbname = "api_proj";
+$dbname = "api_proj"; 
 
-// Create connection
-//$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = new mysqli($servername, $username, $password, $dbname);
 
-// Check connection
+// Check for connection errors
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Process the form
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = trim($_POST['username']);
-    $firstname = trim($_POST['firstname']);
-    $lastname = trim($_POST['lastname']);
-    $email = trim($_POST['email']);
-    $mobile = trim($_POST['mobile']);
-    $password = trim($_POST['password']);
-    $hashedPassword = password_hash($password, PASSWORD_DEFAULT); // Hash the password
+// Get form data
+$firstname = $_POST['firstname'];
+$lastname = $_POST['lastname'];
+$mobile = $_POST['mobile'];
+$username = $_POST['username'];
+$email = $_POST['email'];
+$password = $_POST['password'];
 
-    // Input validation
-    if (empty($firstname) || empty($lastname) || empty($mobile) || empty($username) || empty($email) || empty($password)) {
-        echo "All fields are required.";
-        exit;
-    }
+// Hash the password for security
+$hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        echo "Invalid email format.";
-        exit;
-    }
+// Prepare and bind the SQL query
+$stmt = $conn->prepare("INSERT INTO user (firstname, lastname, mobile, username, email, password) VALUES (?, ?, ?, ?, ?, ?)");
+$stmt->bind_param("ssssss", $firstname, $lastname, $mobile, $username, $email, $hashed_password);
 
-    if (!preg_match("/^[0-9]{10}$/", $mobile)) {
-        echo "Invalid mobile number. Please enter a 10-digit number.";
-        exit;
-    }
-
-    // Insert into database
-    $stmt = $conn->prepare("INSERT INTO Users (username, firstname, lastname, email,  mobile, password) VALUES (?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("ssssss", $username, $firstname, $lastname, $email, $mobile, $hashedPassword);
-
-    if ($stmt->execute()) {
-        echo "Sign-up successful. <a href='login.php'>Login here</a>.";
-    } else {
-        echo "Error: " . $stmt->error;
-    }
-
-    $stmt->close();
+// Execute the query and check for success
+if ($stmt->execute()) {
+    echo "Account created successfully!";
+    //go to login
+    header("Location: login.php");
+    exit();
+} else {
+    echo "Error: " . $stmt->error;
 }
 
+// Close the statement and connection
+$stmt->close();
 $conn->close();
 ?>
