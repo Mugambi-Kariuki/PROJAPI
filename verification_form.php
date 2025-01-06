@@ -1,12 +1,12 @@
 <?php
 session_start();
 
-// Check if the verification code exists
+// Check if the verification code exists in the session
 if (!isset($_SESSION['verification_code'])) {
     die("No verification code found. Please start the verification process.");
 }
 
-//form submission
+// Handle form submission
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $inputCode = strtoupper(trim($_POST['verification_code'])); // Sanitize and normalize input
     $sessionCode = $_SESSION['verification_code'];
@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         unset($_SESSION['verification_code']);
         unset($_SESSION['verification_email']);
     } else {
-        // Failed to verify
+        // Failed verification
         $errorMessage = "Invalid verification code. Please try again.";
     }
 }

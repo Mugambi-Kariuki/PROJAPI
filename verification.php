@@ -27,13 +27,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $mail->isSMTP();
         $mail->Host       = 'smtp.example.com'; // Replace with your SMTP host
         $mail->SMTPAuth   = true;
-        $mail->Username   = 'your_email@example.com'; 
-        $mail->Password   = 'your_password'; 
+        $mail->Username   = 'yballer110@gmail.com'; 
+        $mail->Password   = 'viwgnqkfwjgthjsc'; 
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Port       = 587;
 
         // Recipients
-        $mail->setFrom('no-reply@example.com', 'Your Website');
+        $mail->setFrom('caleb.kariuki@strathmore.edu', 'Vibe test');
         $mail->addAddress($email);
 
         // Content
