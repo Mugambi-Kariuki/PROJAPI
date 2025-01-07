@@ -9,7 +9,7 @@ $dbname = "api_proj";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
-// Check for connection errors
+// Check for connection errorss
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }

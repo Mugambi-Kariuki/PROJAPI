@@ -1,5 +1,15 @@
 <?php
-// login_process.php
+// Include PHPMailer files
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require 'dcConnection.php';
+require 'path/to/PHPMailer/src/Exception.php';
+require 'path/to/PHPMailer/src/PHPMailer.php';
+require 'path/to/PHPMailer/src/SMTP.php';
+
+// Start the session to store OTP
+session_start();
 
 // Database connection
 $servername = "localhost:3308";
@@ -22,45 +32,77 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Input validation
     if (empty($email) || empty($username) || empty($password)) {
-        echo "All fields are required.";
-        exit;
+        // Save the error message in a session variable
+        $_SESSION['error'] = "All fields are required.";
+        header("Location: login.php"); // Redirect to the login page
+        exit();
     }
 
     // Fetch user from the database
     $stmt = $conn->prepare("SELECT username, email, password FROM user WHERE email = ? AND username = ?");
     if ($stmt === false) {
-        die('MySQL prepare error: ' . $conn->error);  // Check if the statement preparation failed
+        die('MySQL prepare error: ' . $conn->error);
     }
 
-    // Bind the parameters (email and username)
     $stmt->bind_param("ss", $email, $username);
-    
-    // Execute the query
     $stmt->execute();
-    $stmt->store_result();  // Store the result of the query
-    $stmt->bind_result($stored_username, $stored_email, $stored_password);  // Bind result columns to variables
+    $stmt->store_result();
+    $stmt->bind_result($stored_username, $stored_email, $stored_password);
 
     if ($stmt->num_rows > 0) {
-        // User found, fetch the result
         $stmt->fetch();
         
         // Verify password
         if (password_verify($password, $stored_password)) {
-            echo "Login successful. Welcome!";
-            // Redirect to the dashboard or home page
-            header("Location: verification.php"); // Replace 'dashboard.php' with the page you want to redirect to
-            exit();
+            // Generate a random OTP
+            $otp = random_int(100000, 999999);
+
+            // Save OTP and email in session
+            $_SESSION['otp'] = $otp;
+            $_SESSION['email'] = $email;
+
+            // Send OTP via email
+            $mail = new PHPMailer(true);
+            try {
+                // SMTP configuration
+                $mail->isSMTP();
+                $mail->Host = 'smtp.gmail.com'; 
+                $mail->SMTPAuth = true;
+                $mail->Username = 'yballer110@gmail.com'; 
+                $mail->Password = 'viwgnqkfwjgthjsc'; 
+                $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+                $mail->Port = 587;
+
+                // Email settings
+                $mail->setFrom('caleb.kariuki@strathmore.edu', 'YourAppName');
+                $mail->addAddress($email);
+                $mail->Subject = 'Your OTP Code';
+                $mail->Body = "Hello $stored_username,\n\nYour OTP code is: $otp\n\nPlease use this code to verify your login.";
+
+                $mail->send();
+
+                // Redirect to the OTP verification page
+                header("Location: verification_form.php");
+                exit();
+            } catch (Exception $e) {
+                // Save error message in a session variable
+                $_SESSION['error'] = "Error sending OTP: " . $mail->ErrorInfo;
+                header("Location: login.php");
+                exit();
+            }
         } else {
-            echo "Invalid password.";
+            $_SESSION['error'] = "Invalid password.";
+            header("Location: login.php");
+            exit();
         }
     } else {
-        echo "No user found with that email and username.";
+        $_SESSION['error'] = "No user found with that email and username.";
+        header("Location: login.php");
+        exit();
     }
 
-    // Close the statement
     $stmt->close();
 }
 
-// Close the connection
 $conn->close();
 ?>
