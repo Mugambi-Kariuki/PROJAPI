@@ -1,3 +1,4 @@
+
 <?php
 class dbConnection {
     private $connection;
@@ -43,6 +44,6 @@ class dbConnection {
 }
 
 // Example usage
-$database = new dbConnection();
-$conn = $database->getConnection();
+//$database = new dbConnection();
+//$conn = $database->getConnection();
 ?>

@@ -1,92 +1,95 @@
 <?php
 session_start();
+include 'conn.php';
 
-// Check if the verification code exists in the session
-if (!isset($_SESSION['verification_code'])) {
-    die("No verification code found. Please start the verification process.");
+// Check if the verification session exists
+if (!isset($_SESSION['verification_data'])) {
+    header("Location: index.php");
+    exit();
 }
 
 // Handle form submission
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $inputCode = strtoupper(trim($_POST['verification_code'])); // Sanitize and normalize input
-    $sessionCode = $_SESSION['verification_code'];
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $inputCode = strtoupper(trim($_POST['verification_code'])); // Sanitize input
+    $storedCode = $_SESSION['verification_data']['code'];
+    $userId = $_SESSION['verification_data']['user_id'];
 
-    if ($inputCode === $sessionCode) {
-        // Successful verification
-        echo "<h1>Verification Successful!</h1>";
-        echo "<p>Your email and phone number have been verified.</p>";
+    // Query the database to verify the code
+    $sql = "SELECT * FROM users WHERE id='$userId' AND verification_code='$storedCode'";
+    $query = mysqli_query($conn, $sql);
+    $data = mysqli_fetch_array($query);
 
-        // Clear session data for security
-        unset($_SESSION['verification_code']);
-        unset($_SESSION['verification_email']);
+    if ($data) {
+        $codeExpiry = strtotime($data['code_expiry']);
+        if ($codeExpiry >= time()) {
+            // Successful verification
+            $_SESSION['user_id'] = $data['id']; // Authenticate user
+            unset($_SESSION['verification_data']); // Clear temporary session
+            header("Location: dashboard.php");
+            exit();
+        } else {
+            // Verification code expired
+            echo "<script>
+                alert('Verification code has expired. Please restart the process.');
+                window.location.href = 'index.php';
+            </script>";
+        }
     } else {
-        // Failed verification
-        $errorMessage = "Invalid verification code. Please try again.";
+        // Invalid verification code
+        echo "<script>alert('Invalid verification code. Please try again.');</script>";
     }
 }
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Verification</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Email Verification</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+        #container {
+            border: 1px solid black;
+            width: 400px;
+            margin: 50px auto;
+            height: 330px;
         }
-        .container {
-            background: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            max-width: 400px;
-            text-align: center;
+        form {
+            margin: 20px 50px;
         }
-        input[type="text"] {
-            width: 100%;
+        p, h1 {
+            margin-left: 50px;
+        }
+        input[type=text] {
+            width: 290px;
             padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
+            margin-top: 10px;
         }
         button {
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
+            background-color: orange;
+            border: 1px solid orange;
+            width: 100px;
+            padding: 9px;
+            margin-left: 100px;
         }
         button:hover {
-            background-color: #45a049;
-        }
-        .error {
-            color: red;
-            margin-bottom: 10px;
+            cursor: pointer;
+            opacity: 0.9;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h2>Enter Verification Code</h2>
-        <p>Please enter the verification code sent to your email or phone.</p>
-        <?php if (!empty($errorMessage)): ?>
-            <div class="error"><?php echo $errorMessage; ?></div>
-        <?php endif; ?>
-        <form method="POST" action="">
-            <input type="text" name="verification_code" placeholder="Enter Code" required>
+    <div id="container">
+        <h1>Email Verification</h1>
+        <p>Enter the 6-digit verification code sent to your email address: 
+            <?php echo $_SESSION['verification_data']['email']; ?>
+        </p>
+        <form method="post" action="">
+            <label style="font-weight: bold; font-size: 18px;" for="verification_code">Verification Code:</label><br>
+            <input type="text" name="verification_code" pattern="[A-Za-z0-9]{6}" placeholder="Enter Verification Code" required><br><br>
             <button type="submit">Verify</button>
         </form>
     </div>
 </body>
 </html>
+
