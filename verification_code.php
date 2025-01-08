@@ -3,19 +3,8 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
 require 'vendor/autoload.php'; // Include PHPMailer
+require 'dcConnection.php';
 
-// Database connection
-$servername = "localhost:3308";
-$username = "root"; 
-$password = "caleb"; 
-$dbname = "api_proj"; 
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Check for connection errors
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
 
 // Function to generate OTP (6-digit random number)
 function generateOTP($length = 6) {
@@ -35,7 +24,7 @@ function sendOTPEmail($email, $otp) {
         $mail->Host = 'smtp.gmail.com';  // Use your SMTP server (Gmail in this case)
         $mail->SMTPAuth = true;
         $mail->Username = 'caleb.kariuki@strathmore.edu';  // SMTP username
-        $mail->Password = 'viwgnqkfwjgthjsc';  // SMTP password
+        $mail->Password = 'qhjz iogp gikz hbvc';  // SMTP password
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Port = 587;
 
@@ -68,12 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 ?>
 
-<!-- Example form for user to request OTP -->
-<form method="POST" action="verification_code.php">
-    <label for="email">Enter your email:</label>
-    <input type="email" id="email" name="email" required>
-    <button type="submit">Send OTP</button>
-</form>
+
 
 
 

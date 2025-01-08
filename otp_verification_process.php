@@ -17,17 +17,17 @@ if ($conn->connect_error) {
 // Process the form
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = trim($_POST['email']);
-    $username = trim($_POST['username']);
+    //$username = trim($_POST['username']);
     $password = trim($_POST['password']);
 
     // Input validation
-    if (empty($email) || empty($username) || empty($password)) {
+    if (empty($email) || empty($password)) {
         echo "All fields are required.";
         exit;
     }
 
     // Fetch user from the database
-    $stmt = $conn->prepare("SELECT username, email, password FROM user WHERE email = ? AND username = ?");
+    $stmt = $conn->prepare("SELECT  email, password FROM user WHERE email = ?");
     if ($stmt === false) {
         die('MySQL prepare error: ' . $conn->error);  // Check if the statement preparation failed
     }
@@ -48,7 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (password_verify($password, $stored_password)) {
             echo "Login successful. Welcome!";
             // Redirect to the verification page
-            header("Location: dashboard.php"); // Redirect to verification.php
+            header("Location: verification_form.php"); 
             exit();
         } else {
             echo "Invalid password.";
