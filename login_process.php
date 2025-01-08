@@ -1,67 +1,81 @@
 <?php
-// login_process.php
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 
-// Database connection
-$servername = "localhost:3308";
-$username = "root"; 
-$password = "caleb"; 
-$dbname = "api_proj"; 
+require 'vendor/autoload.php'; // Include PHPMailer
+require 'dcxConnection.php';   // Include database connection
 
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Check for connection errors
-if ($conn->connect_error) {
-die("Connection failed: " . $conn->connect_error);
+// Function to generate OTP (6-digit random number)
+function generateOTP($length = 6) {
+    return str_pad(random_int(0, 10**$length - 1), $length, '0', STR_PAD_LEFT);
 }
 
-// Process the form
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-$email = trim($_POST['email']);
-$username = trim($_POST['username']);
-$password = trim($_POST['password']);
+// Function to send OTP via email using PHPMailer
+function sendOTPEmail($email, $otp) {
+    $mail = new PHPMailer(true);
+    try {
+        // Server settings
+        $mail->isSMTP();
+        $mail->Host = 'smtp.gmail.com';  
+        $mail->SMTPAuth = true;
+        $mail->Username = 'caleb.kariuki@strathmore.edu';  
+        $mail->Password = 'qhjz iogp gikz hbvc';  
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+        $mail->Port = 587;
 
-// Input validation
-if (empty($email) || empty($username) || empty($password)) {
-echo "All fields are required.";
-exit;
+        // Recipients
+        $mail->setFrom('caleb.kariuki@strathmore.edu', 'Your App');
+        $mail->addAddress($email);
+
+        // Content
+        $mail->isHTML(true);
+        $mail->Subject = 'Your OTP Code for Verification';
+        $mail->Body    = "Your OTP code is: <strong>$otp</strong><br>Please use this code to verify your login.";
+
+        // Send email
+        $mail->send();
+        echo 'OTP has been sent to your email.';
+    } catch (Exception $e) {
+        echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+    }
 }
 
-// Fetch user from the database
-$stmt = $conn->prepare("SELECT username, email, password FROM user WHERE email = ? AND username = ?");
-if ($stmt === false) {
-die('MySQL prepare error: ' . $conn->error);  // Check if the statement preparation failed
+// Process login request
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $email = $_POST['email'];
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    // Create a database connection
+    $db = new DatabaseConnection();
+    $pdo = $db->getConnection();
+
+    // Check if the user exists
+    $stmt = $pdo->prepare("SELECT * FROM users WHERE email = :email AND username = :username");
+    $stmt->execute(['email' => $email, 'username' => $username]);
+    $user = $stmt->fetch();
+
+    if ($user) {
+        // Verify password (assumes passwords are hashed)
+        if (password_verify($password, $user['password'])) {
+            // Generate OTP
+            $otp = generateOTP();
+
+            // Store OTP in the database for later verification
+            $otpStmt = $pdo->prepare("UPDATE users SET otp = :otp WHERE email = :email");
+            $otpStmt->execute(['otp' => $otp, 'email' => $email]);
+
+            // Send OTP to user's email
+            sendOTPEmail($email, $otp);
+
+            // Redirect to OTP verification page
+            header('Location: verification_form.php');
+            exit;
+        } else {
+            echo "Invalid password.";
+        }
+    } else {
+        echo "User not found.";
+    }
 }
-
-// Bind the parameters (email and username)
-$stmt->bind_param("ss", $email, $username);
-
-// Execute the query
-$stmt->execute();
-$stmt->store_result();  // Store the result of the query
-$stmt->bind_result($stored_username, $stored_email, $stored_password);  // Bind result columns to variables
-
-if ($stmt->num_rows > 0) {
-// User found, fetch the result
-$stmt->fetch();
-
-// Verify password
-if (password_verify($password, $stored_password)) {
-echo "Login successful. Welcome!";
-// Redirect to the dashboard or home page
-header("Location: verification_form.php"); // Replace 'dashboard.php' with the page you want to redirect to
-exit();
-} else {
-echo "Invalid password.";
-}
-} else {
-echo "No user found with that email and username.";
-}
-
-// Close the statement
-$stmt->close();
-}
-
-// Close the connection
-$conn->close();
-?>
 ?>
