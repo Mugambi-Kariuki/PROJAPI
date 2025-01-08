@@ -41,7 +41,7 @@
 </head>
 <body>
     <div id="container">
-        <form action="otp_verification_process.php" method="POST">
+        <form action="verification_code.php" method="POST">
             <label for="otp">Enter Verification Code (OTP):</label><br>
             <input type="text" name="otp" placeholder="Enter Your OTP" required><br><br>
             <input type="submit" name="verify" value="Verify"><br><br>

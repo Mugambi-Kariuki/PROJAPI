@@ -48,7 +48,7 @@ $stmt->fetch();
 if (password_verify($password, $stored_password)) {
 echo "Login successful. Welcome!";
 // Redirect to the dashboard or home page
-header("Location: otp_verification_process.php"); // Replace 'dashboard.php' with the page you want to redirect to
+header("Location: verification.php"); // Replace 'dashboard.php' with the page you want to redirect to
 exit();
 } else {
 echo "Invalid password.";

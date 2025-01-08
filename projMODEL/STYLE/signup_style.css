@@ -1,0 +1,43 @@
+body {
+    background-color: #87CEEB;
+    font-family: Arial, sans-serif;
+}
+
+.form-container {
+    background-color: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.form-label {
+    color: black;
+}
+
+input.form-control {
+    transition: background-color 0.3s ease;
+}
+
+input.form-control:hover {
+    background-color: #f0f0f0;
+}
+
+.btn-signup {
+    background-color: green;
+    color: white;
+    border: none;
+}
+
+.btn-signup:hover {
+    background-color: darkgreen;
+}
+
+.btn-login {
+    background-color: grey;
+    color: white;
+    border: none;
+}
+
+.btn-login:hover {
+    background-color: darkgrey;
+}

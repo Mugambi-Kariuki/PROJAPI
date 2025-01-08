@@ -40,7 +40,7 @@ function sendOTPEmail($email, $otp) {
         $mail->Port = 587;
 
         // Recipients
-        $mail->setFrom('caleb.kariuki@strathmore.edu', 'Your verification code:');
+        $mail->setFrom('yballer110@gmail.com', 'Your Name');
         $mail->addAddress($email);
 
         // Content
