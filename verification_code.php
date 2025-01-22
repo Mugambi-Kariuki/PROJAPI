@@ -1,64 +1,74 @@
 <?php
+// Import PHPMailer classes into the global namespace
 use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
-require 'vendor/autoload.php'; // Include PHPMailer
-require 'dcConnection.php';
+// Load Composer's autoloader
+require 'vendor/autoload.php';
+require 'dcConnection.php'; // Include your database connection file
 
-
-// Function to generate OTP (6-digit random number)
-function generateOTP($length = 6) {
-    $otp = '';
-    for ($i = 0; $i < $length; $i++) {
-        $otp .= rand(0, 9); // Generate random digit
-    }
-    return $otp;
+// Function to generate a random verification code
+function generateVerificationCode($length = 6) {
+    return strtoupper(substr(bin2hex(random_bytes($length)), 0, $length));
 }
 
-// Function to send OTP via email using PHPMailer
-function sendOTPEmail($email, $otp) {
+// Function to save the verification code to the database
+function saveVerificationCodeToDatabase($email, $verificationCode, $conn) {
+    $stmt = $conn->prepare("INSERT INTO user_verifications (email, verification_code, created_at) VALUES (?, ?, NOW())");
+    $stmt->bind_param("ss", $email, $verificationCode);
+    $stmt->execute();
+    $stmt->close();
+}
+
+// Check if the request method is POST
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    // Retrieve user-provided email and name
+    $userEmail = $_POST['email'];
+    $userName = $_POST['name'];
+
+    // Generate a verification code
+    $verificationCode = generateVerificationCode();
+
+    // Save the verification code to the database
+    saveVerificationCodeToDatabase($userEmail, $verificationCode, $conn);
+
+    // Create an instance of PHPMailer
     $mail = new PHPMailer(true);
+
     try {
         // Server settings
+        $mail->SMTPDebug = SMTP::DEBUG_OFF; // Disable debug output for production
         $mail->isSMTP();
-        $mail->Host = 'smtp.gmail.com';  // Use your SMTP server (Gmail in this case)
-        $mail->SMTPAuth = true;
-        $mail->Username = 'caleb.kariuki@strathmore.edu';  // SMTP username
-        $mail->Password = 'qhjz iogp gikz hbvc';  // SMTP password
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-        $mail->Port = 587;
+        $mail->Host       = 'smtp.gmail.com';
+        $mail->SMTPAuth   = true;
+        $mail->Username   = 'your_email@gmail.com'; // Your email
+        $mail->Password   = 'your_app_password';   // Your app-specific password
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+        $mail->Port       = 465;
 
         // Recipients
-        $mail->setFrom('caleb.kariuki@strathmore.edu', 'Your verification code:');
-        $mail->addAddress($email);
+        $mail->setFrom('no-reply@example.com', 'Verification Team');
+        $mail->addAddress($userEmail, $userName);
 
-        // Content
+        // Email content
         $mail->isHTML(true);
-        $mail->Subject = 'Your OTP Code for Verification';
-        $mail->Body    = "Your OTP code is: <strong>$otp</strong><br>Please use this code to verify your account.";
+        $mail->Subject = 'Verify Your Email Address';
+        $mail->Body    = "
+            <p>Dear $userName,</p>
+            <p>Thank you for signing up. Your verification code is:</p>
+            <h2 style='color: #3498db;'>$verificationCode</h2>
+            <p>Please enter this code on the verification page to activate your account.</p>
+            <p>If you did not sign up, please ignore this email.</p>
+            <p>Regards,<br>Verification Team</p>
+        ";
+        $mail->AltBody = "Dear $userName,\n\nYour verification code is: $verificationCode\n\nPlease enter this code on the verification page to activate your account.\n\nIf you did not sign up, please ignore this email.\n\nRegards,\nVerification Team";
 
-        // Send email
+        // Send the email
         $mail->send();
-        echo 'OTP has been sent to your email.';
+        echo 'Verification email has been sent.';
     } catch (Exception $e) {
         echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
     }
 }
-
-// Example usage (you will need to pass user email dynamically)
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $email = $_POST['email']; 
-    $otp = generateOTP(6); // Generate 6-digit OTP
-
-    // Store OTP in your database or session for later verification
-
-    // Send OTP to user via email
-    sendOTPEmail($email, $otp);
-}
-?>
-
-
-
-
-
 ?>

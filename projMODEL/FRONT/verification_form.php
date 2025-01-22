@@ -5,7 +5,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($user_otp == $_SESSION['otp']) {
         echo "OTP verified successfully!";
         // Redirect to dashboard or home page
-        header("Location: dashboard.php");
+        header("Location: otp_verification_process.php");
         exit();
     } else {
         echo "Invalid OTP. Please try again.";
