@@ -130,7 +130,7 @@
 
     <div class="images">
         <img src="images/lodging-bed.jpg" alt="4-star lodging bed">
-        <img src="images/breakfast.jpg" alt="Delicious breakfast">
+        <img src="https://img.freepik.com/premium-photo/breakfast-with-egg-toast-coffee-3d_951116-209.jpg" alt = "Delicious breakfast">
         <img src="images/proper-lights.jpg" alt="Proper lighting setup">
         <img src="images/hot-shower.jpg" alt="Hot shower">
         <img src="images/study-desk.jpg" alt="Basic study desk">

@@ -7,6 +7,8 @@ use PHPMailer\PHPMailer\Exception;
 // Load Composer's autoloader
 require 'PHPMailer/vendor/autoload.php';
 
+// Example email address (replace this with the actual email address you want to use)
+$email = 'recipient@example.com';
 
 // Create an instance
 $mail = new PHPMailer(true);
@@ -24,13 +26,18 @@ try {
 
     // Recipients
     $mail->setFrom('exempt@example.com', 'BBIT Exempt');
-    $mail->addAddress($email);  
+    
+    // Validate email address
+    if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $mail->addAddress($email);  
+    } else {
+        echo "Invalid email address.";
+        exit;
+    }
 
     // Generate reset token (example)
     $token = bin2hex(random_bytes(16));  // Generates a 32-character random token
     $resetLink = "https://localhost/htdocs/otp/php-password-reset/reset-password.php?token=$token";
-
-    
 
     // Content
     $mail->isHTML(true);                                    // Set email format to HTML
