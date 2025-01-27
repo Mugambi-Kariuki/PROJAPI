@@ -14,14 +14,14 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 5px 15px;
+            padding: 8px 15px;
             background-color: #f4f4f4;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             font-size: 14px;
         }
 
         header h1 {
-            margin: 0;
+            margin: 5px;
             font-size: 18px;
         }
 
@@ -68,18 +68,28 @@
         }
 
         .images {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            width: 90%;
-            margin-top: 30px;
+            width: 50%;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 8px;
+            position: relative;
         }
 
         .images img {
-            width: 100%;
+            width: 70%;
             height: auto;
             border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: none; /* Hide all images by default */
+            transition: opacity 2s ease-in-out;
+        }
+
+        .images img.active {
+            display: block; /* Show the active image */
+            opacity: 1;
+        }
+
+        .images img.fade-out {
+            opacity: 0; /* Add fade-out effect */
         }
 
         .emoji {
@@ -128,12 +138,12 @@
         <p id="location"></p>
     </div>
 
-    <div class="images">
-        <img src="images/lodging-bed.jpg" alt="4-star lodging bed">
-        <img src="https://img.freepik.com/premium-photo/breakfast-with-egg-toast-coffee-3d_951116-209.jpg" alt = "Delicious breakfast">
-        <img src="images/proper-lights.jpg" alt="Proper lighting setup">
-        <img src="images/hot-shower.jpg" alt="Hot shower">
-        <img src="images/study-desk.jpg" alt="Basic study desk">
+    <div class="images" id="slideshow">
+        <img src="https://c.otcdn.com/imglib/hotelfotos/7/4635/pensin-studio-bnb-kitale-20231219015837713000.jpg" alt="Comfortable bed" class="active">
+        <img src="https://img.freepik.com/premium-photo/breakfast-with-egg-toast-coffee-3d_951116-209.jpg" alt="Delicious breakfast">
+        <img src="https://cdn.shopify.com/s/files/1/0336/3763/0092/files/blissbulb_blue_square_small_45bd9817-2beb-4bdf-98e7-e0e9886e670a_1024x1024.jpg?v=1608058984" alt="Light setup">
+        <img src="https://img.freepik.com/premium-photo/woman-hands-taking-shower_153437-2688.jpg?w=900" alt="Hot shower">
+        <img src="https://img.freepik.com/free-photo/light-room-furniture-luxury-retro_1203-4673.jpg?t=st=1737984735~exp=1737988335~hmac=def4a13ac832c76aad6bbfed30fdfc02d611facc0b0603466e1867852dafa1c4&w=900" alt="Basic study desk">
     </div>
 </div>
 
@@ -169,6 +179,20 @@
             document.getElementById('location').innerText = "Geolocation is not supported by your browser.";
         }
     }
+
+    // Slideshow logic
+    let currentIndex = 0;
+    const images = document.querySelectorAll('#slideshow img');
+
+    function showNextImage() {
+        images[currentIndex].classList.remove('active');
+        images[currentIndex].classList.add('fade-out');
+        currentIndex = (currentIndex + 1) % images.length;
+        images[currentIndex].classList.remove('fade-out');
+        images[currentIndex].classList.add('active');
+    }
+
+    setInterval(showNextImage, 2000); // Change image every 3 seconds
 
     // Update the time and location when the page loads
     updateTime();

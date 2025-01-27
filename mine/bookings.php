@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
     <title>Bookings</title>
     <style>
         body {
@@ -16,8 +17,8 @@
             padding: 20px;
             border: 1px solid #ccc;
             border-radius: 8px;
-            background-color: #f9f9f9;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            background-color:rgba(0, 0, 0, 0);
+            box-shadow: 0 4px 6px rgb(255, 255, 255);
         }
 
         form div {
@@ -35,6 +36,9 @@
             padding: 8px;
             border: 1px solid #ccc;
             border-radius: 4px;
+            background-color: white; /* Clear white background for input fields */
+            color: black; /* Black text for user input */
+            font-size: 14px; /* Ensures text size is clear */
         }
 
         button {
@@ -62,6 +66,7 @@
 
 <h2>Book a Room</h2>
 <?php
+require_once 'database.php';
 $rooms = array_fill(1, 20, true); // Initialize 20 rooms as available
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
