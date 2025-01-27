@@ -115,7 +115,7 @@
             <div class="dropdown-content">
                 <a href="#footer" onclick="scrollToFooter()">About Us</a>
                 <a href="#footer" onclick="scrollToFooter()">Contact Info</a>
-                <a href="bookings.html">Bookings</a>
+                <a href="bookings.php">Bookings</a>
             </div>
         </div>
     </div>
