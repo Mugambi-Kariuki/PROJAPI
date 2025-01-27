@@ -113,9 +113,9 @@
         <div class="dropdown">
             <span class="icon">&#x22EE;</span>
             <div class="dropdown-content">
-                <a href="about.php">About Us</a>
-                <a href="#footer">Contact Info</a>
-                <a href="bookings.php">Bookings</a>
+                <a href="#footer" onclick="scrollToFooter()">About Us</a>
+                <a href="#footer" onclick="scrollToFooter()">Contact Info</a>
+                <a href="bookings.html">Bookings</a>
             </div>
         </div>
     </div>
@@ -144,6 +144,11 @@
 </footer>
 
 <script>
+    // Function to scroll to the footer
+    function scrollToFooter() {
+        document.getElementById('footer').scrollIntoView({ behavior: 'smooth' });
+    }
+
     // Function to update the time
     function updateTime() {
         const now = new Date();
