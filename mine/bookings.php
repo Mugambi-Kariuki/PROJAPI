@@ -1,3 +1,24 @@
+<?php
+require_once 'database.php';
+
+//20 rooms as available
+$rooms = array_fill(1, 20, true); 
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $name = htmlspecialchars($_POST['name']);
+    $room = (int)$_POST['room'];
+    $preference = htmlspecialchars($_POST['preference']);
+    $checkin = htmlspecialchars($_POST['checkin']);
+
+    if ($rooms[$room]) {
+        $rooms[$room] = false;
+        echo "<p>Thank you, $name. You have successfully booked Room $room with preference: $preference. Your check-in time is $checkin.</p>";
+    } else {
+        echo "<p>Sorry, Room $room is already booked. Please choose another room.</p>";
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,9 +57,9 @@
             padding: 8px;
             border: 1px solid #ccc;
             border-radius: 4px;
-            background-color: white; /* Clear white background for input fields */
-            color: black; /* Black text for user input */
-            font-size: 14px; /* Ensures text size is clear */
+            background-color: white; 
+            color: black;
+            font-size: 14px;
         }
 
         button {
@@ -65,24 +86,6 @@
 <body>
 
 <h2>Book a Room</h2>
-<?php
-require_once 'database.php';
-$rooms = array_fill(1, 20, true); // Initialize 20 rooms as available
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $name = htmlspecialchars($_POST['name']);
-    $room = (int)$_POST['room'];
-    $preference = htmlspecialchars($_POST['preference']);
-    $checkin = htmlspecialchars($_POST['checkin']);
-
-    if ($rooms[$room]) {
-        $rooms[$room] = false; // Mark the room as booked
-        echo "<p>Thank you, $name. You have successfully booked Room $room with preference: $preference. Your check-in time is $checkin.</p>";
-    } else {
-        echo "<p>Sorry, Room $room is already booked. Please choose another room.</p>";
-    }
-}
-?>
 
 <form method="POST" action="">
     <div>
