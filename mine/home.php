@@ -139,7 +139,7 @@
     </div>
 
     <div class="images" id="slideshow">
-        <img src="https://c.otcdn.com/imglib/hotelfotos/7/4635/pensin-studio-bnb-kitale-20231219015837713000.jpg" alt="Comfortable bed" class="active">
+        <img src="images/bed.jpg" alt="Comfortable bed" class="active">
         <img src="https://img.freepik.com/premium-photo/breakfast-with-egg-toast-coffee-3d_951116-209.jpg" alt="Delicious breakfast">
         <img src="https://cdn.shopify.com/s/files/1/0336/3763/0092/files/blissbulb_blue_square_small_45bd9817-2beb-4bdf-98e7-e0e9886e670a_1024x1024.jpg?v=1608058984" alt="Light setup">
         <img src="https://img.freepik.com/premium-photo/woman-hands-taking-shower_153437-2688.jpg?w=900" alt="Hot shower">
