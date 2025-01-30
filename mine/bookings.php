@@ -1,8 +1,8 @@
 <?php
 require_once 'database.php';
 
-// 20 rooms as available
-$rooms = array_fill(1, 20, true);
+//20 rooms as available
+$rooms = array_fill(1, 20, true); 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name = htmlspecialchars($_POST['name']);
@@ -12,17 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($rooms[$room]) {
         $rooms[$room] = false;
-
-        // Insert booking data into the database
-        $sql = "INSERT INTO bookings (name, room, preference, checkin) VALUES (?, ?, ?, ?)";
-        $stmt = $mysqli->prepare($sql);
-        $stmt->bind_param("siss", $name, $room, $preference, $checkin);
-
-        if ($stmt->execute()) {
-            echo "<p>Thank you, $name. You have successfully booked Room $room with preference: $preference. Your check-in time is $checkin.</p>";
-        } else {
-            echo "<p>Sorry, there was an error with your booking. Please try again.</p>";
-        }
+        echo "<p>Thank you, $name. You have successfully booked Room $room with preference: $preference. Your check-in time is $checkin.</p>";
     } else {
         echo "<p>Sorry, Room $room is already booked. Please choose another room.</p>";
     }
