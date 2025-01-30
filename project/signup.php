@@ -1,9 +1,11 @@
 <?php
 session_start();
+require 'includes/database.php';
 require 'includes/User.php';
 require 'includes/Mailer.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    
     $user = new User();
     $mailer = new Mailer();
 

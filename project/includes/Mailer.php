@@ -12,15 +12,15 @@ class Mailer {
         $this->mail->isSMTP();
         $this->mail->Host = 'smtp.gmail.com';
         $this->mail->SMTPAuth = true;
-        $this->mail->Username = 'your-email@gmail.com'; 
-        $this->mail->Password = 'your-app-password'; 
+        $this->mail->Username = 'caleb.kariuki@strathmore.edu'; 
+        $this->mail->Password = 'vbfb aygh qizg wxux'; 
         $this->mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $this->mail->Port = 587;
     }
 
     public function sendVerificationCode($email, $verification_code) {
         try {
-            $this->mail->setFrom('your-email@gmail.com', 'Your Website');
+            $this->mail->setFrom('your-email@gmail.com', 'projectAPI');
             $this->mail->addAddress($email);
             $this->mail->Subject = 'Your Verification Code';
             $this->mail->Body = "Your verification code is: $verification_code";
