@@ -1,11 +1,9 @@
 <?php
 session_start();
-require 'includes/database.php';
 require 'includes/User.php';
 require 'includes/Mailer.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    
     $user = new User();
     $mailer = new Mailer();
 
@@ -17,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if ($verification_code) {
         $_SESSION['email'] = $email;
-        $mailer->sendVerificationCode($email, $verification_code);
+        $mailer->sendVerificationCode($email, "Your verification code is: $verification_code");
         header("Location: verification.php");
         exit();
     } else {

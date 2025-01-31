@@ -1,5 +1,5 @@
 <?php
-require_once 'database.php';
+require_once 'Database.php';
 
 class User {
     private $conn;
@@ -9,6 +9,7 @@ class User {
         $this->conn = $database->getConnection();
     }
 
+    // 🔹 Register User
     public function register($username, $email, $password) {
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
         $verification_code = rand(100000, 999999);
@@ -18,42 +19,26 @@ class User {
 
         if ($stmt->execute()) {
             return $verification_code;
+        } else {
+            return false;
         }
-        return false;
     }
 
+    // 🔹 Verify User
     public function verifyUser($email, $code) {
-        $stmt = $this->conn->prepare("SELECT verification_code FROM users WHERE email = ?");
-        $stmt->bind_param("s", $email);
-        $stmt->execute();
-        $stmt->bind_result($stored_code);
-        $stmt->fetch();
-        $stmt->close();
-
-        if ($stored_code == $code) {
-            $stmt = $this->conn->prepare("UPDATE users SET verified = 1 WHERE email = ?");
-            $stmt->bind_param("s", $email);
-            return $stmt->execute();
-        }
-        return false;
-    }
-
-    public function login($email, $password) {
-        $stmt = $this->conn->prepare("SELECT id, username, password, verified FROM users WHERE email = ?");
-        $stmt->bind_param("s", $email);
+        $stmt = $this->conn->prepare("SELECT id FROM users WHERE email = ? AND verification_code = ?");
+        $stmt->bind_param("ss", $email, $code);
         $stmt->execute();
         $stmt->store_result();
-        $stmt->bind_result($id, $username, $hashed_password, $verified);
-        $stmt->fetch();
 
-        if ($stmt->num_rows > 0 && password_verify($password, $hashed_password)) {
-            if ($verified == 1) {
-                return ['id' => $id, 'username' => $username];
-            } else {
-                return "Not Verified";
-            }
+        if ($stmt->num_rows > 0) {
+            $stmt = $this->conn->prepare("UPDATE users SET verified = 1 WHERE email = ?");
+            $stmt->bind_param("s", $email);
+            $stmt->execute();
+            return true;
+        } else {
+            return false;
         }
-        return false;
     }
 }
 ?>
