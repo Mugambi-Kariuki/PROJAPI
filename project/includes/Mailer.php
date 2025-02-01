@@ -50,8 +50,8 @@ class Mailer {
             $this->mail->isSMTP();
             $this->mail->Host = 'smtp.gmail.com';
             $this->mail->SMTPAuth = true;
-            $this->mail->Username = 'your-email@gmail.com';
-            $this->mail->Password = 'your-app-password';
+            $this->mail->Username = 'caleb.kariuki@strathmore.edu';
+            $this->mail->Password = 'vbfb aygh qizg wxux'
             $this->mail->SMTPSecure = 'tls';
             $this->mail->Port = 587;
             $this->mail->setFrom('your-email@gmail.com', 'Website Admin');
