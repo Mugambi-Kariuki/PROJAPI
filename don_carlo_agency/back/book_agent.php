@@ -3,7 +3,7 @@ session_start();
 require_once "../config.php";
 
 if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'player') {
-    header("Location: ../forms/login.php");
+    header("Location: ../forms/user login.php");
     exit();
 }
 
