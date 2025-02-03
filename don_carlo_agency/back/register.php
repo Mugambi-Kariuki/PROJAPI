@@ -35,7 +35,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $register = new Register();
     if ($register->registerUser($name, $email, $password, $role)) {
-        echo "Registration Successful! Please verify your email.";
+        header("Location: ../forms/user login.php");
+        exit();
     } else {
         echo "Error registering user.";
     }

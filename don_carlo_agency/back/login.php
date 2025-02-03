@@ -1,6 +1,6 @@
 <?php
 require_once "../config.php";
-require_once "../mailer.php";
+//require_once "../mailer.php";
 
 class Login {
     private $db;

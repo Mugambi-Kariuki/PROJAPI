@@ -1,6 +1,4 @@
-<?php 
-
-session_start(); ?>
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +6,25 @@ session_start(); ?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register - Don Carlo Agency</title>
     <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        .password-container {
+            position: relative;
+            width: 95%;
+        }
+
+        .password-container input {
+            width: 95%;
+            padding-right: 30px;
+        }
+
+        .toggle-password {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
     <div class="form-container">
@@ -15,7 +32,12 @@ session_start(); ?>
         <form action="../back/register.php" method="POST">
             <input type="text" name="name" placeholder="Full Name" required>
             <input type="email" name="email" placeholder="Email Address" required>
-            <input type="password" name="password" placeholder="Password" required>
+
+            <div class="password-container">
+                <input type="password" name="password" id="password" placeholder="Password" required>
+                <span class="toggle-password" onclick="togglePassword()">👁️</span>
+            </div>
+
             <select name="role">
                 <option value="player">Player</option>
                 <option value="agent">Agent</option>
@@ -24,5 +46,16 @@ session_start(); ?>
         </form>
         <p>Already have an account? <a href="user login.php">Login here</a></p>
     </div>
+
+    <script>
+        function togglePassword() {
+            var passwordField = document.getElementById("password");
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+            } else {
+                passwordField.type = "password";
+            }
+        }
+    </script>
 </body>
 </html>
