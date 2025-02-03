@@ -2,8 +2,8 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require 'vendor/autoload.php'; // Include PHPMailer
-require 'dcxConnection.php';   // Include database connection
+require 'PHPMailer/vendor/autoload.php'; // Include PHPMailer
+require 'dcConnection.php';   // Include database connection
 
 // Function to generate OTP (6-digit random number)
 function generateOTP($length = 6) {

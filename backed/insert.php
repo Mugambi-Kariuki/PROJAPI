@@ -1,6 +1,6 @@
 <?php
 require 'dcConnection.php'; 
-require 'vendor/autoload.php'; // Include Composer's autoloader for PHPMailer
+require 'PHPMailer/vendor/autoload.php'; // Include Composer's autoloader for PHPMailer
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
