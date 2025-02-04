@@ -54,7 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <h2>Forgot Password</h2>
         <?php if (isset($_SESSION['success'])) { echo "<p class='success'>" . $_SESSION['success'] . "</p>"; unset($_SESSION['success']); } ?>
         <?php if (isset($_SESSION['error'])) { echo "<p class='error'>" . $_SESSION['error'] . "</p>"; unset($_SESSION['error']); } ?>
-        <form action="forgot_password.php" method="POST">
+        <form action="reset_password.php" method="POST">
             <input type="email" name="email" placeholder="Enter your email" required>
             <button type="submit">Send Reset Link</button>
         </form>

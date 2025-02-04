@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once "../config.php";
+/*require_once "../config.php";
 
 if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'player') {
     header("Location: ../forms/user login.php");
@@ -14,7 +14,7 @@ $conn = $db->getConnection();
 $query = "SELECT * FROM agents WHERE status = 'free'";
 $stmt = $conn->prepare($query);
 $stmt->execute();
-$agents = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$agents = $stmt->fetchAll(PDO::FETCH_ASSOC);*/
 ?>
 
 <!DOCTYPE html>

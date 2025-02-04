@@ -11,7 +11,7 @@ class Login {
     }
 
     public function authenticateUser($email, $password) {
-        $query = "SELECT * FROM users WHERE email = :email";
+        $query = "SELECT * FROM user WHERE email = :email";
         $stmt = $this->db->prepare($query);
         $stmt->bindParam(":email", $email);
         $stmt->execute();

@@ -1,7 +1,6 @@
 <?php
 
-require_once "../config.php";
-require '../vendor/autoload.php';  // Corrected the path with proper syntax
+require '../vendor/autoload.php';  // Corrected path
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
@@ -24,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $mail->Port       = 465;
 
         // Recipients
-        $mail->setFrom('doncarloagency@example.com', 'Don Carlo Agency');
+        $mail->setFrom('caleb.kariuki@strathmore.edu', 'Don Carlo Agency');
         $mail->addAddress($email, $name);
 
         // Generate verification code
@@ -32,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         // Email Content
         $mail->isHTML(true);
-        $mail->Subject = 'Verify Your Account';
+        $mail->Subject = 'Email Verification Code';
         $mail->Body    = "<p>Your verification code is: <b>{$verification_code}</b></p>";
 
         $mail->send();
@@ -42,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $encrypted_password = password_hash($password, PASSWORD_DEFAULT);
 
         // Insert into database
-        $query = "INSERT INTO users (name, email, password, role, verification_code, email_verified_at) 
+        $query = "INSERT INTO user (name, email, password, role, verification_code, email_verified_at) 
                   VALUES (:name, :email, :password, :role, :verification_code, NULL)";
         $stmt = $this->connect()->prepare($query);
         $stmt->execute([
