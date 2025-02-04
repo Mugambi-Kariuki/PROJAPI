@@ -16,6 +16,7 @@ $stmt = $conn->prepare($query);
 $stmt->execute();
 $agents = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,26 +28,31 @@ $agents = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <body>
     <h2>Welcome, Player!</h2>
     <h3>Available Agents</h3>
-    <table>
+    <table class="table">
+    <thead class="thead-dark">
         <tr>
-            <th>Name</th>
-            <th>Success Rate</th>
-            <th>Charge (%)</th>
-            <th>Book</th>
+            <th scope="col">Name</th>
+            <th scope="col">Success Rate</th>
+            <th scope="col">Charge (%)</th>
+            <th scope="col">Book</th>
         </tr>
+    </thead>
+    <tbody>
         <?php foreach ($agents as $agent) { ?>
             <tr>
-                <td><?= $agent['name']; ?></td>
-                <td><?= $agent['success_rate']; ?>%</td>
-                <td><?= $agent['charge']; ?>%</td>
+                <td><?= htmlspecialchars($agent['name']); ?></td>
+                <td><?= htmlspecialchars($agent['success_rate']); ?>%</td>
+                <td><?= htmlspecialchars($agent['charge']); ?>%</td>
                 <td>
                     <form action="../back/book_agent.php" method="POST">
-                        <input type="hidden" name="agent_id" value="<?= $agent['id']; ?>">
-                        <button type="submit">Book</button>
+                        <input type="hidden" name="agent_id" value="<?= htmlspecialchars($agent['id']); ?>">
+                        <button type="submit" class="btn btn-primary">Book</button>
                     </form>
                 </td>
             </tr>
         <?php } ?>
-    </table>
+    </tbody>
+</table>
+
 </body>
 </html>
