@@ -11,7 +11,7 @@ $db = new Database();
 $conn = $db->getConnection();
 
 // Fetch available agents
-$query = "SELECT * FROM agents WHERE status = 'free'";
+$query = "SELECT * FROM user WHERE status = 'free'";
 $stmt = $conn->prepare($query);
 $stmt->execute();
 $agents = $stmt->fetchAll(PDO::FETCH_ASSOC);*/

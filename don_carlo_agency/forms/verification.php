@@ -10,13 +10,13 @@ class Verification {
     }
 
     public function verifyCode($email, $code) {
-        $query = "SELECT * FROM user WHERE email = :email AND verification_code = :code";
+        $query = "SELECT verification_code FROM user WHERE email = :email";
         $stmt = $this->db->prepare($query);
         $stmt->bindParam(":email", $email);
-        $stmt->bindParam(":code", $code);
         $stmt->execute();
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        if ($stmt->rowCount() > 0) {
+        if ($user && $user['verification_code'] === $code) {
             $updateQuery = "UPDATE user SET email_verified_at = NOW(), verification_code = NULL WHERE email = :email";
             $updateStmt = $this->db->prepare($updateQuery);
             $updateStmt->bindParam(":email", $email);
