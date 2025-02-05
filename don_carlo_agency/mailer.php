@@ -1,6 +1,6 @@
-<?php
+/*<?php
 require_once "../config.php";
-require '../vendor/autoload.php';  // Corrected path
+require '../vendor/autoload.php'; 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
@@ -15,7 +15,7 @@ class Register {
     public function registerUser($name, $email, $password, $role) {
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
     
-        // Generate a 6-digit verification code
+        // 6-digit verification code
         $verification_code = substr(number_format(time() * rand(), 0, '', ''), 0, 6);
     
         $query = "INSERT INTO user (name, email, password, role, verification_code, email_verified_at) 
@@ -76,3 +76,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 ?>
+
+
+
