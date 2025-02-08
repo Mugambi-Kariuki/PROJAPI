@@ -1,5 +1,6 @@
 <?php
 require_once "../config.php";
+require "../back/verify.php";
 
 class Verification {
     private $db;
