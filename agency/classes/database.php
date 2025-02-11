@@ -1,6 +1,6 @@
 <?php
 class Database {
-    private $host = "localhost";
+    private $host = "localhost:3308";
     private $username = "root";
     private $password = "caleb";
     private $dbname = "GOATs";

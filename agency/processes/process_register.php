@@ -5,7 +5,7 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 // Correct the path to the Database class file
-require_once '../../classes/database.php'; //database connection
+require_once '../classes/database.php'; //database connection
 
 // database connection instance
 $db = new Database();
@@ -34,7 +34,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->bind_param("sss", $name, $email, $hashedPassword);
 
         if ($stmt->execute()) {
-            echo "Registration successful! <a href='register.php'>Go back</a>";
+            // Redirect to login page
+            header("Location: ../form/login.php");
+            exit();
         } else {
             echo "Error: " . $stmt->error;
         }
