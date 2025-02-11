@@ -1,6 +1,7 @@
 <?php
 require_once "../config.php";
 require_once "../mailer.php";
+//require_once "../mailer.php";
 
 class Login {
     private $db;
@@ -11,7 +12,7 @@ class Login {
     }
 
     public function authenticateUser($email, $password) {
-        $query = "SELECT * FROM user WHERE email = :email";
+        $query = "SELECT * FROM users WHERE email = :email";
         $stmt = $this->db->prepare($query);
         $stmt->bindParam(":email", $email);
         $stmt->execute();
@@ -41,7 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $login = new Login();
     if ($login->authenticateUser($email, $password)) {
-        header("Location: ../dashboard.php");
+        header("Location: ../dashboard/player_dashboard.php");
     } else {
         echo "Login failed.";
     }
