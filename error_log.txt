@@ -1,0 +1,1992 @@
+[11-Feb-2025 14:22:44 UTC] PHP Fatal error:  Uncaught Error: mysqli object is already closed in C:\Apache24\htdocs\projApi\agency\classes\user.php:24
+Stack trace:
+#0 C:\Apache24\htdocs\projApi\agency\classes\user.php(24): mysqli->prepare()
+#1 C:\Apache24\htdocs\projApi\agency\processes\process_login.php(25): User->login()
+#2 {main}
+  thrown in C:\Apache24\htdocs\projApi\agency\classes\user.php on line 24
+[11-Feb-2025 14:23:55 UTC] PHP Fatal error:  Uncaught Error: mysqli object is already closed in C:\Apache24\htdocs\projApi\agency\classes\user.php:24
+Stack trace:
+#0 C:\Apache24\htdocs\projApi\agency\classes\user.php(24): mysqli->prepare()
+#1 C:\Apache24\htdocs\projApi\agency\processes\process_login.php(25): User->login()
+#2 {main}
+  thrown in C:\Apache24\htdocs\projApi\agency\classes\user.php on line 24
+[11-Feb-2025 14:24:02 UTC] PHP Fatal error:  Uncaught Error: mysqli object is already closed in C:\Apache24\htdocs\projApi\agency\classes\user.php:24
+Stack trace:
+#0 C:\Apache24\htdocs\projApi\agency\classes\user.php(24): mysqli->prepare()
+#1 C:\Apache24\htdocs\projApi\agency\processes\process_login.php(25): User->login()
+#2 {main}
+  thrown in C:\Apache24\htdocs\projApi\agency\classes\user.php on line 24
+[11-Feb-2025 14:27:08 UTC] PHP Warning:  Undefined array key "is_verified" in C:\Apache24\htdocs\projApi\agency\classes\user.php on line 48
+[11-Feb-2025 14:27:09 UTC] Email Error: SMTP Error: Could not connect to SMTP host. Failed to connect to serverSMTP server error: Failed to connect to server Additional SMTP info: php_network_getaddresses: getaddrinfo for smtp.example.com failed: No such host is known
+[11-Feb-2025 14:36:11 UTC] Login error: Unknown column 'is_verified' in 'SELECT'
+[11-Feb-2025 14:38:13 UTC] Login error: Unknown column 'is_verified' in 'SELECT'
+[11-Feb-2025 14:41:23 UTC] Login error: Unknown column 'is_verified' in 'SELECT'
+[11-Feb-2025 14:41:27 UTC] Login error: Unknown column 'is_verified' in 'SELECT'
+[11-Feb-2025 14:44:18 UTC] PHP Warning:  Undefined array key "is_verified" in C:\Apache24\htdocs\projApi\agency\processes\process_login.php on line 31
+[11-Feb-2025 14:44:18 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`goats`.`user_verification`, CONSTRAINT `user_verification_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE) in C:\Apache24\htdocs\projApi\agency\processes\process_login.php:53
+Stack trace:
+#0 C:\Apache24\htdocs\projApi\agency\processes\process_login.php(53): mysqli_stmt->execute()
+#1 {main}
+  thrown in C:\Apache24\htdocs\projApi\agency\processes\process_login.php on line 53
+[11-Feb-2025 14:48:45 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`goats`.`user_verification`, CONSTRAINT `user_verification_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE) in C:\Apache24\htdocs\projApi\agency\processes\process_login.php:53
+Stack trace:
+#0 C:\Apache24\htdocs\projApi\agency\processes\process_login.php(53): mysqli_stmt->execute()
+#1 {main}
+  thrown in C:\Apache24\htdocs\projApi\agency\processes\process_login.php on line 53
+[11-Feb-2025 14:53:24 UTC] Email Error: SMTP Error: Could not connect to SMTP host. Failed to connect to serverSMTP server error: Failed to connect to server Additional SMTP info: php_network_getaddresses: getaddrinfo for smtp.example.com failed: No such host is known
+[11-Feb-2025 14:55:47 UTC] Email Error: SMTP Error: Could not connect to SMTP host. Failed to connect to serverSMTP server error: Failed to connect to server Additional SMTP info: php_network_getaddresses: getaddrinfo for smtp.example.com failed: No such host is known
+[12-Feb-2025 07:49:13 UTC] User not logged in, redirecting to login.php
+[12-Feb-2025 07:50:11 UTC] User not logged in, redirecting to login.php
+[12-Feb-2025 07:50:18 UTC] User not logged in, redirecting to login.php
+[12-Feb-2025 10:07:12 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method Database::getConnection() in C:\Apache24\htdocs\projApi\agency\classes\user.php:11
+Stack trace:
+#0 C:\Apache24\htdocs\projApi\agency\processes\process_login.php(24): User->__construct()
+#1 {main}
+  thrown in C:\Apache24\htdocs\projApi\agency\classes\user.php on line 11
+[12-Feb-2025 10:09:46 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method Database::getConnection() in C:\Apache24\htdocs\projApi\agency\classes\user.php:11
+Stack trace:
+#0 C:\Apache24\htdocs\projApi\agency\processes\process_login.php(24): User->__construct()
+#1 {main}
+  thrown in C:\Apache24\htdocs\projApi\agency\classes\user.php on line 11
+[12-Feb-2025 10:26:45 UTC] PHP Fatal error:  Uncaught Error: Class "Database" not found in C:\Apache24\htdocs\projApi\agency\dashboard\dashboard.php:25
+Stack trace:
+#0 {main}
+  thrown in C:\Apache24\htdocs\projApi\agency\dashboard\dashboard.php on line 25
+[12-Feb-2025 10:31:04 UTC] PHP Warning:  Undefined variable $conn in C:\Apache24\htdocs\projApi\agency\dashboard\dashboard.php on line 30
+[12-Feb-2025 10:31:04 UTC] PHP Warning:  Undefined variable $conn in C:\Apache24\htdocs\projApi\agency\dashboard\dashboard.php on line 31
+[12-Feb-2025 10:31:04 UTC] PHP Warning:  Attempt to read property "connect_error" on null in C:\Apache24\htdocs\projApi\agency\dashboard\dashboard.php on line 31
+[12-Feb-2025 10:31:04 UTC] Database connection failed: 
+[12-Feb-2025 10:31:04 UTC] PHP Warning:  Undefined variable $conn in C:\Apache24\htdocs\projApi\agency\dashboard\dashboard.php on line 32
+[12-Feb-2025 10:31:04 UTC] PHP Warning:  Attempt to read property "connect_error" on null in C:\Apache24\htdocs\projApi\agency\dashboard\dashboard.php on line 32
+[12-Feb-2025 10:32:44 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'is_verified' in 'SELECT' in C:\Apache24\htdocs\projApi\agency\dashboard\dashboard.php:37
+Stack trace:
+#0 C:\Apache24\htdocs\projApi\agency\dashboard\dashboard.php(37): mysqli->prepare()
+#1 {main}
+  thrown in C:\Apache24\htdocs\projApi\agency\dashboard\dashboard.php on line 37
+[12-Feb-2025 10:34:23 UTC] User verified, displaying dashboard
+[12-Feb-2025 10:34:23 UTC] PHP Notice:  session_start(): Ignoring session_start() because a session is already active (started from C:\Apache24\htdocs\projApi\agency\dashboard\dashboard.php on line 2) in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 2
+[12-Feb-2025 10:34:23 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'is_verified' in 'SELECT' in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php:13
+Stack trace:
+#0 C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php(13): mysqli->prepare()
+#1 C:\Apache24\htdocs\projApi\agency\dashboard\dashboard.php(68): include('...')
+#2 {main}
+  thrown in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 13
+[12-Feb-2025 10:36:27 UTC] User verified, displaying dashboard
+[12-Feb-2025 10:36:27 UTC] PHP Notice:  session_start(): Ignoring session_start() because a session is already active (started from C:\Apache24\htdocs\projApi\agency\dashboard\dashboard.php on line 2) in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 2
+[12-Feb-2025 10:36:27 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'is_verified' in 'SELECT' in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php:13
+Stack trace:
+#0 C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php(13): mysqli->prepare()
+#1 C:\Apache24\htdocs\projApi\agency\dashboard\dashboard.php(68): include('...')
+#2 {main}
+  thrown in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 13
+[12-Feb-2025 10:36:39 UTC] User verified, displaying dashboard
+[12-Feb-2025 10:36:39 UTC] PHP Notice:  session_start(): Ignoring session_start() because a session is already active (started from C:\Apache24\htdocs\projApi\agency\dashboard\dashboard.php on line 2) in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 2
+[12-Feb-2025 10:36:39 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'is_verified' in 'SELECT' in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php:13
+Stack trace:
+#0 C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php(13): mysqli->prepare()
+#1 C:\Apache24\htdocs\projApi\agency\dashboard\dashboard.php(68): include('...')
+#2 {main}
+  thrown in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 13
+[12-Feb-2025 10:36:41 UTC] User verified, displaying dashboard
+[12-Feb-2025 10:36:41 UTC] PHP Notice:  session_start(): Ignoring session_start() because a session is already active (started from C:\Apache24\htdocs\projApi\agency\dashboard\dashboard.php on line 2) in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 2
+[12-Feb-2025 10:36:41 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'is_verified' in 'SELECT' in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php:13
+Stack trace:
+#0 C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php(13): mysqli->prepare()
+#1 C:\Apache24\htdocs\projApi\agency\dashboard\dashboard.php(68): include('...')
+#2 {main}
+  thrown in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 13
+[12-Feb-2025 10:37:00 UTC] User verified, displaying dashboard
+[12-Feb-2025 10:37:00 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'is_verified' in 'SELECT' in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php:13
+Stack trace:
+#0 C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php(13): mysqli->prepare()
+#1 C:\Apache24\htdocs\projApi\agency\dashboard\dashboard.php(68): include('...')
+#2 {main}
+  thrown in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 13
+[12-Feb-2025 10:37:18 UTC] User verified, displaying dashboard
+[12-Feb-2025 10:37:18 UTC] PHP Fatal error:  Uncaught ArgumentCountError: mysqli_stmt::fetch() expects exactly 0 arguments, 1 given in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php:15
+Stack trace:
+#0 C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php(15): mysqli_stmt->fetch()
+#1 C:\Apache24\htdocs\projApi\agency\dashboard\dashboard.php(68): include('...')
+#2 {main}
+  thrown in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 15
+[12-Feb-2025 10:39:32 UTC] Redirecting to ../dashboard/dashboard.php
+[12-Feb-2025 10:39:32 UTC] User verified, displaying dashboard
+[12-Feb-2025 10:39:32 UTC] PHP Fatal error:  Uncaught ArgumentCountError: mysqli_stmt::fetch() expects exactly 0 arguments, 1 given in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php:15
+Stack trace:
+#0 C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php(15): mysqli_stmt->fetch()
+#1 C:\Apache24\htdocs\projApi\agency\dashboard\dashboard.php(68): include('...')
+#2 {main}
+  thrown in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 15
+[12-Feb-2025 10:43:04 UTC] User verified, displaying dashboard
+[12-Feb-2025 10:43:04 UTC] PHP Fatal error:  Uncaught ArgumentCountError: mysqli_stmt::fetch() expects exactly 0 arguments, 1 given in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php:15
+Stack trace:
+#0 C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php(15): mysqli_stmt->fetch()
+#1 C:\Apache24\htdocs\projApi\agency\dashboard\dashboard.php(68): include('...')
+#2 {main}
+  thrown in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 15
+[12-Feb-2025 10:46:48 UTC] User verified, displaying dashboard
+[12-Feb-2025 10:46:48 UTC] PHP Fatal error:  Uncaught ArgumentCountError: mysqli_stmt::fetch() expects exactly 0 arguments, 1 given in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php:15
+Stack trace:
+#0 C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php(15): mysqli_stmt->fetch()
+#1 C:\Apache24\htdocs\projApi\agency\dashboard\dashboard.php(68): include('...')
+#2 {main}
+  thrown in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 15
+[12-Feb-2025 10:48:19 UTC] PHP Warning:  require_once(C:\Apache24\htdocs\projApi\classes\database.php): Failed to open stream: No such file or directory in C:\Apache24\htdocs\projApi\agency\dashboard\dashboard.php on line 23
+[12-Feb-2025 10:48:19 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\Apache24\htdocs\projApi\classes\database.php' (include_path='.;C:\php\pear') in C:\Apache24\htdocs\projApi\agency\dashboard\dashboard.php:23
+Stack trace:
+#0 {main}
+  thrown in C:\Apache24\htdocs\projApi\agency\dashboard\dashboard.php on line 23
+[12-Feb-2025 10:48:49 UTC] User verified, displaying dashboard
+[12-Feb-2025 10:48:49 UTC] PHP Fatal error:  Uncaught ArgumentCountError: mysqli_stmt::fetch() expects exactly 0 arguments, 1 given in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php:15
+Stack trace:
+#0 C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php(15): mysqli_stmt->fetch()
+#1 C:\Apache24\htdocs\projApi\agency\dashboard\dashboard.php(67): include('...')
+#2 {main}
+  thrown in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 15
+[12-Feb-2025 10:52:06 UTC] User verified, displaying dashboard
+[12-Feb-2025 10:52:06 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 10:52:48 UTC] User verified, displaying dashboard
+[12-Feb-2025 10:52:48 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 10:53:18 UTC] User verified, displaying dashboard
+[12-Feb-2025 10:53:18 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 10:53:47 UTC] User verified, displaying dashboard
+[12-Feb-2025 10:53:47 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 10:55:02 UTC] User verified, displaying dashboard
+[12-Feb-2025 10:55:02 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 10:55:20 UTC] User verified, displaying dashboard
+[12-Feb-2025 10:55:20 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 10:57:33 UTC] Redirecting to ../dashboard/dashboard.php
+[12-Feb-2025 10:57:33 UTC] User verified, displaying dashboard
+[12-Feb-2025 10:57:33 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 10:57:52 UTC] User verified, displaying dashboard
+[12-Feb-2025 10:57:52 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 10:59:05 UTC] Redirecting to ../dashboard/dashboard.php
+[12-Feb-2025 10:59:05 UTC] User verified, displaying dashboard
+[12-Feb-2025 10:59:05 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 11:00:38 UTC] Received verification code: 601054 for user_id: 10
+[12-Feb-2025 11:00:38 UTC] Invalid verification code for user_id: 10
+[12-Feb-2025 11:00:49 UTC] User verified, displaying dashboard
+[12-Feb-2025 11:00:49 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 11:02:13 UTC] Received verification code: 386306 for user_id: 11
+[12-Feb-2025 11:02:13 UTC] Verification code matched for user_id: 11
+[12-Feb-2025 11:02:13 UTC] Redirecting to ../dashboard/dashboard.php
+[12-Feb-2025 11:02:13 UTC] User verified, displaying dashboard
+[12-Feb-2025 11:02:13 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 11:03:16 UTC] Received verification code: 386306 for user_id: 11
+[12-Feb-2025 11:03:16 UTC] Invalid verification code for user_id: 11
+[12-Feb-2025 11:08:13 UTC] User verified, displaying dashboard
+[12-Feb-2025 11:08:13 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 11:08:47 UTC] User verified, displaying dashboard
+[12-Feb-2025 11:08:47 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 11:15:36 UTC] User verified, displaying dashboard
+[12-Feb-2025 11:15:36 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 11:15:49 UTC] Received verification code: 321390 for user_id: 11
+[12-Feb-2025 11:15:49 UTC] Invalid verification code for user_id: 11
+[12-Feb-2025 11:15:58 UTC] User verified, displaying dashboard
+[12-Feb-2025 11:15:58 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 11:16:05 UTC] Received verification code: 150666 for user_id: 11
+[12-Feb-2025 11:16:05 UTC] Invalid verification code for user_id: 11
+[12-Feb-2025 11:24:51 UTC] Received verification code: 150666 for user_id: 11
+[12-Feb-2025 11:24:51 UTC] Invalid verification code for user_id: 11
+[12-Feb-2025 11:26:33 UTC] PHP Warning:  Undefined array key "email" in C:\Apache24\htdocs\projApi\agency\processes\process_login.php on line 21
+[12-Feb-2025 11:26:33 UTC] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\Apache24\htdocs\projApi\agency\processes\process_login.php on line 21
+[12-Feb-2025 11:26:33 UTC] PHP Warning:  Undefined array key "password" in C:\Apache24\htdocs\projApi\agency\processes\process_login.php on line 22
+[12-Feb-2025 11:26:33 UTC] Received verification code: 150666 for user_id: 11
+[12-Feb-2025 11:26:33 UTC] Invalid verification code for user_id: 11
+[12-Feb-2025 11:28:00 UTC] User verified, displaying dashboard
+[12-Feb-2025 11:28:00 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 14:28:23 UTC] Inserted verification code 217055 for user_id: 12
+[12-Feb-2025 14:31:57 UTC] Received POST data: Array
+(
+    [code] => 217055
+)
+
+[12-Feb-2025 14:32:01 UTC] Received POST data: Array
+(
+    [code] => 217055
+)
+
+[12-Feb-2025 14:32:18 UTC] Received POST data: Array
+(
+    [email] => caleb.kariuki@strathmore.edu
+    [password] => caleb123
+)
+
+[12-Feb-2025 14:32:19 UTC] Inserted verification code 268648 for user_id: 12
+[12-Feb-2025 14:32:49 UTC] Received POST data: Array
+(
+    [code] => 268648
+)
+
+[12-Feb-2025 14:35:05 UTC] Received POST data: Array
+(
+    [code] => 268648
+)
+
+[12-Feb-2025 14:35:09 UTC] Received POST data: Array
+(
+    [code] => 268648
+)
+
+[12-Feb-2025 14:38:36 UTC] Received POST data: Array
+(
+    [code] => 268648
+)
+
+[12-Feb-2025 14:41:47 UTC] Received verification code: 268648 for user_id: 12
+[12-Feb-2025 14:41:47 UTC] Verification code matched for user_id: 12
+[12-Feb-2025 14:41:47 UTC] Redirecting to ../dashboard/dashboard.php
+[12-Feb-2025 14:41:47 UTC] User verified, displaying dashboard
+[12-Feb-2025 14:41:47 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 14:42:31 UTC] Received POST data: Array
+(
+    [email] => caleb.kariuki@strathmore.edu
+    [password] => caleb123
+)
+
+[12-Feb-2025 14:42:31 UTC] Email: caleb.kariuki@strathmore.edu, Password: caleb123
+[12-Feb-2025 14:42:32 UTC] User verified, displaying dashboard
+[12-Feb-2025 14:42:32 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 14:43:05 UTC] Received POST data: Array
+(
+    [email] => caleb.kariuki@strathmore.edu
+    [password] => caleb123
+)
+
+[12-Feb-2025 14:43:05 UTC] Email: caleb.kariuki@strathmore.edu, Password: caleb123
+[12-Feb-2025 14:43:05 UTC] User verified, displaying dashboard
+[12-Feb-2025 14:43:05 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 14:43:31 UTC] Received verification code: 26 for user_id: 12
+[12-Feb-2025 14:43:31 UTC] Invalid verification code for user_id: 12
+[12-Feb-2025 14:43:39 UTC] Received verification code: 268648 for user_id: 12
+[12-Feb-2025 14:43:39 UTC] Invalid verification code for user_id: 12
+[12-Feb-2025 14:44:55 UTC] Received POST data: Array
+(
+    [email] => caleb.kariuki@strathmore.edu
+    [password] => caleb123
+)
+
+[12-Feb-2025 14:44:55 UTC] Email: caleb.kariuki@strathmore.edu, Password: caleb123
+[12-Feb-2025 14:44:55 UTC] Inserted verification code 873076 for user_id: 13
+[12-Feb-2025 14:45:21 UTC] Received verification code: 873076 for user_id: 13
+[12-Feb-2025 14:45:21 UTC] Verification code matched for user_id: 13
+[12-Feb-2025 14:45:21 UTC] Redirecting to ../dashboard/dashboard.php
+[12-Feb-2025 14:45:21 UTC] User verified, displaying dashboard
+[12-Feb-2025 14:45:21 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 14:45:28 UTC] Received verification code: 873076 for user_id: 13
+[12-Feb-2025 14:45:28 UTC] Invalid verification code for user_id: 13
+[12-Feb-2025 14:47:39 UTC] Received POST data: Array
+(
+    [email] => caleb.kariuki@strathmore.edu
+    [password] => caleb123
+)
+
+[12-Feb-2025 14:47:39 UTC] Email: caleb.kariuki@strathmore.edu, Password: caleb123
+[12-Feb-2025 14:47:39 UTC] User verified, displaying dashboard
+[12-Feb-2025 14:47:39 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 14:54:59 UTC] Received verification code: 873076 for user_id: 13
+[12-Feb-2025 14:54:59 UTC] Invalid verification code for user_id: 13
+[12-Feb-2025 14:56:15 UTC] Received POST data: Array
+(
+    [email] => kariukicaleb96@gmail.com
+    [password] => caleb123
+)
+
+[12-Feb-2025 14:56:15 UTC] Email: kariukicaleb96@gmail.com, Password: caleb123
+[12-Feb-2025 14:56:16 UTC] Inserted verification code 306555 for user_id: 16
+[12-Feb-2025 14:57:01 UTC] Received verification code: 306555 for user_id: 16
+[12-Feb-2025 14:57:01 UTC] Verification code matched for user_id: 16
+[12-Feb-2025 14:57:01 UTC] Redirecting to ../dashboard/dashboard.php
+[12-Feb-2025 14:57:01 UTC] User verified, displaying dashboard
+[12-Feb-2025 14:57:01 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:20:00 UTC] Session user_id: 16
+[12-Feb-2025 15:20:01 UTC] Session user_id: 16
+[12-Feb-2025 15:20:01 UTC] Session user_id: 16
+[12-Feb-2025 15:20:01 UTC] Session user_id: 16
+[12-Feb-2025 15:20:01 UTC] Session user_id: 16
+[12-Feb-2025 15:20:01 UTC] Session user_id: 16
+[12-Feb-2025 15:20:02 UTC] Session user_id: 16
+[12-Feb-2025 15:20:02 UTC] Session user_id: 16
+[12-Feb-2025 15:20:05 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:20:05 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:20:05 UTC] Session user_id: 16
+[12-Feb-2025 15:20:08 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:20:08 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:20:08 UTC] Session user_id: 16
+[12-Feb-2025 15:20:22 UTC] Received POST data: Array
+(
+    [email] => caleb.kariuki@strathmore.edu
+    [password] => caleb123
+)
+
+[12-Feb-2025 15:20:22 UTC] Email: caleb.kariuki@strathmore.edu, Password: caleb123
+[12-Feb-2025 15:20:22 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:20:22 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:20:22 UTC] Session user_id: 13
+[12-Feb-2025 15:20:25 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:20:25 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:20:25 UTC] Session user_id: 13
+[12-Feb-2025 15:20:29 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:20:29 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:20:29 UTC] Session user_id: 13
+[12-Feb-2025 15:20:33 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:20:33 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:20:33 UTC] Session user_id: 13
+[12-Feb-2025 15:20:37 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:20:37 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:20:37 UTC] Session user_id: 13
+[12-Feb-2025 15:20:41 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:20:41 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:20:41 UTC] Session user_id: 13
+[12-Feb-2025 15:20:45 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:20:45 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:20:45 UTC] Session user_id: 13
+[12-Feb-2025 15:20:49 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:20:49 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:20:49 UTC] Session user_id: 13
+[12-Feb-2025 15:20:53 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:20:53 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:20:53 UTC] Session user_id: 13
+[12-Feb-2025 15:20:57 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:20:57 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:20:57 UTC] Session user_id: 13
+[12-Feb-2025 15:21:01 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:21:01 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:21:01 UTC] Session user_id: 13
+[12-Feb-2025 15:21:05 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:21:05 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:21:05 UTC] Session user_id: 13
+[12-Feb-2025 15:21:09 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:21:09 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:21:09 UTC] Session user_id: 13
+[12-Feb-2025 15:21:13 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:21:13 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:21:13 UTC] Session user_id: 13
+[12-Feb-2025 15:21:17 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:21:17 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:21:17 UTC] Session user_id: 13
+[12-Feb-2025 15:21:21 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:21:21 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:21:21 UTC] Session user_id: 13
+[12-Feb-2025 15:21:25 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:21:25 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:21:25 UTC] Session user_id: 13
+[12-Feb-2025 15:21:29 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:21:29 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:21:29 UTC] Session user_id: 13
+[12-Feb-2025 15:21:33 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:21:33 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:21:33 UTC] Session user_id: 13
+[12-Feb-2025 15:21:37 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:21:37 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:21:37 UTC] Session user_id: 13
+[12-Feb-2025 15:21:41 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:21:41 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:21:41 UTC] Session user_id: 13
+[12-Feb-2025 15:21:45 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:21:45 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:21:45 UTC] Session user_id: 13
+[12-Feb-2025 15:21:49 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:21:49 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:21:49 UTC] Session user_id: 13
+[12-Feb-2025 15:21:53 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:21:53 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:21:53 UTC] Session user_id: 13
+[12-Feb-2025 15:21:57 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:21:57 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:21:57 UTC] Session user_id: 13
+[12-Feb-2025 15:22:00 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:22:00 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:22:00 UTC] Session user_id: 13
+[12-Feb-2025 15:22:04 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:22:04 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:22:04 UTC] Session user_id: 13
+[12-Feb-2025 15:22:08 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:22:08 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:22:08 UTC] Session user_id: 13
+[12-Feb-2025 15:22:12 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:22:12 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:22:12 UTC] Session user_id: 13
+[12-Feb-2025 15:22:16 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:22:16 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:22:16 UTC] Session user_id: 13
+[12-Feb-2025 15:22:20 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:22:20 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:22:20 UTC] Session user_id: 13
+[12-Feb-2025 15:22:24 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:22:24 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:22:24 UTC] Session user_id: 13
+[12-Feb-2025 15:22:28 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:22:28 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:22:28 UTC] Session user_id: 13
+[12-Feb-2025 15:22:32 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:22:32 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:22:32 UTC] Session user_id: 13
+[12-Feb-2025 15:22:36 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:22:36 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:22:36 UTC] Session user_id: 13
+[12-Feb-2025 15:22:40 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:22:40 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:22:40 UTC] Session user_id: 13
+[12-Feb-2025 15:22:44 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:22:44 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:22:44 UTC] Session user_id: 13
+[12-Feb-2025 15:22:48 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:22:48 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:22:48 UTC] Session user_id: 13
+[12-Feb-2025 15:22:52 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:22:52 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:22:52 UTC] Session user_id: 13
+[12-Feb-2025 15:22:56 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:22:56 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:22:56 UTC] Session user_id: 13
+[12-Feb-2025 15:23:00 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:23:00 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:23:00 UTC] Session user_id: 13
+[12-Feb-2025 15:23:04 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:23:04 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:23:04 UTC] Session user_id: 13
+[12-Feb-2025 15:23:08 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:23:08 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:23:08 UTC] Session user_id: 13
+[12-Feb-2025 15:23:12 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:23:12 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:23:12 UTC] Session user_id: 13
+[12-Feb-2025 15:23:16 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:23:16 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:23:16 UTC] Session user_id: 13
+[12-Feb-2025 15:23:20 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:23:20 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:23:20 UTC] Session user_id: 13
+[12-Feb-2025 15:23:24 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:23:24 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:23:24 UTC] Session user_id: 13
+[12-Feb-2025 15:23:28 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:23:28 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:23:28 UTC] Session user_id: 13
+[12-Feb-2025 15:23:32 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:23:32 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:23:32 UTC] Session user_id: 13
+[12-Feb-2025 15:23:36 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:23:36 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:23:36 UTC] Session user_id: 13
+[12-Feb-2025 15:23:40 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:23:40 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:23:40 UTC] Session user_id: 13
+[12-Feb-2025 15:23:44 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:23:44 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:23:44 UTC] Session user_id: 13
+[12-Feb-2025 15:23:48 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:23:48 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:23:48 UTC] Session user_id: 13
+[12-Feb-2025 15:23:52 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:23:52 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:23:52 UTC] Session user_id: 13
+[12-Feb-2025 15:23:56 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:23:56 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:23:56 UTC] Session user_id: 13
+[12-Feb-2025 15:24:00 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:24:00 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:24:00 UTC] Session user_id: 13
+[12-Feb-2025 15:24:04 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:24:04 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:24:04 UTC] Session user_id: 13
+[12-Feb-2025 15:24:08 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:24:08 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:24:08 UTC] Session user_id: 13
+[12-Feb-2025 15:24:12 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:24:12 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:24:12 UTC] Session user_id: 13
+[12-Feb-2025 15:24:16 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:24:16 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:24:16 UTC] Session user_id: 13
+[12-Feb-2025 15:24:20 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:24:20 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:24:20 UTC] Session user_id: 13
+[12-Feb-2025 15:24:24 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:24:24 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:24:24 UTC] Session user_id: 13
+[12-Feb-2025 15:24:28 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:24:28 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:24:28 UTC] Session user_id: 13
+[12-Feb-2025 15:24:32 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:24:32 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:24:32 UTC] Session user_id: 13
+[12-Feb-2025 15:24:36 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:24:36 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:24:36 UTC] Session user_id: 13
+[12-Feb-2025 15:24:40 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:24:40 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:24:40 UTC] Session user_id: 13
+[12-Feb-2025 15:24:44 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:24:44 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:24:44 UTC] Session user_id: 13
+[12-Feb-2025 15:24:48 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:24:48 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:24:48 UTC] Session user_id: 13
+[12-Feb-2025 15:24:52 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:24:52 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:24:52 UTC] Session user_id: 13
+[12-Feb-2025 15:24:56 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:24:56 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:24:56 UTC] Session user_id: 13
+[12-Feb-2025 15:25:00 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:25:00 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:25:00 UTC] Session user_id: 13
+[12-Feb-2025 15:25:04 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:25:04 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:25:04 UTC] Session user_id: 13
+[12-Feb-2025 15:25:08 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:25:08 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:25:08 UTC] Session user_id: 13
+[12-Feb-2025 15:25:12 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:25:12 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:25:12 UTC] Session user_id: 13
+[12-Feb-2025 15:25:16 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:25:16 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:25:16 UTC] Session user_id: 13
+[12-Feb-2025 15:25:20 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:25:20 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:25:20 UTC] Session user_id: 13
+[12-Feb-2025 15:25:24 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:25:24 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:25:24 UTC] Session user_id: 13
+[12-Feb-2025 15:25:28 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:25:28 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:25:28 UTC] Session user_id: 13
+[12-Feb-2025 15:25:32 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:25:32 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:25:32 UTC] Session user_id: 13
+[12-Feb-2025 15:25:36 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:25:36 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:25:36 UTC] Session user_id: 13
+[12-Feb-2025 15:25:40 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:25:40 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:25:40 UTC] Session user_id: 13
+[12-Feb-2025 15:25:44 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:25:44 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:25:44 UTC] Session user_id: 13
+[12-Feb-2025 15:25:48 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:25:48 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:25:48 UTC] Session user_id: 13
+[12-Feb-2025 15:25:52 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:25:52 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:25:52 UTC] Session user_id: 13
+[12-Feb-2025 15:25:56 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:25:56 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:25:56 UTC] Session user_id: 13
+[12-Feb-2025 15:26:00 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:26:00 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:26:00 UTC] Session user_id: 13
+[12-Feb-2025 15:26:04 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:26:04 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:26:04 UTC] Session user_id: 13
+[12-Feb-2025 15:26:08 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:26:08 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:26:08 UTC] Session user_id: 13
+[12-Feb-2025 15:26:12 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:26:12 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:26:12 UTC] Session user_id: 13
+[12-Feb-2025 15:26:16 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:26:16 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:26:16 UTC] Session user_id: 13
+[12-Feb-2025 15:26:20 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:26:20 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:26:20 UTC] Session user_id: 13
+[12-Feb-2025 15:26:24 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:26:24 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:26:24 UTC] Session user_id: 13
+[12-Feb-2025 15:26:28 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:26:28 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:26:28 UTC] Session user_id: 13
+[12-Feb-2025 15:26:32 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:26:32 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:26:32 UTC] Session user_id: 13
+[12-Feb-2025 15:26:36 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:26:36 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:26:36 UTC] Session user_id: 13
+[12-Feb-2025 15:26:40 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:26:40 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:26:40 UTC] Session user_id: 13
+[12-Feb-2025 15:26:44 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:26:44 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:26:44 UTC] Session user_id: 13
+[12-Feb-2025 15:26:48 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:26:48 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:26:48 UTC] Session user_id: 13
+[12-Feb-2025 15:26:51 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:26:51 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:26:51 UTC] Session user_id: 13
+[12-Feb-2025 15:26:52 UTC] Session user_id: 13
+[12-Feb-2025 15:27:28 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:27:28 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:27:28 UTC] Session user_id: 13
+[12-Feb-2025 15:27:29 UTC] Session user_id: 13
+[12-Feb-2025 15:30:20 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:30:20 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:30:20 UTC] Session user_id: 13
+[12-Feb-2025 15:30:21 UTC] Session user_id: 13
+[12-Feb-2025 15:31:57 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:31:57 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:31:57 UTC] Session user_id: 13
+[12-Feb-2025 15:36:12 UTC] Received POST data: Array
+(
+    [email] => yballer110@gmail.com
+    [password] => caleb123
+)
+
+[12-Feb-2025 15:36:12 UTC] Email: yballer110@gmail.com, Password: caleb123
+[12-Feb-2025 15:36:12 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:36:12 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:36:12 UTC] Session user_id: 11
+[12-Feb-2025 15:36:16 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:36:16 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:36:16 UTC] Session user_id: 11
+[12-Feb-2025 15:36:20 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:36:20 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:36:20 UTC] Session user_id: 11
+[12-Feb-2025 15:36:24 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:36:24 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:36:24 UTC] Session user_id: 11
+[12-Feb-2025 15:36:28 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:36:28 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:36:28 UTC] Session user_id: 11
+[12-Feb-2025 15:36:32 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:36:32 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:36:32 UTC] Session user_id: 11
+[12-Feb-2025 15:36:36 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:36:36 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:36:36 UTC] Session user_id: 11
+[12-Feb-2025 15:36:40 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:36:40 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:36:40 UTC] Session user_id: 11
+[12-Feb-2025 15:36:44 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:36:44 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:36:44 UTC] Session user_id: 11
+[12-Feb-2025 15:36:48 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:36:48 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:36:48 UTC] Session user_id: 11
+[12-Feb-2025 15:36:52 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:36:52 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:36:52 UTC] Session user_id: 11
+[12-Feb-2025 15:36:56 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:36:56 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:36:56 UTC] Session user_id: 11
+[12-Feb-2025 15:37:00 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:37:00 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:37:00 UTC] Session user_id: 11
+[12-Feb-2025 15:37:04 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:37:04 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:37:04 UTC] Session user_id: 11
+[12-Feb-2025 15:37:08 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:37:08 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:37:08 UTC] Session user_id: 11
+[12-Feb-2025 15:37:12 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:37:12 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:37:12 UTC] Session user_id: 11
+[12-Feb-2025 15:37:16 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:37:16 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:37:16 UTC] Session user_id: 11
+[12-Feb-2025 15:37:20 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:37:20 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:37:20 UTC] Session user_id: 11
+[12-Feb-2025 15:37:24 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:37:24 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:37:24 UTC] Session user_id: 11
+[12-Feb-2025 15:37:28 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:37:28 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:37:28 UTC] Session user_id: 11
+[12-Feb-2025 15:37:32 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:37:32 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:37:32 UTC] Session user_id: 11
+[12-Feb-2025 15:37:36 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:37:36 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:37:36 UTC] Session user_id: 11
+[12-Feb-2025 15:37:40 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:37:40 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:37:40 UTC] Session user_id: 11
+[12-Feb-2025 15:37:44 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:37:44 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:37:44 UTC] Session user_id: 11
+[12-Feb-2025 15:37:48 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:37:48 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:37:48 UTC] Session user_id: 11
+[12-Feb-2025 15:37:52 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:37:52 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:37:52 UTC] Session user_id: 11
+[12-Feb-2025 15:37:56 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:37:56 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:37:56 UTC] Session user_id: 11
+[12-Feb-2025 15:38:00 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:38:00 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:38:00 UTC] Session user_id: 11
+[12-Feb-2025 15:38:04 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:38:04 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:38:04 UTC] Session user_id: 11
+[12-Feb-2025 15:38:08 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:38:08 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:38:08 UTC] Session user_id: 11
+[12-Feb-2025 15:38:12 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:38:12 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:38:12 UTC] Session user_id: 11
+[12-Feb-2025 15:38:16 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:38:16 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:38:16 UTC] Session user_id: 11
+[12-Feb-2025 15:38:20 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:38:20 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:38:20 UTC] Session user_id: 11
+[12-Feb-2025 15:38:24 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:38:24 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:38:24 UTC] Session user_id: 11
+[12-Feb-2025 15:38:28 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:38:28 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:38:28 UTC] Session user_id: 11
+[12-Feb-2025 15:38:32 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:38:32 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:38:32 UTC] Session user_id: 11
+[12-Feb-2025 15:38:36 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:38:36 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:38:36 UTC] Session user_id: 11
+[12-Feb-2025 15:38:40 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:38:40 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:38:40 UTC] Session user_id: 11
+[12-Feb-2025 15:38:44 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:38:44 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:38:44 UTC] Session user_id: 11
+[12-Feb-2025 15:38:48 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:38:48 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:38:48 UTC] Session user_id: 11
+[12-Feb-2025 15:38:52 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:38:52 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:38:52 UTC] Session user_id: 11
+[12-Feb-2025 15:38:56 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:38:56 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:38:56 UTC] Session user_id: 11
+[12-Feb-2025 15:39:00 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:39:00 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:39:00 UTC] Session user_id: 11
+[12-Feb-2025 15:39:04 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:39:04 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:39:04 UTC] Session user_id: 11
+[12-Feb-2025 15:39:08 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:39:08 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:39:08 UTC] Session user_id: 11
+[12-Feb-2025 15:39:12 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:39:12 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:39:12 UTC] Session user_id: 11
+[12-Feb-2025 15:39:16 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:39:16 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:39:16 UTC] Session user_id: 11
+[12-Feb-2025 15:39:20 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:39:20 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:39:23 UTC] Session user_id: 11
+[12-Feb-2025 15:39:27 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:39:27 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:39:27 UTC] Session user_id: 11
+[12-Feb-2025 15:39:31 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:39:31 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:39:31 UTC] Session user_id: 11
+[12-Feb-2025 15:39:35 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:39:35 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:39:35 UTC] Session user_id: 11
+[12-Feb-2025 15:39:39 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:39:39 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:39:39 UTC] Session user_id: 11
+[12-Feb-2025 15:39:43 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:39:43 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:39:43 UTC] Session user_id: 11
+[12-Feb-2025 15:39:47 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:39:47 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:39:47 UTC] Session user_id: 11
+[12-Feb-2025 15:39:51 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:39:51 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:39:51 UTC] Session user_id: 11
+[12-Feb-2025 15:39:55 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:39:55 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:39:55 UTC] Session user_id: 11
+[12-Feb-2025 15:39:59 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:39:59 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:39:59 UTC] Session user_id: 11
+[12-Feb-2025 15:40:03 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:40:03 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:40:03 UTC] Session user_id: 11
+[12-Feb-2025 15:40:07 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:40:07 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:40:07 UTC] Session user_id: 11
+[12-Feb-2025 15:40:11 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:40:11 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:40:11 UTC] Session user_id: 11
+[12-Feb-2025 15:40:15 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:40:15 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:40:15 UTC] Session user_id: 11
+[12-Feb-2025 15:40:19 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:40:19 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:40:19 UTC] Session user_id: 11
+[12-Feb-2025 15:40:23 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:40:23 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:40:23 UTC] Session user_id: 11
+[12-Feb-2025 15:40:27 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:40:27 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:40:27 UTC] Session user_id: 11
+[12-Feb-2025 15:40:31 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:40:31 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:40:31 UTC] Session user_id: 11
+[12-Feb-2025 15:40:35 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:40:35 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:40:35 UTC] Session user_id: 11
+[12-Feb-2025 15:40:39 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:40:39 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:40:39 UTC] Session user_id: 11
+[12-Feb-2025 15:40:43 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:40:43 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:40:43 UTC] Session user_id: 11
+[12-Feb-2025 15:40:47 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:40:47 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:40:47 UTC] Session user_id: 11
+[12-Feb-2025 15:40:51 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:40:51 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:40:51 UTC] Session user_id: 11
+[12-Feb-2025 15:40:55 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:40:55 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:40:55 UTC] Session user_id: 11
+[12-Feb-2025 15:40:59 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:40:59 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:40:59 UTC] Session user_id: 11
+[12-Feb-2025 15:41:03 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:41:03 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:41:03 UTC] Session user_id: 11
+[12-Feb-2025 15:41:07 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:41:07 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:41:07 UTC] Session user_id: 11
+[12-Feb-2025 15:41:11 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:41:11 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:41:11 UTC] Session user_id: 11
+[12-Feb-2025 15:41:15 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:41:15 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:41:15 UTC] Session user_id: 11
+[12-Feb-2025 15:41:19 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:41:19 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:41:19 UTC] Session user_id: 11
+[12-Feb-2025 15:41:23 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:41:23 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:41:23 UTC] Session user_id: 11
+[12-Feb-2025 15:41:27 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:41:27 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:41:27 UTC] Session user_id: 11
+[12-Feb-2025 15:41:31 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:41:31 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:41:31 UTC] Session user_id: 11
+[12-Feb-2025 15:41:35 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:41:35 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:41:35 UTC] Session user_id: 11
+[12-Feb-2025 15:41:39 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:41:39 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:41:39 UTC] Session user_id: 11
+[12-Feb-2025 15:41:43 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:41:43 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:41:43 UTC] Session user_id: 11
+[12-Feb-2025 15:41:47 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:41:47 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:41:47 UTC] Session user_id: 11
+[12-Feb-2025 15:41:51 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:41:51 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:41:51 UTC] Session user_id: 11
+[12-Feb-2025 15:41:55 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:41:55 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:41:55 UTC] Session user_id: 11
+[12-Feb-2025 15:41:59 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:41:59 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:41:59 UTC] Session user_id: 11
+[12-Feb-2025 15:42:03 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:42:03 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:42:03 UTC] Session user_id: 11
+[12-Feb-2025 15:42:07 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:42:07 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:42:07 UTC] Session user_id: 11
+[12-Feb-2025 15:42:11 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:42:11 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:42:11 UTC] Session user_id: 11
+[12-Feb-2025 15:42:15 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:42:15 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:42:15 UTC] Session user_id: 11
+[12-Feb-2025 15:42:19 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:42:19 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:42:19 UTC] Session user_id: 11
+[12-Feb-2025 15:42:23 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:42:23 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:42:23 UTC] Session user_id: 11
+[12-Feb-2025 15:42:27 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:42:27 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:42:27 UTC] Session user_id: 11
+[12-Feb-2025 15:42:31 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:42:31 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:42:31 UTC] Session user_id: 11
+[12-Feb-2025 15:42:35 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:42:35 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:42:35 UTC] Session user_id: 11
+[12-Feb-2025 15:42:39 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:42:39 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:42:39 UTC] Session user_id: 11
+[12-Feb-2025 15:42:43 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:42:43 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:42:43 UTC] Session user_id: 11
+[12-Feb-2025 15:42:47 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:42:47 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:42:47 UTC] Session user_id: 11
+[12-Feb-2025 15:42:51 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:42:51 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:42:51 UTC] Session user_id: 11
+[12-Feb-2025 15:42:55 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:42:55 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:42:55 UTC] Session user_id: 11
+[12-Feb-2025 15:42:59 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:42:59 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:42:59 UTC] Session user_id: 11
+[12-Feb-2025 15:43:03 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:43:03 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:43:03 UTC] Session user_id: 11
+[12-Feb-2025 15:43:07 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:43:07 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:43:07 UTC] Session user_id: 11
+[12-Feb-2025 15:43:11 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:43:11 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:43:11 UTC] Session user_id: 11
+[12-Feb-2025 15:43:15 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:43:15 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:43:15 UTC] Session user_id: 11
+[12-Feb-2025 15:43:19 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:43:19 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:43:19 UTC] Session user_id: 11
+[12-Feb-2025 15:43:23 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:43:23 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:43:23 UTC] Session user_id: 11
+[12-Feb-2025 15:43:27 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:43:27 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:43:27 UTC] Session user_id: 11
+[12-Feb-2025 15:43:31 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:43:31 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:43:31 UTC] Session user_id: 11
+[12-Feb-2025 15:43:35 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:43:35 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:43:35 UTC] Session user_id: 11
+[12-Feb-2025 15:43:39 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:43:39 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:43:39 UTC] Session user_id: 11
+[12-Feb-2025 15:43:43 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:43:43 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:43:43 UTC] Session user_id: 11
+[12-Feb-2025 15:43:47 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:43:47 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:43:47 UTC] Session user_id: 11
+[12-Feb-2025 15:43:51 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:43:51 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:43:51 UTC] Session user_id: 11
+[12-Feb-2025 15:43:55 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:43:55 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:43:55 UTC] Session user_id: 11
+[12-Feb-2025 15:43:59 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:43:59 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:43:59 UTC] Session user_id: 11
+[12-Feb-2025 15:44:03 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:44:03 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:44:03 UTC] Session user_id: 11
+[12-Feb-2025 15:44:07 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:44:07 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:44:07 UTC] Session user_id: 11
+[12-Feb-2025 15:44:11 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:44:11 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:44:11 UTC] Session user_id: 11
+[12-Feb-2025 15:44:15 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:44:15 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:44:15 UTC] Session user_id: 11
+[12-Feb-2025 15:44:19 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:44:19 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:44:19 UTC] Session user_id: 11
+[12-Feb-2025 15:44:23 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:44:23 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:44:23 UTC] Session user_id: 11
+[12-Feb-2025 15:44:27 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:44:27 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:44:27 UTC] Session user_id: 11
+[12-Feb-2025 15:44:31 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:44:31 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:44:31 UTC] Session user_id: 11
+[12-Feb-2025 15:44:35 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:44:35 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:44:35 UTC] Session user_id: 11
+[12-Feb-2025 15:44:39 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:44:39 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:44:39 UTC] Session user_id: 11
+[12-Feb-2025 15:44:43 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:44:43 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:44:43 UTC] Session user_id: 11
+[12-Feb-2025 15:44:47 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:44:47 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:44:47 UTC] Session user_id: 11
+[12-Feb-2025 15:44:51 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:44:51 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:44:51 UTC] Session user_id: 11
+[12-Feb-2025 15:44:55 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:44:55 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:44:55 UTC] Session user_id: 11
+[12-Feb-2025 15:44:59 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:44:59 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:44:59 UTC] Session user_id: 11
+[12-Feb-2025 15:45:03 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:45:03 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:45:03 UTC] Session user_id: 11
+[12-Feb-2025 15:45:07 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:45:07 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:45:07 UTC] Session user_id: 11
+[12-Feb-2025 15:45:11 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:45:11 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:45:11 UTC] Session user_id: 11
+[12-Feb-2025 15:45:15 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:45:15 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:45:15 UTC] Session user_id: 11
+[12-Feb-2025 15:45:19 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:45:19 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:45:19 UTC] Session user_id: 11
+[12-Feb-2025 15:45:23 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:45:23 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:45:23 UTC] Session user_id: 11
+[12-Feb-2025 15:45:27 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:45:27 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:45:27 UTC] Session user_id: 11
+[12-Feb-2025 15:45:31 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:45:31 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:45:31 UTC] Session user_id: 11
+[12-Feb-2025 15:45:35 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:45:35 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:45:35 UTC] Session user_id: 11
+[12-Feb-2025 15:45:39 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:45:39 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:45:39 UTC] Session user_id: 11
+[12-Feb-2025 15:45:43 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:45:43 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:45:43 UTC] Session user_id: 11
+[12-Feb-2025 15:45:47 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:45:47 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:45:47 UTC] Session user_id: 11
+[12-Feb-2025 15:45:51 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:45:51 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:45:51 UTC] Session user_id: 11
+[12-Feb-2025 15:45:55 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:45:55 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:45:55 UTC] Session user_id: 11
+[12-Feb-2025 15:45:59 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:45:59 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:45:59 UTC] Session user_id: 11
+[12-Feb-2025 15:46:03 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:46:03 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:46:03 UTC] Session user_id: 11
+[12-Feb-2025 15:46:07 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:46:07 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:46:07 UTC] Session user_id: 11
+[12-Feb-2025 15:46:11 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:46:11 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:46:11 UTC] Session user_id: 11
+[12-Feb-2025 15:46:15 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:46:15 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:46:15 UTC] Session user_id: 11
+[12-Feb-2025 15:46:19 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:46:19 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:46:19 UTC] Session user_id: 11
+[12-Feb-2025 15:46:23 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:46:23 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:46:23 UTC] Session user_id: 11
+[12-Feb-2025 15:46:27 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:46:27 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:46:27 UTC] Session user_id: 11
+[12-Feb-2025 15:46:31 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:46:31 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:46:31 UTC] Session user_id: 11
+[12-Feb-2025 15:46:35 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:46:35 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:46:35 UTC] Session user_id: 11
+[12-Feb-2025 15:46:39 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:46:39 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:46:39 UTC] Session user_id: 11
+[12-Feb-2025 15:46:43 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:46:43 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:46:43 UTC] Session user_id: 11
+[12-Feb-2025 15:46:47 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:46:47 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:46:47 UTC] Session user_id: 11
+[12-Feb-2025 15:46:51 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:46:51 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:46:51 UTC] Session user_id: 11
+[12-Feb-2025 15:46:55 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:46:55 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:46:55 UTC] Session user_id: 11
+[12-Feb-2025 15:46:59 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:46:59 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:46:59 UTC] Session user_id: 11
+[12-Feb-2025 15:47:03 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:47:03 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:47:03 UTC] Session user_id: 11
+[12-Feb-2025 15:47:07 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:47:07 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:47:07 UTC] Session user_id: 11
+[12-Feb-2025 15:47:11 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:47:11 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:47:11 UTC] Session user_id: 11
+[12-Feb-2025 15:47:15 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:47:15 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:47:15 UTC] Session user_id: 11
+[12-Feb-2025 15:47:19 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:47:19 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:47:19 UTC] Session user_id: 11
+[12-Feb-2025 15:47:23 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:47:23 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:47:23 UTC] Session user_id: 11
+[12-Feb-2025 15:47:27 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:47:27 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:47:27 UTC] Session user_id: 11
+[12-Feb-2025 15:47:31 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:47:31 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:47:31 UTC] Session user_id: 11
+[12-Feb-2025 15:47:35 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:47:35 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:47:35 UTC] Session user_id: 11
+[12-Feb-2025 15:47:39 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:47:39 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:47:39 UTC] Session user_id: 11
+[12-Feb-2025 15:47:43 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:47:43 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:47:43 UTC] Session user_id: 11
+[12-Feb-2025 15:47:47 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:47:47 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:47:47 UTC] Session user_id: 11
+[12-Feb-2025 15:47:51 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:47:51 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:47:51 UTC] Session user_id: 11
+[12-Feb-2025 15:47:55 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:47:55 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:47:55 UTC] Session user_id: 11
+[12-Feb-2025 15:47:59 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:47:59 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:47:59 UTC] Session user_id: 11
+[12-Feb-2025 15:48:03 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:48:03 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:48:03 UTC] Session user_id: 11
+[12-Feb-2025 15:48:07 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:48:07 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:48:07 UTC] Session user_id: 11
+[12-Feb-2025 15:48:11 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:48:11 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:48:11 UTC] Session user_id: 11
+[12-Feb-2025 15:48:15 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:48:15 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:48:15 UTC] Session user_id: 11
+[12-Feb-2025 15:48:19 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:48:19 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:48:19 UTC] Session user_id: 11
+[12-Feb-2025 15:48:23 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:48:23 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:48:23 UTC] Session user_id: 11
+[12-Feb-2025 15:48:27 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:48:27 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:48:27 UTC] Session user_id: 11
+[12-Feb-2025 15:48:31 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:48:31 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:48:31 UTC] Session user_id: 11
+[12-Feb-2025 15:48:35 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:48:35 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:48:35 UTC] Session user_id: 11
+[12-Feb-2025 15:48:39 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:48:39 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:48:39 UTC] Session user_id: 11
+[12-Feb-2025 15:48:43 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:48:43 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:48:43 UTC] Session user_id: 11
+[12-Feb-2025 15:48:47 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:48:47 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:48:47 UTC] Session user_id: 11
+[12-Feb-2025 15:48:51 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:48:51 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:48:51 UTC] Session user_id: 11
+[12-Feb-2025 15:48:55 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:48:55 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:48:55 UTC] Session user_id: 11
+[12-Feb-2025 15:48:59 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:48:59 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:48:59 UTC] Session user_id: 11
+[12-Feb-2025 15:49:03 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:49:03 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:49:03 UTC] Session user_id: 11
+[12-Feb-2025 15:49:07 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:49:07 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:49:07 UTC] Session user_id: 11
+[12-Feb-2025 15:49:11 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:49:11 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:49:11 UTC] Session user_id: 11
+[12-Feb-2025 15:49:15 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:49:15 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:49:15 UTC] Session user_id: 11
+[12-Feb-2025 15:49:19 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:49:19 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:49:19 UTC] Session user_id: 11
+[12-Feb-2025 15:49:23 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:49:23 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:49:23 UTC] Session user_id: 11
+[12-Feb-2025 15:49:27 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:49:27 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:49:27 UTC] Session user_id: 11
+[12-Feb-2025 15:49:31 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:49:31 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:49:31 UTC] Session user_id: 11
+[12-Feb-2025 15:49:35 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:49:35 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:49:35 UTC] Session user_id: 11
+[12-Feb-2025 15:49:39 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:49:39 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:49:39 UTC] Session user_id: 11
+[12-Feb-2025 15:49:43 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:49:43 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:49:43 UTC] Session user_id: 11
+[12-Feb-2025 15:49:47 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:49:47 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:49:47 UTC] Session user_id: 11
+[12-Feb-2025 15:49:50 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:49:50 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:49:50 UTC] Session user_id: 11
+[12-Feb-2025 15:49:54 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:49:54 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:49:54 UTC] Session user_id: 11
+[12-Feb-2025 15:49:57 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:49:57 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:49:57 UTC] Session user_id: 11
+[12-Feb-2025 15:50:01 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:50:01 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:50:01 UTC] Session user_id: 11
+[12-Feb-2025 15:50:05 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:50:05 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:50:05 UTC] Session user_id: 11
+[12-Feb-2025 15:50:09 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:50:09 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:50:09 UTC] Session user_id: 11
+[12-Feb-2025 15:50:13 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:50:13 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:50:13 UTC] Session user_id: 11
+[12-Feb-2025 15:50:17 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:50:17 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:50:17 UTC] Session user_id: 11
+[12-Feb-2025 15:50:21 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:50:21 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:50:21 UTC] Session user_id: 11
+[12-Feb-2025 15:50:25 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:50:25 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:50:25 UTC] Session user_id: 11
+[12-Feb-2025 15:50:29 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:50:29 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:50:29 UTC] Session user_id: 11
+[12-Feb-2025 15:50:33 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:50:33 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:50:33 UTC] Session user_id: 11
+[12-Feb-2025 15:50:37 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:50:37 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:50:37 UTC] Session user_id: 11
+[12-Feb-2025 15:50:41 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:50:41 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:50:41 UTC] Session user_id: 11
+[12-Feb-2025 15:50:45 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:50:45 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:50:45 UTC] Session user_id: 11
+[12-Feb-2025 15:50:50 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:50:50 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:50:50 UTC] Session user_id: 11
+[12-Feb-2025 15:50:54 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:50:54 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:50:54 UTC] Session user_id: 11
+[12-Feb-2025 15:50:58 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:50:58 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:50:58 UTC] Session user_id: 11
+[12-Feb-2025 15:51:02 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:51:02 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:51:05 UTC] Session user_id: 11
+[12-Feb-2025 15:51:09 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:51:09 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:51:09 UTC] Session user_id: 11
+[12-Feb-2025 15:51:13 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:51:13 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:51:13 UTC] Session user_id: 11
+[12-Feb-2025 15:51:16 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:51:16 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:51:16 UTC] Session user_id: 11
+[12-Feb-2025 15:51:19 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:51:19 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:51:19 UTC] Session user_id: 11
+[12-Feb-2025 15:51:23 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:51:23 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:51:23 UTC] Session user_id: 11
+[12-Feb-2025 15:51:26 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:51:26 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:51:26 UTC] Session user_id: 11
+[12-Feb-2025 15:51:29 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:51:29 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:51:29 UTC] Session user_id: 11
+[12-Feb-2025 15:51:33 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:51:33 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:51:33 UTC] Session user_id: 11
+[12-Feb-2025 15:51:37 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:51:37 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:51:37 UTC] Session user_id: 11
+[12-Feb-2025 15:51:41 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:51:41 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:51:41 UTC] Session user_id: 11
+[12-Feb-2025 15:51:45 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:51:45 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:51:45 UTC] Session user_id: 11
+[12-Feb-2025 15:51:49 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:51:49 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:51:49 UTC] Session user_id: 11
+[12-Feb-2025 15:51:53 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:51:53 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:51:53 UTC] Session user_id: 11
+[12-Feb-2025 15:51:57 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:51:57 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:51:57 UTC] Session user_id: 11
+[12-Feb-2025 15:52:01 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:52:01 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:52:01 UTC] Session user_id: 11
+[12-Feb-2025 15:52:05 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:52:05 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:52:05 UTC] Session user_id: 11
+[12-Feb-2025 15:52:09 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:52:09 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:52:09 UTC] Session user_id: 11
+[12-Feb-2025 15:52:13 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:52:13 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:52:13 UTC] Session user_id: 11
+[12-Feb-2025 15:52:17 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:52:17 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:52:17 UTC] Session user_id: 11
+[12-Feb-2025 15:52:21 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:52:21 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:52:21 UTC] Session user_id: 11
+[12-Feb-2025 15:52:25 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:52:25 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:52:25 UTC] Session user_id: 11
+[12-Feb-2025 15:52:29 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:52:29 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:52:29 UTC] Session user_id: 11
+[12-Feb-2025 15:52:33 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:52:33 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:52:33 UTC] Session user_id: 11
+[12-Feb-2025 15:52:37 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:52:37 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:52:37 UTC] Session user_id: 11
+[12-Feb-2025 15:52:41 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:52:41 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:52:41 UTC] Session user_id: 11
+[12-Feb-2025 15:52:45 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:52:45 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:52:45 UTC] Session user_id: 11
+[12-Feb-2025 15:52:49 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:52:49 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:52:49 UTC] Session user_id: 11
+[12-Feb-2025 15:52:53 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:52:53 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:52:53 UTC] Session user_id: 11
+[12-Feb-2025 15:52:57 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:52:57 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:52:57 UTC] Session user_id: 11
+[12-Feb-2025 15:53:01 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:53:01 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:53:01 UTC] Session user_id: 11
+[12-Feb-2025 15:53:05 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:53:05 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:53:05 UTC] Session user_id: 11
+[12-Feb-2025 15:53:09 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:53:09 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:53:09 UTC] Session user_id: 11
+[12-Feb-2025 15:53:13 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:53:13 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:53:13 UTC] Session user_id: 11
+[12-Feb-2025 15:53:17 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:53:17 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:53:17 UTC] Session user_id: 11
+[12-Feb-2025 15:53:21 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:53:21 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:53:21 UTC] Session user_id: 11
+[12-Feb-2025 15:53:25 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:53:25 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:53:25 UTC] Session user_id: 11
+[12-Feb-2025 15:53:29 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:53:29 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:53:29 UTC] Session user_id: 11
+[12-Feb-2025 15:53:33 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:53:33 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:53:33 UTC] Session user_id: 11
+[12-Feb-2025 15:53:37 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:53:37 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:53:37 UTC] Session user_id: 11
+[12-Feb-2025 15:53:41 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:53:41 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:53:41 UTC] Session user_id: 11
+[12-Feb-2025 15:53:45 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:53:45 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:53:45 UTC] Session user_id: 11
+[12-Feb-2025 15:53:49 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:53:49 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:53:49 UTC] Session user_id: 11
+[12-Feb-2025 15:53:53 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:53:53 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:53:53 UTC] Session user_id: 11
+[12-Feb-2025 15:53:57 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:53:57 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:53:57 UTC] Session user_id: 11
+[12-Feb-2025 15:54:01 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:54:01 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:54:01 UTC] Session user_id: 11
+[12-Feb-2025 15:54:05 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:54:05 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:54:05 UTC] Session user_id: 11
+[12-Feb-2025 15:54:09 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:54:09 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:54:09 UTC] Session user_id: 11
+[12-Feb-2025 15:54:13 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:54:13 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:54:13 UTC] Session user_id: 11
+[12-Feb-2025 15:54:17 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:54:17 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:54:17 UTC] Session user_id: 11
+[12-Feb-2025 15:54:21 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:54:21 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:54:21 UTC] Session user_id: 11
+[12-Feb-2025 15:54:25 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:54:25 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:54:25 UTC] Session user_id: 11
+[12-Feb-2025 15:54:29 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:54:29 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:54:29 UTC] Session user_id: 11
+[12-Feb-2025 15:54:33 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:54:33 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:54:33 UTC] Session user_id: 11
+[12-Feb-2025 15:54:37 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:54:37 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:54:37 UTC] Session user_id: 11
+[12-Feb-2025 15:54:41 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:54:41 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:54:41 UTC] Session user_id: 11
+[12-Feb-2025 15:54:45 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:54:45 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:54:45 UTC] Session user_id: 11
+[12-Feb-2025 15:54:49 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:54:49 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:54:49 UTC] Session user_id: 11
+[12-Feb-2025 15:54:53 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:54:53 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:54:53 UTC] Session user_id: 11
+[12-Feb-2025 15:54:57 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:54:57 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:54:57 UTC] Session user_id: 11
+[12-Feb-2025 15:55:01 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:55:01 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:55:01 UTC] Session user_id: 11
+[12-Feb-2025 15:55:05 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:55:05 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:55:05 UTC] Session user_id: 11
+[12-Feb-2025 15:55:09 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:55:09 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:55:09 UTC] Session user_id: 11
+[12-Feb-2025 15:55:13 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:55:13 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:55:13 UTC] Session user_id: 11
+[12-Feb-2025 15:55:17 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:55:17 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:55:17 UTC] Session user_id: 11
+[12-Feb-2025 15:55:21 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:55:21 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:55:21 UTC] Session user_id: 11
+[12-Feb-2025 15:55:25 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:55:25 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:55:25 UTC] Session user_id: 11
+[12-Feb-2025 15:55:29 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:55:29 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:55:29 UTC] Session user_id: 11
+[12-Feb-2025 15:55:33 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:55:33 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:55:33 UTC] Session user_id: 11
+[12-Feb-2025 15:55:37 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:55:37 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:55:37 UTC] Session user_id: 11
+[12-Feb-2025 15:55:41 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:55:41 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:55:41 UTC] Session user_id: 11
+[12-Feb-2025 15:55:45 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:55:45 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:55:45 UTC] Session user_id: 11
+[12-Feb-2025 15:55:49 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:55:49 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:55:49 UTC] Session user_id: 11
+[12-Feb-2025 15:55:53 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:55:53 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:55:53 UTC] Session user_id: 11
+[12-Feb-2025 15:55:57 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:55:57 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:55:57 UTC] Session user_id: 11
+[12-Feb-2025 15:56:01 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:56:01 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:56:01 UTC] Session user_id: 11
+[12-Feb-2025 15:56:05 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:56:05 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:56:05 UTC] Session user_id: 11
+[12-Feb-2025 15:56:09 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:56:09 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:56:09 UTC] Session user_id: 11
+[12-Feb-2025 15:56:13 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:56:13 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:56:13 UTC] Session user_id: 11
+[12-Feb-2025 15:56:17 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:56:17 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:56:17 UTC] Session user_id: 11
+[12-Feb-2025 15:56:21 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:56:21 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:56:21 UTC] Session user_id: 11
+[12-Feb-2025 15:56:25 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:56:25 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:56:25 UTC] Session user_id: 11
+[12-Feb-2025 15:56:29 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:56:29 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:56:29 UTC] Session user_id: 11
+[12-Feb-2025 15:56:33 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:56:33 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:56:33 UTC] Session user_id: 11
+[12-Feb-2025 15:56:37 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:56:37 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:56:37 UTC] Session user_id: 11
+[12-Feb-2025 15:56:41 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:56:41 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:56:41 UTC] Session user_id: 11
+[12-Feb-2025 15:56:45 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:56:45 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:56:45 UTC] Session user_id: 11
+[12-Feb-2025 15:56:49 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:56:49 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:56:49 UTC] Session user_id: 11
+[12-Feb-2025 15:56:53 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:56:53 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:56:53 UTC] Session user_id: 11
+[12-Feb-2025 15:56:57 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:56:57 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:56:57 UTC] Session user_id: 11
+[12-Feb-2025 15:57:01 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:57:01 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:57:01 UTC] Session user_id: 11
+[12-Feb-2025 15:57:05 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:57:05 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:57:05 UTC] Session user_id: 11
+[12-Feb-2025 15:57:09 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:57:09 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:57:09 UTC] Session user_id: 11
+[12-Feb-2025 15:57:13 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:57:13 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:57:13 UTC] Session user_id: 11
+[12-Feb-2025 15:57:17 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:57:17 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:57:17 UTC] Session user_id: 11
+[12-Feb-2025 15:57:21 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:57:21 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:57:21 UTC] Session user_id: 11
+[12-Feb-2025 15:57:25 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:57:25 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:57:25 UTC] Session user_id: 11
+[12-Feb-2025 15:57:29 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:57:29 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:57:29 UTC] Session user_id: 11
+[12-Feb-2025 15:57:33 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:57:33 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:57:33 UTC] Session user_id: 11
+[12-Feb-2025 15:57:37 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:57:37 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:57:37 UTC] Session user_id: 11
+[12-Feb-2025 15:57:41 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:57:41 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:57:41 UTC] Session user_id: 11
+[12-Feb-2025 15:57:45 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:57:45 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:57:45 UTC] Session user_id: 11
+[12-Feb-2025 15:57:49 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:57:49 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:57:49 UTC] Session user_id: 11
+[12-Feb-2025 15:57:53 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:57:53 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:57:53 UTC] Session user_id: 11
+[12-Feb-2025 15:57:57 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:57:57 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:57:57 UTC] Session user_id: 11
+[12-Feb-2025 15:58:01 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:58:01 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:58:01 UTC] Session user_id: 11
+[12-Feb-2025 15:58:05 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:58:05 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:58:05 UTC] Session user_id: 11
+[12-Feb-2025 15:58:09 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:58:09 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:58:09 UTC] Session user_id: 11
+[12-Feb-2025 15:58:13 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:58:13 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:58:13 UTC] Session user_id: 11
+[12-Feb-2025 15:58:17 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:58:17 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:58:17 UTC] Session user_id: 11
+[12-Feb-2025 15:58:21 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:58:21 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:58:21 UTC] Session user_id: 11
+[12-Feb-2025 15:58:25 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:58:25 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:58:25 UTC] Session user_id: 11
+[12-Feb-2025 15:58:29 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:58:29 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:58:29 UTC] Session user_id: 11
+[12-Feb-2025 15:58:33 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:58:33 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:58:33 UTC] Session user_id: 11
+[12-Feb-2025 15:58:37 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:58:37 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:58:37 UTC] Session user_id: 11
+[12-Feb-2025 15:58:41 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:58:41 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:58:41 UTC] Session user_id: 11
+[12-Feb-2025 15:58:45 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:58:45 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:58:45 UTC] Session user_id: 11
+[12-Feb-2025 15:58:49 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:58:49 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:58:49 UTC] Session user_id: 11
+[12-Feb-2025 15:58:53 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:58:53 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:58:53 UTC] Session user_id: 11
+[12-Feb-2025 15:58:57 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:58:57 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:58:57 UTC] Session user_id: 11
+[12-Feb-2025 15:59:01 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:59:01 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:59:01 UTC] Session user_id: 11
+[12-Feb-2025 15:59:05 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:59:05 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:59:05 UTC] Session user_id: 11
+[12-Feb-2025 15:59:09 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:59:09 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:59:09 UTC] Session user_id: 11
+[12-Feb-2025 15:59:12 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:59:12 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:59:12 UTC] Session user_id: 11
+[12-Feb-2025 15:59:15 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:59:15 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:59:15 UTC] Session user_id: 11
+[12-Feb-2025 15:59:18 UTC] User verified, displaying dashboard
+[12-Feb-2025 15:59:18 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[12-Feb-2025 15:59:18 UTC] Session user_id: 11
+[17-Feb-2025 09:58:31 UTC] Received POST data: Array
+(
+    [email] => caleb.kariuki@strathmore.edu
+    [password] => caleb123
+)
+
+[17-Feb-2025 09:58:31 UTC] Email: caleb.kariuki@strathmore.edu, Password: caleb123
+[17-Feb-2025 09:58:31 UTC] Inserted verification code 653897 for user_id: 18
+[17-Feb-2025 09:58:38 UTC] Session user_id: 18
+[17-Feb-2025 09:58:41 UTC] User not verified, redirecting to verification.php
+[17-Feb-2025 09:58:41 UTC] Session user_id: 18
+[17-Feb-2025 09:58:44 UTC] User not verified, redirecting to verification.php
+[17-Feb-2025 09:58:44 UTC] Session user_id: 18
+[17-Feb-2025 09:58:48 UTC] User not verified, redirecting to verification.php
+[17-Feb-2025 09:58:48 UTC] Session user_id: 18
+[17-Feb-2025 09:58:52 UTC] User not verified, redirecting to verification.php
+[17-Feb-2025 09:58:52 UTC] Session user_id: 18
+[17-Feb-2025 09:58:56 UTC] User not verified, redirecting to verification.php
+[17-Feb-2025 09:58:56 UTC] Session user_id: 18
+[17-Feb-2025 09:59:00 UTC] User not verified, redirecting to verification.php
+[17-Feb-2025 09:59:00 UTC] Session user_id: 18
+[17-Feb-2025 09:59:03 UTC] User not verified, redirecting to verification.php
+[17-Feb-2025 09:59:03 UTC] Session user_id: 18
+[17-Feb-2025 09:59:06 UTC] User not verified, redirecting to verification.php
+[17-Feb-2025 09:59:06 UTC] Session user_id: 18
+[17-Feb-2025 09:59:09 UTC] User not verified, redirecting to verification.php
+[17-Feb-2025 09:59:09 UTC] Session user_id: 18
+[17-Feb-2025 09:59:12 UTC] User not verified, redirecting to verification.php
+[17-Feb-2025 09:59:12 UTC] Session user_id: 18
+[17-Feb-2025 09:59:15 UTC] User not verified, redirecting to verification.php
+[17-Feb-2025 09:59:15 UTC] Session user_id: 18
+[17-Feb-2025 09:59:18 UTC] User not verified, redirecting to verification.php
+[17-Feb-2025 09:59:18 UTC] Session user_id: 18
+[17-Feb-2025 09:59:21 UTC] User not verified, redirecting to verification.php
+[17-Feb-2025 09:59:21 UTC] Session user_id: 18
+[17-Feb-2025 09:59:24 UTC] User not verified, redirecting to verification.php
+[17-Feb-2025 09:59:24 UTC] Session user_id: 18
+[17-Feb-2025 09:59:27 UTC] User not verified, redirecting to verification.php
+[17-Feb-2025 09:59:27 UTC] Session user_id: 18
+[17-Feb-2025 09:59:30 UTC] User not verified, redirecting to verification.php
+[17-Feb-2025 09:59:30 UTC] Session user_id: 18
+[17-Feb-2025 09:59:34 UTC] User not verified, redirecting to verification.php
+[17-Feb-2025 09:59:34 UTC] Session user_id: 18
+[17-Feb-2025 09:59:37 UTC] User not verified, redirecting to verification.php
+[17-Feb-2025 09:59:37 UTC] Session user_id: 18
+[17-Feb-2025 09:59:40 UTC] User not verified, redirecting to verification.php
+[17-Feb-2025 09:59:40 UTC] Session user_id: 18
+[17-Feb-2025 09:59:43 UTC] User not verified, redirecting to verification.php
+[17-Feb-2025 09:59:43 UTC] Session user_id: 18
+[17-Feb-2025 09:59:47 UTC] User not verified, redirecting to verification.php
+[17-Feb-2025 09:59:47 UTC] Session user_id: 18
+[17-Feb-2025 09:59:51 UTC] User not verified, redirecting to verification.php
+[17-Feb-2025 09:59:51 UTC] Session user_id: 18
+[17-Feb-2025 09:59:55 UTC] User not verified, redirecting to verification.php
+[17-Feb-2025 09:59:55 UTC] Session user_id: 18
+[17-Feb-2025 09:59:59 UTC] User not verified, redirecting to verification.php
+[17-Feb-2025 09:59:59 UTC] Session user_id: 18
+[17-Feb-2025 10:00:03 UTC] User not verified, redirecting to verification.php
+[17-Feb-2025 10:00:03 UTC] Session user_id: 18
+[17-Feb-2025 10:00:07 UTC] User not verified, redirecting to verification.php
+[17-Feb-2025 10:00:07 UTC] Session user_id: 18
+[17-Feb-2025 10:00:11 UTC] User not verified, redirecting to verification.php
+[17-Feb-2025 10:00:11 UTC] Session user_id: 18
+[17-Feb-2025 10:00:15 UTC] User not verified, redirecting to verification.php
+[17-Feb-2025 10:00:15 UTC] Session user_id: 18
+[17-Feb-2025 10:00:19 UTC] User not verified, redirecting to verification.php
+[17-Feb-2025 10:00:19 UTC] Session user_id: 18
+[17-Feb-2025 10:00:23 UTC] User not verified, redirecting to verification.php
+[17-Feb-2025 10:00:23 UTC] Session user_id: 18
+[17-Feb-2025 10:00:27 UTC] User not verified, redirecting to verification.php
+[17-Feb-2025 10:00:27 UTC] Session user_id: 18
+[17-Feb-2025 10:00:31 UTC] User not verified, redirecting to verification.php
+[17-Feb-2025 10:00:31 UTC] Session user_id: 18
+[17-Feb-2025 10:00:35 UTC] User not verified, redirecting to verification.php
+[17-Feb-2025 10:00:35 UTC] Session user_id: 18
+[17-Feb-2025 10:00:39 UTC] User not verified, redirecting to verification.php
+[17-Feb-2025 10:00:39 UTC] Session user_id: 18
+[17-Feb-2025 10:00:43 UTC] User not verified, redirecting to verification.php
+[17-Feb-2025 10:00:43 UTC] Session user_id: 18
+[17-Feb-2025 10:00:47 UTC] User not verified, redirecting to verification.php
+[17-Feb-2025 10:00:47 UTC] Session user_id: 18
+[17-Feb-2025 10:00:51 UTC] User not verified, redirecting to verification.php
+[17-Feb-2025 10:00:51 UTC] Session user_id: 18
+[17-Feb-2025 10:00:55 UTC] User not verified, redirecting to verification.php
+[17-Feb-2025 10:00:55 UTC] Session user_id: 18
+[17-Feb-2025 10:00:59 UTC] User not verified, redirecting to verification.php
+[17-Feb-2025 10:00:59 UTC] Session user_id: 18
+[17-Feb-2025 10:01:03 UTC] User not verified, redirecting to verification.php
+[17-Feb-2025 10:01:03 UTC] Session user_id: 18
+[17-Feb-2025 10:01:07 UTC] User not verified, redirecting to verification.php
+[17-Feb-2025 10:01:07 UTC] Session user_id: 18
+[17-Feb-2025 10:01:11 UTC] User not verified, redirecting to verification.php
+[17-Feb-2025 10:11:29 UTC] Received verification code: 653897 for user_id: 18
+[17-Feb-2025 10:11:29 UTC] Verification code matched for user_id: 18
+[17-Feb-2025 10:11:29 UTC] Redirecting to ../dashboard/dashboard.php
+[17-Feb-2025 10:11:29 UTC] User verified, displaying dashboard
+[17-Feb-2025 10:11:29 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[17-Feb-2025 10:11:58 UTC] Received verification code: 653897 for user_id: 18
+[17-Feb-2025 10:11:58 UTC] Invalid verification code for user_id: 18
+[17-Feb-2025 10:12:50 UTC] Received verification code: 653897 for user_id: 18
+[17-Feb-2025 10:12:50 UTC] Invalid verification code for user_id: 18
+[17-Feb-2025 10:13:53 UTC] Received POST data: Array
+(
+    [email] => yballer110@gmail.com
+    [password] => caleb123
+)
+
+[17-Feb-2025 10:13:53 UTC] Email: yballer110@gmail.com, Password: caleb123
+[17-Feb-2025 10:13:53 UTC] Inserted verification code 218558 for user_id: 19
+[17-Feb-2025 10:14:23 UTC] Received verification code: 218558 for user_id: 19
+[17-Feb-2025 10:14:23 UTC] Verification code matched for user_id: 19
+[17-Feb-2025 10:14:23 UTC] Redirecting to ../dashboard/dashboard.php
+[17-Feb-2025 10:14:23 UTC] User verified, displaying dashboard
+[17-Feb-2025 10:14:23 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[17-Feb-2025 10:14:28 UTC] Received verification code: 218558 for user_id: 19
+[17-Feb-2025 10:14:28 UTC] Invalid verification code for user_id: 19
+[17-Feb-2025 10:18:03 UTC] Received POST data: Array
+(
+    [email] => yballer110@gmail.com
+    [password] => caleb123
+)
+
+[17-Feb-2025 10:18:03 UTC] Email: yballer110@gmail.com, Password: caleb123
+[17-Feb-2025 10:18:04 UTC] Inserted verification code 592871 for user_id: 20
+[17-Feb-2025 10:18:24 UTC] Received verification code: 592871 for user_id: 20
+[17-Feb-2025 10:18:24 UTC] Verification code matched for user_id: 20
+[17-Feb-2025 10:18:24 UTC] Redirecting to ../dashboard/dashboard.php
+[17-Feb-2025 10:18:24 UTC] User verified, displaying dashboard
+[17-Feb-2025 10:18:24 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[17-Feb-2025 10:19:18 UTC] Received verification code: 592871 for user_id: 20
+[17-Feb-2025 10:19:18 UTC] Invalid verification code for user_id: 20
+[17-Feb-2025 10:35:45 UTC] Received verification code: 523412 for user_id: 21
+[17-Feb-2025 10:35:45 UTC] Database connection successful.
+[17-Feb-2025 10:35:45 UTC] Verification code matched for user_id: 21
+[17-Feb-2025 10:35:45 UTC] User marked as verified.
+[17-Feb-2025 10:35:45 UTC] Verification code deleted.
+[17-Feb-2025 10:35:45 UTC] Redirecting to ../dashboard/dashboard.php
+[17-Feb-2025 10:35:45 UTC] User verified, displaying dashboard
+[17-Feb-2025 10:35:45 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[17-Feb-2025 10:36:04 UTC] Received verification code: 523412 for user_id: 21
+[17-Feb-2025 10:36:04 UTC] Database connection successful.
+[17-Feb-2025 10:36:04 UTC] Invalid verification code for user_id: 21
+[17-Feb-2025 10:36:09 UTC] Received verification code: 523412 for user_id: 21
+[17-Feb-2025 10:36:09 UTC] Database connection successful.
+[17-Feb-2025 10:36:09 UTC] Invalid verification code for user_id: 21
+[17-Feb-2025 10:38:25 UTC] PHP Warning:  Undefined array key "code" in C:\Apache24\htdocs\projApi\agency\form\verification.php on line 28
+[17-Feb-2025 10:38:25 UTC] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\Apache24\htdocs\projApi\agency\form\verification.php on line 28
+[17-Feb-2025 10:38:25 UTC] Received verification code:  for user_id: 21
+[17-Feb-2025 10:38:25 UTC] Database connection successful.
+[17-Feb-2025 10:38:25 UTC] Invalid verification code for user_id: 21
+[17-Feb-2025 10:38:25 UTC] Verification code stored successfully.
+[17-Feb-2025 10:38:32 UTC] Sent verification code: 528319 to email: yballer110@gmail.com
+[17-Feb-2025 10:39:01 UTC] Received verification code: 528319 for user_id: 21
+[17-Feb-2025 10:39:01 UTC] Database connection successful.
+[17-Feb-2025 10:39:01 UTC] Verification code matched for user_id: 21
+[17-Feb-2025 10:39:01 UTC] User marked as verified.
+[17-Feb-2025 10:39:01 UTC] Verification code deleted.
+[17-Feb-2025 10:39:01 UTC] Redirecting to ../dashboard/dashboard.php
+[17-Feb-2025 10:39:01 UTC] User verified, displaying dashboard
+[17-Feb-2025 10:39:01 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[17-Feb-2025 10:40:47 UTC] Received verification code:  for user_id: 21
+[17-Feb-2025 10:40:47 UTC] Database connection successful.
+[17-Feb-2025 10:40:47 UTC] Invalid verification code for user_id: 21
+[17-Feb-2025 10:40:47 UTC] Verification code stored successfully.
+[17-Feb-2025 10:40:51 UTC] Sent verification code: 399506 to email: yballer110@gmail.com
+[17-Feb-2025 10:40:56 UTC] Received verification code:  for user_id: 21
+[17-Feb-2025 10:40:56 UTC] Database connection successful.
+[17-Feb-2025 10:40:56 UTC] Invalid verification code for user_id: 21
+[17-Feb-2025 10:40:56 UTC] Verification code stored successfully.
+[17-Feb-2025 10:41:01 UTC] Sent verification code: 790681 to email: yballer110@gmail.com
+[17-Feb-2025 10:41:21 UTC] Received verification code: 399506 for user_id: 21
+[17-Feb-2025 10:41:21 UTC] Database connection successful.
+[17-Feb-2025 10:41:21 UTC] Verification code matched for user_id: 21
+[17-Feb-2025 10:41:21 UTC] User marked as verified.
+[17-Feb-2025 10:41:21 UTC] Verification code deleted.
+[17-Feb-2025 10:41:21 UTC] Redirecting to ../dashboard/dashboard.php
+[17-Feb-2025 10:41:21 UTC] User verified, displaying dashboard
+[17-Feb-2025 10:41:21 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[17-Feb-2025 10:41:28 UTC] Received verification code: 399506 for user_id: 21
+[17-Feb-2025 10:41:28 UTC] Database connection successful.
+[17-Feb-2025 10:41:28 UTC] Invalid verification code for user_id: 21
+[17-Feb-2025 10:45:37 UTC] Received verification code:  for user_id: 21
+[17-Feb-2025 10:45:37 UTC] Database connection successful.
+[17-Feb-2025 10:45:37 UTC] Invalid verification code for user_id: 21
+[17-Feb-2025 10:45:37 UTC] Verification code stored successfully.
+[17-Feb-2025 10:45:41 UTC] Sent verification code: 707296 to email: yballer110@gmail.com
+[17-Feb-2025 10:46:05 UTC] Received verification code: 707296 for user_id: 21
+[17-Feb-2025 10:46:05 UTC] Database connection successful.
+[17-Feb-2025 10:46:05 UTC] Verification code matched for user_id: 21
+[17-Feb-2025 10:46:05 UTC] User marked as verified.
+[17-Feb-2025 10:46:05 UTC] Verification code deleted.
+[17-Feb-2025 10:46:05 UTC] Redirecting to ../dashboard/dashboard.php
+[17-Feb-2025 10:46:05 UTC] User verified, displaying dashboard
+[17-Feb-2025 10:46:05 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[17-Feb-2025 10:46:39 UTC] Received POST data: Array
+(
+    [email] => yballer110@gmail.com
+    [password] => caleb123
+)
+
+[17-Feb-2025 10:46:39 UTC] Email: yballer110@gmail.com, Password: caleb123
+[17-Feb-2025 10:46:40 UTC] User verified, displaying dashboard
+[17-Feb-2025 10:46:40 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[17-Feb-2025 10:52:09 UTC] Received verification code:  for user_id: 22
+[17-Feb-2025 10:52:09 UTC] Database connection successful.
+[17-Feb-2025 10:52:09 UTC] Invalid verification code for user_id: 22
+[17-Feb-2025 10:52:09 UTC] Verification code stored successfully.
+[17-Feb-2025 10:52:13 UTC] Sent verification code: 937010 to email: yballer110@gmail.com
+[17-Feb-2025 10:52:34 UTC] Received verification code: 937010 for user_id: 22
+[17-Feb-2025 10:52:34 UTC] Database connection successful.
+[17-Feb-2025 10:52:34 UTC] Verification code matched for user_id: 22
+[17-Feb-2025 10:52:34 UTC] User marked as verified.
+[17-Feb-2025 10:52:34 UTC] Verification code deleted.
+[17-Feb-2025 10:52:34 UTC] Redirecting to ../dashboard/dashboard.php
+[17-Feb-2025 10:52:34 UTC] User verified, displaying dashboard
+[17-Feb-2025 10:52:34 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[17-Feb-2025 10:54:35 UTC] Received verification code:  for user_id: 22
+[17-Feb-2025 10:54:35 UTC] Database connection successful.
+[17-Feb-2025 10:54:35 UTC] Invalid verification code for user_id: 22
+[17-Feb-2025 10:54:35 UTC] Verification code stored successfully.
+[17-Feb-2025 10:54:40 UTC] Sent verification code: 412566 to email: yballer110@gmail.com
+[17-Feb-2025 10:55:09 UTC] Received verification code: 412566 for user_id: 22
+[17-Feb-2025 10:55:09 UTC] Database connection successful.
+[17-Feb-2025 10:55:09 UTC] Verification code matched for user_id: 22
+[17-Feb-2025 10:55:09 UTC] User marked as verified.
+[17-Feb-2025 10:55:09 UTC] Verification code deleted.
+[17-Feb-2025 10:55:09 UTC] Redirecting to ../dashboard/dashboard.php
+[17-Feb-2025 10:55:09 UTC] User verified, displaying dashboard
+[17-Feb-2025 10:55:09 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[17-Feb-2025 10:59:56 UTC] Received verification code: 412566 for user_id: 22
+[17-Feb-2025 10:59:56 UTC] Database connection successful.
+[17-Feb-2025 10:59:56 UTC] Invalid verification code for user_id: 22
+[17-Feb-2025 11:00:02 UTC] Received verification code:  for user_id: 22
+[17-Feb-2025 11:00:02 UTC] Database connection successful.
+[17-Feb-2025 11:00:02 UTC] Invalid verification code for user_id: 22
+[17-Feb-2025 11:00:02 UTC] Verification code stored successfully.
+[17-Feb-2025 11:00:06 UTC] Sent verification code: 302181 to email: yballer110@gmail.com
+[17-Feb-2025 11:00:38 UTC] Received verification code: 302181 for user_id: 22
+[17-Feb-2025 11:00:38 UTC] Database connection successful.
+[17-Feb-2025 11:00:38 UTC] Verification code matched for user_id: 22
+[17-Feb-2025 11:00:38 UTC] User marked as verified.
+[17-Feb-2025 11:00:38 UTC] Verification code deleted.
+[17-Feb-2025 11:00:38 UTC] Redirecting to ../dashboard/dashboard.php
+[17-Feb-2025 11:00:38 UTC] User verified, displaying dashboard
+[17-Feb-2025 11:00:38 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[17-Feb-2025 11:00:41 UTC] Received verification code: 302181 for user_id: 22
+[17-Feb-2025 11:00:41 UTC] Database connection successful.
+[17-Feb-2025 11:00:41 UTC] Invalid verification code for user_id: 22
+[17-Feb-2025 11:12:51 UTC] Received verification code:  for user_id: 22
+[17-Feb-2025 11:12:51 UTC] Database connection successful.
+[17-Feb-2025 11:12:51 UTC] Invalid verification code for user_id: 22
+[17-Feb-2025 11:12:51 UTC] Verification code stored successfully.
+[17-Feb-2025 11:12:55 UTC] Sent verification code: 752328 to email: yballer110@gmail.com
+[17-Feb-2025 11:13:49 UTC] Received verification code: 393572 for user_id: 23
+[17-Feb-2025 11:13:49 UTC] Database connection successful.
+[17-Feb-2025 11:13:49 UTC] Verification code matched for user_id: 23
+[17-Feb-2025 11:13:49 UTC] User marked as verified.
+[17-Feb-2025 11:13:49 UTC] Verification code deleted.
+[17-Feb-2025 11:13:49 UTC] Redirecting to ../form/login.php
+[17-Feb-2025 11:13:49 UTC] User verified, displaying dashboard
+[17-Feb-2025 11:13:49 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[17-Feb-2025 11:17:56 UTC] Received verification code:  for user_id: 23
+[17-Feb-2025 11:17:56 UTC] Database connection successful.
+[17-Feb-2025 11:17:56 UTC] Invalid verification code for user_id: 23
+[17-Feb-2025 11:17:56 UTC] Verification code stored successfully.
+[17-Feb-2025 11:18:00 UTC] Sent verification code: 653575 to email: yballer110@gmail.com
+[17-Feb-2025 11:18:22 UTC] Received verification code: 653575 for user_id: 23
+[17-Feb-2025 11:18:22 UTC] Database connection successful.
+[17-Feb-2025 11:18:22 UTC] Verification code matched for user_id: 23
+[17-Feb-2025 11:18:22 UTC] User marked as verified.
+[17-Feb-2025 11:18:22 UTC] Verification code deleted.
+[17-Feb-2025 11:18:22 UTC] Redirecting to ../form/login.php
+[17-Feb-2025 11:18:36 UTC] User verified, displaying dashboard
+[17-Feb-2025 11:18:36 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[17-Feb-2025 11:19:32 UTC] Received verification code:  for user_id: 23
+[17-Feb-2025 11:19:32 UTC] Database connection successful.
+[17-Feb-2025 11:19:32 UTC] Invalid verification code for user_id: 23
+[17-Feb-2025 11:19:32 UTC] Verification code stored successfully.
+[17-Feb-2025 11:19:36 UTC] Sent verification code: 731334 to email: yballer110@gmail.com
+[17-Feb-2025 11:19:57 UTC] Received verification code: 731334 for user_id: 23
+[17-Feb-2025 11:19:57 UTC] Database connection successful.
+[17-Feb-2025 11:19:57 UTC] Verification code matched for user_id: 23
+[17-Feb-2025 11:19:57 UTC] User marked as verified.
+[17-Feb-2025 11:19:57 UTC] Verification code deleted.
+[17-Feb-2025 11:19:57 UTC] Redirecting to ../form/login.php
+[17-Feb-2025 11:21:22 UTC] User verified, displaying dashboard
+[17-Feb-2025 11:21:22 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[17-Feb-2025 11:21:56 UTC] User verified, displaying dashboard
+[17-Feb-2025 11:21:56 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[17-Feb-2025 11:25:08 UTC] User verified, displaying dashboard
+[17-Feb-2025 11:25:08 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[17-Feb-2025 11:26:44 UTC] User verified, displaying dashboard
+[17-Feb-2025 11:26:44 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[17-Feb-2025 11:27:19 UTC] User verified, displaying dashboard
+[17-Feb-2025 11:27:19 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[17-Feb-2025 11:29:37 UTC] Received verification code: 870355 for user_id: 24
+[17-Feb-2025 11:29:37 UTC] Database connection successful.
+[17-Feb-2025 11:29:37 UTC] Verification code matched for user_id: 24
+[17-Feb-2025 11:29:37 UTC] User marked as verified.
+[17-Feb-2025 11:29:37 UTC] Verification code deleted.
+[17-Feb-2025 11:29:37 UTC] Redirecting to ../form/login.php
+[17-Feb-2025 11:29:49 UTC] User verified, displaying dashboard
+[17-Feb-2025 11:29:49 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[17-Feb-2025 11:32:04 UTC] User verified, displaying dashboard
+[17-Feb-2025 11:32:04 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[17-Feb-2025 11:36:33 UTC] User verified, displaying dashboard
+[17-Feb-2025 11:36:33 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[17-Feb-2025 11:48:43 UTC] User verified, displaying dashboard
+[17-Feb-2025 11:48:43 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
+[17-Feb-2025 11:49:41 UTC] User not verified, redirecting to verification.php

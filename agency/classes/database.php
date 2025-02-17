@@ -17,6 +17,8 @@ class Database {
 
         if ($this->conn->connect_error) {
             die("Database connection failed: " . $this->conn->connect_error);
+        } else {
+            echo "Database connection successful.";
         }
     }
 
@@ -25,8 +27,8 @@ class Database {
         return $this->conn;
     }
 
-    // Close the connection when the object is destroyed
-    public function __destruct() {
+    // Optionally, you can explicitly close the connection when needed (not automatically in __destruct)
+    public function closeConnection() {
         $this->conn->close();
     }
 }
