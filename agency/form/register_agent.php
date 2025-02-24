@@ -1,63 +1,37 @@
 <?php
 session_start();
-require_once "../classes/database.php";
 
 // Enable error reporting
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-// Log errors to a file
-ini_set('log_errors', 1);
-ini_set('error_log', 'C:/Apache24/htdocs/projApi/error_log.txt');
+require_once "../classes/database.php";
+$db = new Database();
+$conn = $db->getConnection();
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = trim($_POST['username']);
-    $password = password_hash(trim($_POST['password']), PASSWORD_BCRYPT);
-    $verification_code = rand(100000, 999999); // Generate a random verification code
+if (!$conn) {
+    error_log("Database connection failed: " . $conn->connect_error);
+    die("Database connection failed: " . $conn->connect_error);
+}
 
-    $db = new Database();
-    $conn = $db->getConnection();
-
-    if (!$conn) {
-        error_log("Database connection failed.");
-        die("Database connection failed.");
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $full_name = $_POST['full_name'];
+    $contact_number = $_POST['contact_number'];
+    $email = $_POST['email'];
+    $charge_fee = $_POST['charge_fee'];
+    $nationality = $_POST['nationality'];
+    $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
+    $stmt = $conn->prepare("INSERT INTO agents (full_name, contact_number, email, charge_fee, nationality, password_hash) VALUES (?, ?, ?, ?, ?, ?)");
+    if ($stmt === false) {
+        error_log("Prepare failed: " . $conn->error);
+        die("Prepare failed: " . $conn->error);
     }
-    error_log("Database connection successful.");
-
-    // Insert user data
-    $stmt = $conn->prepare("INSERT INTO user (username, password) VALUES (?, ?)");
-    if (!$stmt) {
-        error_log("Prepare statement failed: " . $conn->error);
-        die("Prepare statement failed: " . $conn->error);
-    }
-    $stmt->bind_param("ss", $username, $password);
+    $stmt->bind_param("ssssss", $full_name, $contact_number, $email, $charge_fee, $nationality, $password);
     if (!$stmt->execute()) {
-        error_log("Execute statement failed: " . $stmt->error);
-        die("Execute statement failed: " . $stmt->error);
+        error_log("Execute failed: " . $stmt->error);
+        die("Execute failed: " . $stmt->error);
     }
-    error_log("User data inserted successfully.");
-
-    $user_id = $stmt->insert_id;
-
-    // Insert verification code
-    $stmt = $conn->prepare("INSERT INTO user_verification (user_id, verification_code) VALUES (?, ?)");
-    if (!$stmt) {
-        error_log("Prepare statement failed: " . $conn->error);
-        die("Prepare statement failed: " . $conn->error);
-    }
-    $stmt->bind_param("is", $user_id, $verification_code);
-    if (!$stmt->execute()) {
-        error_log("Execute statement failed: " . $stmt->error);
-        die("Execute statement failed: " . $stmt->error);
-    }
-    error_log("Verification code inserted successfully.");
-
-    // Log successful insertion
-    error_log("Inserted verification code $verification_code for user_id: $user_id");
-
-    // Redirect to verification page
-    $_SESSION['user_id'] = $user_id;
-    header("Location: verification.php");
+    header("Location: agent_login.php");
     exit();
 }
 ?>
@@ -67,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register</title>
+    <title>Register Agent</title>
     <link rel="stylesheet" href="../css/style.css">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
@@ -131,16 +105,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </ul>
             </div>
             <div class="content p-4">
-                <h1>Register</h1>
+                <h1>Register Agent</h1>
                 <div class="register-form">
-                    <form method="post">
+                    <form action="register_agent_process.php" method="POST">
                         <div class="form-group">
-                            <label for="username">Username</label>
-                            <input type="text" class="form-control" id="username" name="username" placeholder="Enter Username" required>
+                            <label for="full_name">Full Name</label>
+                            <input type="text" class="form-control" id="full_name" name="full_name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" id="email" name="email" required>
                         </div>
                         <div class="form-group">
                             <label for="password">Password</label>
-                            <input type="password" class="form-control" id="password" name="password" placeholder="Enter Password" required>
+                            <input type="password" class="form-control" id="password" name="password" required>
                         </div>
                         <button type="submit" class="btn btn-primary btn-block">Register</button>
                     </form>

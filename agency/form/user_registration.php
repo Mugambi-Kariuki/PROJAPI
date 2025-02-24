@@ -10,6 +10,25 @@
     <title>Register</title>
 </head>
 <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-sbrand" href="#">Dashboard</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#" id="toggleDarkMode">Toggle Dark Mode</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../form/admin_login.php">Admin Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../form/agent_login.php">Agent Login</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6">

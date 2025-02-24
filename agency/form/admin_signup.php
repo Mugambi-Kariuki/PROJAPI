@@ -2,63 +2,28 @@
 session_start();
 require_once "../classes/database.php";
 
-// Enable error reporting
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
-// Log errors to a file
-ini_set('log_errors', 1);
-ini_set('error_log', 'C:/Apache24/htdocs/projApi/error_log.txt');
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = trim($_POST['username']);
-    $password = password_hash(trim($_POST['password']), PASSWORD_BCRYPT);
-    $verification_code = rand(100000, 999999); // Generate a random verification code
-
+try {
     $db = new Database();
     $conn = $db->getConnection();
+} catch (Exception $e) {
+    error_log("Database connection failed: " . $e->getMessage());
+    die("Database connection failed. Please check the error log for details.");
+}
 
-    if (!$conn) {
-        error_log("Database connection failed.");
-        die("Database connection failed.");
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $username = $_POST['username'];
+    $email = $_POST['email'];
+    $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
+    $stmt = $conn->prepare("INSERT INTO admins (username, email, password) VALUES (?, ?, ?)");
+    if ($stmt) {
+        $stmt->bind_param("sss", $username, $email, $password);
+        $stmt->execute();
+        header("Location: ../form/login_admin.php");
+        exit();
+    } else {
+        $error = "Failed to prepare the SQL statement: " . $conn->error;
+        error_log($error);
     }
-    error_log("Database connection successful.");
-
-    // Insert user data
-    $stmt = $conn->prepare("INSERT INTO user (username, password) VALUES (?, ?)");
-    if (!$stmt) {
-        error_log("Prepare statement failed: " . $conn->error);
-        die("Prepare statement failed: " . $conn->error);
-    }
-    $stmt->bind_param("ss", $username, $password);
-    if (!$stmt->execute()) {
-        error_log("Execute statement failed: " . $stmt->error);
-        die("Execute statement failed: " . $stmt->error);
-    }
-    error_log("User data inserted successfully.");
-
-    $user_id = $stmt->insert_id;
-
-    // Insert verification code
-    $stmt = $conn->prepare("INSERT INTO user_verification (user_id, verification_code) VALUES (?, ?)");
-    if (!$stmt) {
-        error_log("Prepare statement failed: " . $conn->error);
-        die("Prepare statement failed: " . $conn->error);
-    }
-    $stmt->bind_param("is", $user_id, $verification_code);
-    if (!$stmt->execute()) {
-        error_log("Execute statement failed: " . $stmt->error);
-        die("Execute statement failed: " . $stmt->error);
-    }
-    error_log("Verification code inserted successfully.");
-
-    // Log successful insertion
-    error_log("Inserted verification code $verification_code for user_id: $user_id");
-
-    // Redirect to verification page
-    $_SESSION['user_id'] = $user_id;
-    header("Location: verification.php");
-    exit();
 }
 ?>
 
@@ -67,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register</title>
+    <title>Register Admin</title>
     <link rel="stylesheet" href="../css/style.css">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
@@ -111,10 +76,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <a class="nav-link" href="#" id="toggleDarkMode">Toggle Dark Mode</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../form/admin_login.php">Admin Login</a>
+                    <a class="nav-link" href="login_admin.php">Admin Login</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../form/agent_login.php">Agent Login</a>
+                    <a class="nav-link" href="agent_login.php">Agent Login</a>
                 </li>
             </ul>
         </div>
@@ -131,16 +96,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </ul>
             </div>
             <div class="content p-4">
-                <h1>Register</h1>
+                <h1>Register Admin</h1>
                 <div class="register-form">
-                    <form method="post">
+                    <?php if (isset($error)) { echo "<p class='text-danger'>$error</p>"; } ?>
+                    <form action="" method="POST">
                         <div class="form-group">
                             <label for="username">Username</label>
-                            <input type="text" class="form-control" id="username" name="username" placeholder="Enter Username" required>
+                            <input type="text" class="form-control" id="username" name="username" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" id="email" name="email" required>
                         </div>
                         <div class="form-group">
                             <label for="password">Password</label>
-                            <input type="password" class="form-control" id="password" name="password" placeholder="Enter Password" required>
+                            <input type="password" class="form-control" id="password" name="password" required>
                         </div>
                         <button type="submit" class="btn btn-primary btn-block">Register</button>
                     </form>

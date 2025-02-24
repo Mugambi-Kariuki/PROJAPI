@@ -1990,3 +1990,26 @@ Stack trace:
 [17-Feb-2025 11:48:43 UTC] User verified, displaying dashboard
 [17-Feb-2025 11:48:43 UTC] PHP Warning:  Trying to access array offset on true in C:\Apache24\htdocs\projApi\agency\dashboard\profile_form.php on line 17
 [17-Feb-2025 11:49:41 UTC] User not verified, redirecting to verification.php
+[17-Feb-2025 14:44:56 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`goats`.`footballers`, CONSTRAINT `footballers_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE) in C:\Apache24\htdocs\projApi\agency\processes\save_profile.php:34
+Stack trace:
+#0 C:\Apache24\htdocs\projApi\agency\processes\save_profile.php(34): mysqli_stmt->execute()
+#1 {main}
+  thrown in C:\Apache24\htdocs\projApi\agency\processes\save_profile.php on line 34
+[17-Feb-2025 14:46:31 UTC] User ID 24 does not exist in the users table.
+[17-Feb-2025 14:50:07 UTC] User ID 24 does not exist in the users table.
+[17-Feb-2025 14:59:45 UTC] Received verification code: 566674 for user_id: 25
+[17-Feb-2025 14:59:45 UTC] Database connection successful.
+[17-Feb-2025 14:59:45 UTC] Verification code matched for user_id: 25
+[17-Feb-2025 14:59:45 UTC] User marked as verified.
+[17-Feb-2025 14:59:45 UTC] Verification code deleted.
+[17-Feb-2025 14:59:45 UTC] Redirecting to ../form/login.php
+[17-Feb-2025 15:00:27 UTC] User ID 25 does not exist in the users table.
+[17-Feb-2025 15:04:11 UTC] User ID 25 does not exist in the users table.
+[17-Feb-2025 19:26:24 UTC] User ID from session: 25
+[17-Feb-2025 19:26:24 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`goats`.`footballers`, CONSTRAINT `footballers_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE) in C:\Apache24\htdocs\projApi\agency\processes\save_profile.php:52
+Stack trace:
+#0 C:\Apache24\htdocs\projApi\agency\processes\save_profile.php(52): mysqli_stmt->execute()
+#1 {main}
+  thrown in C:\Apache24\htdocs\projApi\agency\processes\save_profile.php on line 52
+[17-Feb-2025 19:28:07 UTC] User ID from session: 25
+[20-Feb-2025 11:12:21 UTC] User ID from session: 25

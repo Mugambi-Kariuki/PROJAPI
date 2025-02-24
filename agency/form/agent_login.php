@@ -1,11 +1,43 @@
+<?php
+session_start();
+
+require_once "../classes/database.php";
+
+// Enable error reporting
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+$db = new Database();
+$conn = $db->getConnection();
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+    $stmt = $conn->prepare("SELECT agent_id, full_name, password_hash FROM agents WHERE email = ?");
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $agent = $result->fetch_assoc();
+
+    if ($agent && password_verify($password, $agent['password_hash'])) {
+        $_SESSION['agent_id'] = $agent['agent_id'];
+        header("Location: ../dashboard/agent_home.php");
+        exit();
+    } else {
+        $error = "Invalid email or password.";
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Player Login</title>
+    <title>Agent Login</title>
     <link rel="stylesheet" href="../css/style.css">
-        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body.dark-mode {
             background-color: #121212;
@@ -20,20 +52,21 @@
         }
         .login-image {
             position: relative;
-            width: 100%;
+            width: 80%;
             height: auto;
             margin-bottom: 20px;
-            max-height: 150px; /* Adjust the max-height to make the image smaller */
         }
         .login-form {
-            position: relative;
+            position: absolute;
+            top: 60%;
+            left: 60%;
+            transform: translate(-50%, -50%);
             background: rgba(255, 255, 255, 0.8);
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
-            width: 80%;
-            max-width: 300px;
-            margin: 0 auto;
+            width: 90%;
+            max-width: 350px;
         }
     </style>
 </head>
@@ -68,25 +101,25 @@
             </ul>
         </div>
         <div class="content p-4">
-            <h1>Player Login</h1>
+            <h1>Agent Login</h1>
             <div class="login-image">
                 <img src="https://cdn.prod.website-files.com/5e305a6cb7083222527a89cc/66d854e464b418dc0a77b5f5_how_to_build_an_ai_agent.webp" alt="AI Agent">
-            </div>
-            <div class="login-form">
-                <?php if (isset($error)): ?>
-                    <div class="alert alert-danger"><?php echo $error; ?></div>
-                <?php endif; ?>
-                <form method="post">
-                    <div class="form-group">
-                        <label for="email">Email:</label>
-                        <input type="email" class="form-control" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="password">Password:</label>
-                        <input type="password" class="form-control" id="password" name="password" required>
-                    </div>
-                    <button type="submit" class="btn btn-primary btn-block">Login</button>
-                </form>
+                <div class="login-form">
+                    <?php if (isset($error)): ?>
+                        <div class="alert alert-danger"><?php echo $error; ?></div>
+                    <?php endif; ?>
+                    <form method="post">
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" class="form-control" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password:</label>
+                            <input type="password" class="form-control" id="password" name="password" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Login</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>

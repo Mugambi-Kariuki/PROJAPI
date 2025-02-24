@@ -27,10 +27,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($user && password_verify($password, $user['password'])) {
         $_SESSION['user_id'] = $user['id'];
         if ($user['is_verified']) {
-            header("Location: ../dashboard/dashboard.php");
+            header("Location: ../dashboard/profile_form.php");
             exit();
         } else {
-            echo "Please verify your email before logging in.";
+            header("Location: ../form/verification.php");
+            exit();
         }
     } else {
         echo "Invalid email or password.";
