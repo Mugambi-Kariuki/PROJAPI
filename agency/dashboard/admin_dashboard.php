@@ -75,10 +75,17 @@ try {
     <title>Admin Dashboard</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <div class="container">
         <h2>Summary</h2>
+        <canvas id="usersChart"></canvas>
+        <canvas id="agentsChart"></canvas>
+        <canvas id="playersChart"></canvas>
+        <canvas id="bookingsChart"></canvas>
+        <canvas id="clubsChart"></canvas>
+        <canvas id="transfersChart"></canvas>
         <p>Total Users: <?= $totalUsers ?></p>
         <p>Total Agents: <?= $totalAgents ?></p>
         <p>Total Players: <?= $totalPlayers ?></p>
@@ -95,6 +102,147 @@ try {
         <button class="btn btn-primary" onclick="location.href='view_transfers.php'">View Transfers</button>
     </div>
 
+    <script>
+        const usersData = <?= $totalUsers ?>;
+        const agentsData = <?= $totalAgents ?>;
+        const playersData = <?= $totalPlayers ?>;
+        const bookingsData = <?= $totalBookings ?>;
+        const clubsData = <?= $totalClubs ?>;
+        const transfersData = <?= $totalTransfers ?>;
+
+        const ctxUsers = document.getElementById('usersChart').getContext('2d');
+        const ctxAgents = document.getElementById('agentsChart').getContext('2d');
+        const ctxPlayers = document.getElementById('playersChart').getContext('2d');
+        const ctxBookings = document.getElementById('bookingsChart').getContext('2d');
+        const ctxClubs = document.getElementById('clubsChart').getContext('2d');
+        const ctxTransfers = document.getElementById('transfersChart').getContext('2d');
+
+        new Chart(ctxUsers, {
+            type: 'bar',
+            data: {
+                labels: ['Users'],
+                datasets: [{
+                    label: 'Total Users',
+                    data: [usersData],
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        new Chart(ctxAgents, {
+            type: 'bar',
+            data: {
+                labels: ['Agents'],
+                datasets: [{
+                    label: 'Total Agents',
+                    data: [agentsData],
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        new Chart(ctxPlayers, {
+            type: 'bar',
+            data: {
+                labels: ['Players'],
+                datasets: [{
+                    label: 'Total Players',
+                    data: [playersData],
+                    backgroundColor: 'rgba(255, 206, 86, 0.2)',
+                    borderColor: 'rgba(255, 206, 86, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        new Chart(ctxBookings, {
+            type: 'bar',
+            data: {
+                labels: ['Bookings'],
+                datasets: [{
+                    label: 'Total Bookings',
+                    data: [bookingsData],
+                    backgroundColor: 'rgba(153, 102, 255, 0.2)',
+                    borderColor: 'rgba(153, 102, 255, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        new Chart(ctxClubs, {
+            type: 'bar',
+            data: {
+                labels: ['Clubs'],
+                datasets: [{
+                    label: 'Total Clubs',
+                    data: [clubsData],
+                    backgroundColor: 'rgba(255, 159, 64, 0.2)',
+                    borderColor: 'rgba(255, 159, 64, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        new Chart(ctxTransfers, {
+            type: 'bar',
+            data: {
+                labels: ['Transfers'],
+                datasets: [{
+                    label: 'Total Transfers',
+                    data: [transfersData],
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>

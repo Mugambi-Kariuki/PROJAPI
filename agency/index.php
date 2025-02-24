@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Options</title>
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -17,49 +17,9 @@
             margin: 0;
             padding: 0;
         }
-        .gif-container {
-            width: 100%;
-            max-height: 300px;
-            overflow: hidden;
-        }
-        .gif-container img {
-            width: 100%;
-            object-fit: cover;
-        }
-        .container {
-            width: 50%;
-            margin: 20px auto;
-            background: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
-        }
         h2 {
-            margin-bottom: 20px;
-        }
-        .login-options {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-        }
-        .login-box {
-            width: 150px;
-            padding: 20px;
-            background: #e9e9e9;
-            border-radius: 10px;
-            text-align: center;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-        .login-box:hover {
-            background: #ccc;
-        }
-        .login-box i {
-            font-size: 50px;
-            margin-bottom: 10px;
-        }
-        .login-box p {
-            font-size: 18px;
+            margin-top: 20px;
+            font-style: italic;
             font-weight: bold;
         }
         a {
@@ -70,42 +30,49 @@
 </head>
 <body>
 
-<!-- GIF Section -->
-<div class="gif-container">
-    <img src="https://media.tenor.com/vyglLbfbNWsAAAAC/argentina-world-cup.gif" alt="Argentina World Cup Trophy Lift">
-</div>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">GOATS Football Agency</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <!-- Register Dropdown -->
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="registerDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Register
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="registerDropdown">
+                    <li><a class="dropdown-item" href="../agency/form/register_agent.php">Register as Agent</a></li>
+                    <li><a class="dropdown-item" href="../form/register_player.php">Register as Player</a></li>
+                </ul>
+            </li>
 
-<div class="container">
-    <h2>Select Login Option</h2>
-    <div class="login-options">
-        <!-- Admin Login -->
-        <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="registerDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Register
-            </button>
-            <div class="dropdown-menu" aria-labelledby="registerDropdown">
-                <a class="dropdown-item" href="../agency/form/register_agent.php">Register as Agent</a>
-                <a class="dropdown-item" href="../form/register_player.php">Register as Player</a>
-            </div>
-        </div>
+            <!-- Login Dropdown -->
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="loginDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Login
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="loginDropdown">
+                    <li><a class="dropdown-item" href="../agency/form/login.php">Player Login</a></li>
+                    <li><a class="dropdown-item" href="../agency/form/agent_login.php">Agent Login</a></li>
+                </ul>
+            </li>
+        </ul>
 
-        <!-- Player Login -->
-        <a href="../agency/form/login.php">
-            <div class="login-box">
-                <i class="fas fa-futbol"></i>
-                <p>Player</p>
-            </div>
-        </a>
-
-        <!-- Agent Login -->
-        <a href="../agency/form/agent_login.php">
-            <div class="login-box">
-                <i class="fas fa-user-tie"></i>
-                <p>Agent</p>
-            </div>
-        </a>
+        <!-- Admin Login Icon (Aligned Right) -->
+        <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="../agency/form/login_admin.php">
+                    <i class="fas fa-wrench"></i> Admin
+                </a>
+            </li>
+        </ul>
     </div>
-</div>
+</nav>
+
+<h2>Welcome to the GOATS Football Agency</h2>
+<p>The home of top agents in the transfer business</p>
 
 </body>
 </html>

@@ -61,7 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             max-width: 100%;
             height: auto;
             margin-bottom: 20px;
-            max-height: 200px; /* Adjust the max-height to make the image smaller */
+            max-height: 50px; /* Further reduce the max-height to make the image smaller */
         }
         .login-form {
             background: rgba(255, 255, 255, 0.8);
@@ -91,12 +91,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <li class="nav-item">
                     <a class="nav-link" href="#" id="toggleDarkMode">Toggle Dark Mode</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="login_admin.php">Admin Login</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="agent_login.php">Agent Login</a>
-                </li>
+                
             </ul>
         </div>
     </nav>
