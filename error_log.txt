@@ -2023,3 +2023,13 @@ Stack trace:
 [25-Feb-2025 06:02:44 UTC] Received verification code: qewfew for user_id: 25
 [25-Feb-2025 06:02:44 UTC] Database connection successful.
 [25-Feb-2025 06:02:44 UTC] Invalid verification code for user_id: 25
+[25-Feb-2025 06:45:17 UTC] Received verification code: qewfew for user_id: 25
+[25-Feb-2025 06:45:17 UTC] Database connection successful.
+[25-Feb-2025 06:45:17 UTC] Invalid verification code for user_id: 25
+[25-Feb-2025 06:53:49 UTC] Received verification code: 473809 for user_id: 27
+[25-Feb-2025 06:53:49 UTC] Database connection successful.
+[25-Feb-2025 06:53:49 UTC] Verification code matched for user_id: 27
+[25-Feb-2025 06:53:49 UTC] User marked as verified.
+[25-Feb-2025 06:53:49 UTC] Verification code deleted.
+[25-Feb-2025 06:53:49 UTC] Redirecting to ../form/login.php
+[25-Feb-2025 06:55:38 UTC] User ID from session: 27

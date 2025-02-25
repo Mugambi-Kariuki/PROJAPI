@@ -82,3 +82,12 @@ Stack trace:
 [25-Feb-2025 05:56:03 UTC] PHP Warning:  Undefined array key "name" in C:\Apache24\htdocs\projApi\agency\dashboard\download_agents_report.php on line 45
 [25-Feb-2025 05:56:03 UTC] PHP Warning:  Undefined array key "name" in C:\Apache24\htdocs\projApi\agency\dashboard\download_agents_report.php on line 45
 [25-Feb-2025 05:56:03 UTC] PHP Warning:  Undefined array key "name" in C:\Apache24\htdocs\projApi\agency\dashboard\download_agents_report.php on line 45
+[25-Feb-2025 06:47:05 UTC] PHP Warning:  Undefined array key "footballer_id" in C:\Apache24\htdocs\projApi\agency\dashboard\download_players_report.php on line 40
+[25-Feb-2025 06:47:05 UTC] PHP Warning:  Undefined array key "footballer_id" in C:\Apache24\htdocs\projApi\agency\dashboard\download_players_report.php on line 40
+[25-Feb-2025 06:47:05 UTC] PHP Warning:  Undefined array key "footballer_id" in C:\Apache24\htdocs\projApi\agency\dashboard\download_players_report.php on line 40
+[25-Feb-2025 06:49:28 UTC] PHP Warning:  Undefined array key "footballer_id" in C:\Apache24\htdocs\projApi\agency\dashboard\download_players_report.php on line 44
+[25-Feb-2025 06:49:28 UTC] PHP Warning:  Undefined array key "footballer_id" in C:\Apache24\htdocs\projApi\agency\dashboard\download_players_report.php on line 44
+[25-Feb-2025 06:49:28 UTC] PHP Warning:  Undefined array key "footballer_id" in C:\Apache24\htdocs\projApi\agency\dashboard\download_players_report.php on line 44
+[25-Feb-2025 06:50:58 UTC] PHP Warning:  Undefined array key "footballer_id" in C:\Apache24\htdocs\projApi\agency\dashboard\download_players_report.php on line 46
+[25-Feb-2025 06:50:58 UTC] PHP Warning:  Undefined array key "footballer_id" in C:\Apache24\htdocs\projApi\agency\dashboard\download_players_report.php on line 46
+[25-Feb-2025 06:50:58 UTC] PHP Warning:  Undefined array key "footballer_id" in C:\Apache24\htdocs\projApi\agency\dashboard\download_players_report.php on line 46

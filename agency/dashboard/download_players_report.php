@@ -4,14 +4,15 @@ ini_set('display_errors', 1);
 ini_set('log_errors', 1);
 ini_set('error_log', __DIR__ . '/error_log.txt');
 
-require '../vendor/autoload.php'; // Updated path
+ob_start(); // Ensure no output before headers
+
+require '../vendor/autoload.php';
 include '../classes/database.php';
 
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
 session_start();
-
 if (!isset($_SESSION['admin_id'])) {
     header('Location: ../form/login_admin.php');
     exit();
@@ -20,48 +21,55 @@ if (!isset($_SESSION['admin_id'])) {
 try {
     $database = new Database();
     $conn = $database->getConnection();
-
     if ($conn->connect_error) {
         throw new Exception("Connection failed: " . $conn->connect_error);
     }
 
     $spreadsheet = new Spreadsheet();
     $sheet = $spreadsheet->getActiveSheet();
+    $sheet->setTitle('Players Report');
+    $spreadsheet->setActiveSheetIndex(0); // Ensure active sheet is set
 
+    // Fetch data
     $result = $conn->query("SELECT * FROM footballers");
     if (!$result) {
         throw new Exception("Failed to fetch players: " . $conn->error);
     }
-    $sheet->setCellValue('A1', 'Players');
-    $sheet->setCellValue('A2', 'Player ID');
-    $sheet->setCellValue('B2', 'Name');
-    $row = 3;
+
+    // Fetch column names
+    $fields = $result->fetch_fields();
+    $col = 'A';
+    foreach ($fields as $field) {
+        $sheet->setCellValue($col . '1', $field->name);
+        $col++;
+    }
+
+    // Populate Data
+    $row = 2;
     while ($player = $result->fetch_assoc()) {
-        $sheet->setCellValue('A' . $row, $player['footballer_id']);
-        $sheet->setCellValue('B' . $row, $player['name']);
+        $col = 'A';
+        foreach ($fields as $field) {
+            $sheet->setCellValue($col . $row, $player[$field->name]);
+            $col++;
+        }
         $row++;
     }
 
     $writer = new Xlsx($spreadsheet);
     $fileName = 'players_report_' . date('Y-m-d_H-i-s') . '.xlsx';
-    $filePath = __DIR__ . '/' . $fileName;
 
-    if (!is_writable(__DIR__)) {
-        throw new Exception("Directory is not writable: " . __DIR__);
-    }
+    // Ensure no extra output
+    ob_end_clean();
 
-    $writer->save($filePath);
+    // Proper headers
+    header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; charset=utf-8');
+    header('Content-Disposition: attachment; filename="' . $fileName . '"');
+    header('Cache-Control: max-age=0');
+    header('Expires: 0');
+    header('Pragma: public');
 
-    if (!file_exists($filePath)) {
-        throw new Exception("File not created: " . $filePath);
-    }
-
-    header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-    header('Content-Disposition: attachment; filename="' . basename($filePath) . '"');
-    header('Content-Length: ' . filesize($filePath));
-    readfile($filePath);
-
-    unlink($filePath);
+    $writer->save('php://output');
+    exit();
 } catch (Exception $e) {
     error_log($e->getMessage());
     die("An error occurred: " . $e->getMessage());

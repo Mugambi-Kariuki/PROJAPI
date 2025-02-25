@@ -95,57 +95,9 @@ try {
         </form>
 
         <h2>Potential Clubs</h2>
+        <input type="text" id="searchClubs" class="form-control mb-2" placeholder="Search Clubs">
         <div id="clubsTable">
-            <?php
-            $stmt = $conn->prepare("SELECT * FROM clubs");
-            $stmt->execute();
-            $result = $stmt->get_result();
-
-            if ($result->num_rows > 0) {
-                echo "<table border='1'>
-                        <tr>
-                            <th>Club ID</th>
-                            <th>Club Name</th>
-                            <th>Location</th>
-                        </tr>";
-                while ($row = $result->fetch_assoc()) {
-                    echo "<tr>
-                            <td>{$row['club_id']}</td>
-                            <td>{$row['club_name']}</td>
-                            <td>{$row['location']}</td>
-                          </tr>";
-                }
-                echo "</table>";
-            } else {
-                echo "No records found.";
-            }
-            ?>
-        </div>
-
-        <h2>Available Playing Positions</h2>
-        <div id="positionsTable">
-            <?php
-            $stmt = $conn->prepare("SELECT * FROM positions");
-            $stmt->execute();
-            $result = $stmt->get_result();
-
-            if ($result->num_rows > 0) {
-                echo "<table border='1'>
-                        <tr>
-                            <th>Position ID</th>
-                            <th>Position Name</th>
-                        </tr>";
-                while ($row = $result->fetch_assoc()) {
-                    echo "<tr>
-                            <td>{$row['position_id']}</td>
-                            <td>{$row['position_name']}</td>
-                          </tr>";
-                }
-                echo "</table>";
-            } else {
-                echo "No records found.";
-            }
-            ?>
+            <!-- Clubs table will be populated by AJAX -->
         </div>
 
         <h2>Add Agent</h2>
@@ -216,6 +168,22 @@ try {
             };
             xhr.send(formData);
         });
+
+        // AJAX search for clubs
+        document.getElementById('searchClubs').addEventListener('input', function() {
+            var query = this.value;
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'search_clubs.php?q=' + encodeURIComponent(query), true);
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    document.getElementById('clubsTable').innerHTML = xhr.responseText;
+                }
+            };
+            xhr.send();
+        });
+
+        // Initial load of clubs
+        document.getElementById('searchClubs').dispatchEvent(new Event('input'));
     </script>
 </body>
 </html>

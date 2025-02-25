@@ -139,7 +139,7 @@ $user = $result->fetch_assoc();
                     $statusText = isset($row['status']) && $row['status'] == 'Occupied' ? "Sorry, I'm busy. Try again later!" : 'Free';
                     $successRate = isset($row['success_rate']) ? $row['success_rate'] : 'N/A';
                     $bookLink = isset($row['status']) && $row['status'] == 'Occupied' ? 'Sorry, am busy, check me out later' : "
-                        <a href='book_agent.php?agent_id={$row['agent_id']}' class='btn btn-primary'>
+                        <a href='book_an_agent.php?agent_id={$row['agent_id']}' class='btn btn-primary'>
                             Book Agent
                         </a>";
                     echo "<div class='col-md-4 mb-4'>
