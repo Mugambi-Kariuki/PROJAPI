@@ -87,6 +87,8 @@
                     <input type="password" class="form-control" id="password" name="password" required>
                 </div>
                 <button type="submit" class="btn btn-primary btn-block">Login</button>
+                <a href="user_registration.php" class="btn btn-secondary btn-block">Register</a> <!-- Add registration button -->
+                <a href="reset_password.php" class="btn btn-link btn-block">Forgot Password?</a> <!-- Add reset password button -->
             </form>
         </div>
     </div>

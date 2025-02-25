@@ -43,8 +43,7 @@
                     Register
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="registerDropdown">
-                    <li><a class="dropdown-item" href="../agency/form/register_agent.php">Register as Agent</a></li>
-                    <li><a class="dropdown-item" href="../form/register_player.php">Register as Player</a></li>
+                    <li><a class="dropdown-item" href="../agency/form/user_registration.php">Register as Player</a></li>
                 </ul>
             </li>
 

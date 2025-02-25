@@ -81,7 +81,7 @@ try {
 
     <div class="container mt-4">
         <h1>Book Agent: <?= $agent['name'] ?></h1>
-        <form id="bookAgentForm">
+        <form id="bookAgentForm" action="book_agent_action.php" method="POST">
             <div class="form-group mb-2">
                 <label for="date" class="sr-only">Date:</label>
                 <input type="date" id="date" name="date" class="form-control" required>
@@ -203,7 +203,8 @@ try {
         }
 
         document.getElementById('bookAgentForm').addEventListener('submit', function(event) {
-            event.preventDefault();
+            // Remove the event.preventDefault() to allow the form to submit normally
+            // event.preventDefault();
             var formData = new FormData(this);
             var xhr = new XMLHttpRequest();
             xhr.open('POST', 'book_agent_action.php', true);

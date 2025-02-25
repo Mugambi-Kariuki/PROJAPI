@@ -39,7 +39,7 @@ try {
     }
     $totalPlayers = $result->fetch_assoc()['total'];
 
-        // Fetch total number of bookings
+    // Fetch total number of bookings
     $result = $conn->query("SELECT COUNT(*) AS total FROM bookings");
     if (!$result) {
         throw new Exception("Failed to fetch total bookings: " . $conn->error);
@@ -80,19 +80,6 @@ try {
 <body>
     <div class="container">
         <h2>Summary</h2>
-        <canvas id="usersChart"></canvas>
-        <canvas id="agentsChart"></canvas>
-        <canvas id="playersChart"></canvas>
-        <canvas id="bookingsChart"></canvas>
-        <canvas id="clubsChart"></canvas>
-        <canvas id="transfersChart"></canvas>
-        <p>Total Users: <?= $totalUsers ?></p>
-        <p>Total Agents: <?= $totalAgents ?></p>
-        <p>Total Players: <?= $totalPlayers ?></p>
-        <p>Total Bookings: <?= $totalBookings ?></p>
-        <p>Total Clubs: <?= $totalClubs ?></p>
-        <p>Total Transfers: <?= $totalTransfers ?></p>
-
         <h2>Details</h2>
         <button class="btn btn-primary" onclick="location.href='view_users.php'">View Users</button>
         <button class="btn btn-primary" onclick="location.href='view_agents.php'">View Agents</button>
@@ -100,6 +87,34 @@ try {
         <button class="btn btn-primary" onclick="location.href='view_bookings.php'">View Bookings</button>
         <button class="btn btn-primary" onclick="location.href='view_clubs.php'">View Clubs</button>
         <button class="btn btn-primary" onclick="location.href='view_transfers.php'">View Transfers</button>
+        
+        <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                Download Reports
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <li><a class="dropdown-item" href="download_report.php">Download Combined Report</a></li>
+                <li><a class="dropdown-item" href="download_users_report.php">Download Users Report</a></li>
+                <li><a class="dropdown-item" href="download_agents_report.php">Download Agents Report</a></li>
+                <li><a class="dropdown-item" href="download_players_report.php">Download Players Report</a></li>
+                <li><a class="dropdown-item" href="download_bookings_report.php">Download Bookings Report</a></li>
+                <li><a class="dropdown-item" href="download_clubs_report.php">Download Clubs Report</a></li>
+                <li><a class="dropdown-item" href="download_transfers_report.php">Download Transfers Report</a></li>
+            </ul>
+        </div>
+
+        <canvas id="usersChart" width="400" height="100"></canvas>
+        <canvas id="agentsChart" width="400" height="100"></canvas>
+        <canvas id="playersChart" width="400" height="100"></canvas>
+        <canvas id="bookingsChart" width="400" height="100"></canvas>
+        <canvas id="clubsChart" width="400" height="100"></canvas>
+        <canvas id="transfersChart" width="400" height="100"></canvas>
+        <p>Total Users: <?= $totalUsers ?></p>
+        <p>Total Agents: <?= $totalAgents ?></p>
+        <p>Total Players: <?= $totalPlayers ?></p>
+        <p>Total Bookings: <?= $totalBookings ?></p>
+        <p>Total Clubs: <?= $totalClubs ?></p>
+        <p>Total Transfers: <?= $totalTransfers ?></p>
     </div>
 
     <script>

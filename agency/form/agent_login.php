@@ -50,23 +50,28 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         .navbar a, .sidebar a, .footer a {
             color: #ffffff;
         }
-        .login-image {
+        .login-container {
             position: relative;
-            width: 80%;
-            height: auto;
-            margin-bottom: 20px;
+            width: 100%;
+            height: calc(100vh - 200px); /* Adjust height to fit between header and footer */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
         }
         .login-form {
-            position: absolute;
-            top: 60%;
-            left: 60%;
-            transform: translate(-50%, -50%);
-            background: rgba(255, 255, 255, 0.8);
-            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
             border-radius: 10px;
             box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
-            width: 90%;
-            max-width: 350px;
+            width: 100%;
+            max-width: 400px; /* Increased form width */
+            transition: transform 0.3s, box-shadow 0.3s;
+            z-index: 2;
+        }
+        .login-form:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);
         }
     </style>
 </head>
@@ -102,8 +107,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </div>
         <div class="content p-4">
             <h1>Agent Login</h1>
-            <div class="login-image">
-                <img src="https://cdn.prod.website-files.com/5e305a6cb7083222527a89cc/66d854e464b418dc0a77b5f5_how_to_build_an_ai_agent.webp" alt="AI Agent">
+            <div class="login-container">
                 <div class="login-form">
                     <?php if (isset($error)): ?>
                         <div class="alert alert-danger"><?php echo $error; ?></div>

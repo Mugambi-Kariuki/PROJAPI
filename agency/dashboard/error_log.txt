@@ -1,0 +1,84 @@
+[25-Feb-2025 05:35:51 UTC] PHP Warning:  require(../../vendor/autoload.php): Failed to open stream: No such file or directory in C:\Apache24\htdocs\projApi\agency\dashboard\download_transfers_report.php on line 7
+[25-Feb-2025 05:35:51 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '../../vendor/autoload.php' (include_path='.;C:\php\pear') in C:\Apache24\htdocs\projApi\agency\dashboard\download_transfers_report.php:7
+Stack trace:
+#0 {main}
+  thrown in C:\Apache24\htdocs\projApi\agency\dashboard\download_transfers_report.php on line 7
+[25-Feb-2025 05:37:43 UTC] PHP Warning:  require(../../vendor/autoload.php): Failed to open stream: No such file or directory in C:\Apache24\htdocs\projApi\agency\dashboard\download_transfers_report.php on line 7
+[25-Feb-2025 05:37:43 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '../../vendor/autoload.php' (include_path='.;C:\php\pear') in C:\Apache24\htdocs\projApi\agency\dashboard\download_transfers_report.php:7
+Stack trace:
+#0 {main}
+  thrown in C:\Apache24\htdocs\projApi\agency\dashboard\download_transfers_report.php on line 7
+[25-Feb-2025 05:37:46 UTC] PHP Warning:  require(../../vendor/autoload.php): Failed to open stream: No such file or directory in C:\Apache24\htdocs\projApi\agency\dashboard\download_transfers_report.php on line 7
+[25-Feb-2025 05:37:46 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '../../vendor/autoload.php' (include_path='.;C:\php\pear') in C:\Apache24\htdocs\projApi\agency\dashboard\download_transfers_report.php:7
+Stack trace:
+#0 {main}
+  thrown in C:\Apache24\htdocs\projApi\agency\dashboard\download_transfers_report.php on line 7
+[25-Feb-2025 05:38:06 UTC] PHP Warning:  require(../../vendor/autoload.php): Failed to open stream: No such file or directory in C:\Apache24\htdocs\projApi\agency\dashboard\download_transfers_report.php on line 7
+[25-Feb-2025 05:38:06 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '../../vendor/autoload.php' (include_path='.;C:\php\pear') in C:\Apache24\htdocs\projApi\agency\dashboard\download_transfers_report.php:7
+Stack trace:
+#0 {main}
+  thrown in C:\Apache24\htdocs\projApi\agency\dashboard\download_transfers_report.php on line 7
+[25-Feb-2025 05:38:07 UTC] PHP Warning:  require(../../vendor/autoload.php): Failed to open stream: No such file or directory in C:\Apache24\htdocs\projApi\agency\dashboard\download_transfers_report.php on line 7
+[25-Feb-2025 05:38:07 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '../../vendor/autoload.php' (include_path='.;C:\php\pear') in C:\Apache24\htdocs\projApi\agency\dashboard\download_transfers_report.php:7
+Stack trace:
+#0 {main}
+  thrown in C:\Apache24\htdocs\projApi\agency\dashboard\download_transfers_report.php on line 7
+[25-Feb-2025 05:38:08 UTC] PHP Warning:  require(../../vendor/autoload.php): Failed to open stream: No such file or directory in C:\Apache24\htdocs\projApi\agency\dashboard\download_transfers_report.php on line 7
+[25-Feb-2025 05:38:08 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '../../vendor/autoload.php' (include_path='.;C:\php\pear') in C:\Apache24\htdocs\projApi\agency\dashboard\download_transfers_report.php:7
+Stack trace:
+#0 {main}
+  thrown in C:\Apache24\htdocs\projApi\agency\dashboard\download_transfers_report.php on line 7
+[25-Feb-2025 05:38:08 UTC] PHP Warning:  require(../../vendor/autoload.php): Failed to open stream: No such file or directory in C:\Apache24\htdocs\projApi\agency\dashboard\download_transfers_report.php on line 7
+[25-Feb-2025 05:38:08 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '../../vendor/autoload.php' (include_path='.;C:\php\pear') in C:\Apache24\htdocs\projApi\agency\dashboard\download_transfers_report.php:7
+Stack trace:
+#0 {main}
+  thrown in C:\Apache24\htdocs\projApi\agency\dashboard\download_transfers_report.php on line 7
+[25-Feb-2025 05:39:18 UTC] PHP Warning:  require(../agency/vendor/autoload.php): Failed to open stream: No such file or directory in C:\Apache24\htdocs\projApi\agency\dashboard\download_transfers_report.php on line 7
+[25-Feb-2025 05:39:18 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '../agency/vendor/autoload.php' (include_path='.;C:\php\pear') in C:\Apache24\htdocs\projApi\agency\dashboard\download_transfers_report.php:7
+Stack trace:
+#0 {main}
+  thrown in C:\Apache24\htdocs\projApi\agency\dashboard\download_transfers_report.php on line 7
+[25-Feb-2025 05:43:28 UTC] PHP Fatal error:  Uncaught Error: Class "PhpOffice\PhpSpreadsheet\Spreadsheet" not found in C:\Apache24\htdocs\projApi\agency\dashboard\download_transfers_report.php:28
+Stack trace:
+#0 {main}
+  thrown in C:\Apache24\htdocs\projApi\agency\dashboard\download_transfers_report.php on line 28
+[25-Feb-2025 05:45:19 UTC] PHP Fatal error:  Uncaught Error: Class "PhpOffice\PhpSpreadsheet\Spreadsheet" not found in C:\Apache24\htdocs\projApi\agency\dashboard\download_transfers_report.php:28
+Stack trace:
+#0 {main}
+  thrown in C:\Apache24\htdocs\projApi\agency\dashboard\download_transfers_report.php on line 28
+[25-Feb-2025 05:45:20 UTC] PHP Fatal error:  Uncaught Error: Class "PhpOffice\PhpSpreadsheet\Spreadsheet" not found in C:\Apache24\htdocs\projApi\agency\dashboard\download_transfers_report.php:28
+Stack trace:
+#0 {main}
+  thrown in C:\Apache24\htdocs\projApi\agency\dashboard\download_transfers_report.php on line 28
+[25-Feb-2025 05:47:12 UTC] PHP Fatal error:  Uncaught Error: Class "PhpOffice\PhpSpreadsheet\Spreadsheet" not found in C:\Apache24\htdocs\projApi\agency\dashboard\download_transfers_report.php:28
+Stack trace:
+#0 {main}
+  thrown in C:\Apache24\htdocs\projApi\agency\dashboard\download_transfers_report.php on line 28
+[25-Feb-2025 05:47:13 UTC] PHP Fatal error:  Uncaught Error: Class "PhpOffice\PhpSpreadsheet\Spreadsheet" not found in C:\Apache24\htdocs\projApi\agency\dashboard\download_transfers_report.php:28
+Stack trace:
+#0 {main}
+  thrown in C:\Apache24\htdocs\projApi\agency\dashboard\download_transfers_report.php on line 28
+[25-Feb-2025 05:47:14 UTC] PHP Fatal error:  Uncaught Error: Class "PhpOffice\PhpSpreadsheet\Spreadsheet" not found in C:\Apache24\htdocs\projApi\agency\dashboard\download_transfers_report.php:28
+Stack trace:
+#0 {main}
+  thrown in C:\Apache24\htdocs\projApi\agency\dashboard\download_transfers_report.php on line 28
+[25-Feb-2025 05:47:14 UTC] PHP Fatal error:  Uncaught Error: Class "PhpOffice\PhpSpreadsheet\Spreadsheet" not found in C:\Apache24\htdocs\projApi\agency\dashboard\download_transfers_report.php:28
+Stack trace:
+#0 {main}
+  thrown in C:\Apache24\htdocs\projApi\agency\dashboard\download_transfers_report.php on line 28
+[25-Feb-2025 05:49:30 UTC] PHP Warning:  Undefined array key "name" in C:\Apache24\htdocs\projApi\agency\dashboard\download_agents_report.php on line 41
+[25-Feb-2025 05:49:30 UTC] PHP Warning:  Undefined array key "name" in C:\Apache24\htdocs\projApi\agency\dashboard\download_agents_report.php on line 41
+[25-Feb-2025 05:49:30 UTC] PHP Warning:  Undefined array key "name" in C:\Apache24\htdocs\projApi\agency\dashboard\download_agents_report.php on line 41
+[25-Feb-2025 05:49:30 UTC] PHP Warning:  Undefined array key "name" in C:\Apache24\htdocs\projApi\agency\dashboard\download_agents_report.php on line 41
+[25-Feb-2025 05:53:34 UTC] PHP Warning:  Undefined array key "user_id" in C:\Apache24\htdocs\projApi\agency\dashboard\download_users_report.php on line 41
+[25-Feb-2025 05:53:34 UTC] PHP Warning:  Undefined array key "username" in C:\Apache24\htdocs\projApi\agency\dashboard\download_users_report.php on line 42
+[25-Feb-2025 05:53:34 UTC] PHP Warning:  Undefined array key "user_id" in C:\Apache24\htdocs\projApi\agency\dashboard\download_users_report.php on line 41
+[25-Feb-2025 05:53:34 UTC] PHP Warning:  Undefined array key "username" in C:\Apache24\htdocs\projApi\agency\dashboard\download_users_report.php on line 42
+[25-Feb-2025 05:54:46 UTC] PHP Warning:  Undefined array key "name" in C:\Apache24\htdocs\projApi\agency\dashboard\download_agents_report.php on line 45
+[25-Feb-2025 05:54:46 UTC] PHP Warning:  Undefined array key "name" in C:\Apache24\htdocs\projApi\agency\dashboard\download_agents_report.php on line 45
+[25-Feb-2025 05:54:46 UTC] PHP Warning:  Undefined array key "name" in C:\Apache24\htdocs\projApi\agency\dashboard\download_agents_report.php on line 45
+[25-Feb-2025 05:54:46 UTC] PHP Warning:  Undefined array key "name" in C:\Apache24\htdocs\projApi\agency\dashboard\download_agents_report.php on line 45
+[25-Feb-2025 05:56:03 UTC] PHP Warning:  Undefined array key "name" in C:\Apache24\htdocs\projApi\agency\dashboard\download_agents_report.php on line 45
+[25-Feb-2025 05:56:03 UTC] PHP Warning:  Undefined array key "name" in C:\Apache24\htdocs\projApi\agency\dashboard\download_agents_report.php on line 45
+[25-Feb-2025 05:56:03 UTC] PHP Warning:  Undefined array key "name" in C:\Apache24\htdocs\projApi\agency\dashboard\download_agents_report.php on line 45
+[25-Feb-2025 05:56:03 UTC] PHP Warning:  Undefined array key "name" in C:\Apache24\htdocs\projApi\agency\dashboard\download_agents_report.php on line 45

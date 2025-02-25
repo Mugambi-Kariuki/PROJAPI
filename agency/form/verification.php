@@ -138,15 +138,69 @@ if (isset($_POST['resend'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Verification</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .container {
+            border: 1px solid #ccc;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        .container form {
+            margin-bottom: 10px;
+        }
+        .container input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .container button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .container button[type="submit"] {
+            background-color: #28a745;
+            color: #fff;
+        }
+        .container button[name="resend"] {
+            background-color: #ffc107;
+            color: #fff;
+        }
+        .container button:hover {
+            opacity: 0.9;
+        }
+        .error-message {
+            color: red;
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
-    <form id="verificationForm" method="post">
-        <input type="text" name="code" placeholder="Enter Verification Code" required>
-        <button type="submit">Verify</button>
-    </form>
-    <form action="verification.php" method="POST">
-        <button type="submit" name="resend">Resend Verification Code</button>
-    </form>
+    <div class="container">
+        <form id="verificationForm" method="post">
+            <input type="text" name="code" placeholder="Enter Verification Code" required>
+            <button type="submit">Verify</button>
+        </form>
+        <form action="verification.php" method="POST">
+            <button type="submit" name="resend">Resend Verification Code</button>
+        </form>
+        <div class="error-message" id="error-message" style="display: none;">
+            ❌ Invalid verification code. Please try again.
+        </div>
+    </div>
 
     <script>
         $(document).ready(function() {
@@ -158,7 +212,7 @@ if (isset($_POST['resend'])) {
                     data: $(this).serialize(),
                     success: function(response) {
                         if (response.includes('Invalid verification code')) {
-                            alert('Invalid verification code. Please try again.');
+                            $('#error-message').show();
                         } else {
                             window.location.href = '../form/login.php'; // Redirect to login page
                         }

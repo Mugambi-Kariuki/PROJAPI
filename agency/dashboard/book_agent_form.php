@@ -14,38 +14,23 @@ if (!$conn) {
     die("Database connection failed: " . $conn->connect_error);
 }
 
-$agent_id = $_GET['agent_id'];
-?>
+if (isset($_GET['agent_id'])) {
+    $agent_id = $_GET['agent_id'];
+    $user_id = $_SESSION['user_id'];
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book Agent</title>
-    <link rel="stylesheet" href="../css/style.css">
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
-    <div class="container mt-4">
-        <h1>Book Agent</h1>
-        <form action="submit_booking.php" method="POST">
-            <input type="hidden" name="agent_id" value="<?php echo $agent_id; ?>">
-            <div class="form-group">
-                <label for="target_country">Target Country:</label>
-                <input type="text" class="form-control" id="target_country" name="target_country" required>
-            </div>
-            <div class="form-group">
-                <label for="years">Number of Years (max 5):</label>
-                <input type="number" class="form-control" id="years" name="years" max="5" required>
-            </div>
-            <div class="form-group">
-                <label for="expected_salary">Expected Salary at New Club:</label>
-                <input type="number" class="form-control" id="expected_salary" name="expected_salary" required>
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
-    </div>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
-</html>
+    // Update agent status to 'Occupied'
+    $stmt = $conn->prepare("UPDATE agents SET status = 'Occupied' WHERE agent_id = ?");
+    $stmt->bind_param("i", $agent_id);
+    $stmt->execute();
+
+    // Insert booking record (assuming you have a bookings table)
+    $stmt = $conn->prepare("INSERT INTO bookings (user_id, agent_id) VALUES (?, ?)");
+    $stmt->bind_param("ii", $user_id, $agent_id);
+    $stmt->execute();
+
+    header("Location: home.php");
+    exit();
+} else {
+    echo "Invalid agent ID.";
+}
+?>

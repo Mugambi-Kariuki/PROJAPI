@@ -12,8 +12,56 @@ if (!isset($_SESSION['user_id'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            padding-top: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            text-align: center;
+        }
+        .dashboard-header {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-top: 30px;
+        }
+        .lead {
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+        .btn {
+            padding: 10px 20px;
+            font-size: 1rem;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            color: white;
+            border: none;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+        .btn-info {
+            background-color: #17a2b8;
+            color: white;
+            border: none;
+        }
+        .btn-info:hover {
+            background-color: #138496;
+        }
         /* Modal styles */
         .modal {
             display: none;
@@ -24,16 +72,16 @@ if (!isset($_SESSION['user_id'])) {
             width: 100%;
             height: 100%;
             overflow: auto;
-            background-color: rgb(0,0,0);
-            background-color: rgba(0,0,0,0.4);
+            background-color: rgba(0, 0, 0, 0.4);
             padding-top: 60px;
         }
         .modal-content {
-            background-color: #fefefe;
+            background-color: #fff;
             margin: 5% auto;
             padding: 20px;
-            border: 1px solid #888;
+            border-radius: 5px;
             width: 80%;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
         }
         .close {
             color: #aaa;
@@ -41,47 +89,43 @@ if (!isset($_SESSION['user_id'])) {
             font-size: 28px;
             font-weight: bold;
         }
-        .close:hover,
-        .close:focus {
+        .close:hover, .close:focus {
             color: black;
             text-decoration: none;
             cursor: pointer;
         }
-        /* Form styles */
-        form {
-            display: flex;
-            flex-direction: column;
-        }
-        label, input {
-            margin: 5px 0;
-        }
-        input[type="submit"] {
-            align-self: flex-end;
-            padding: 10px 20px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-        input[type="submit"]:hover {
-            background-color: #45a049;
-        }
-        #clubList div {
-            cursor: pointer;
-            padding: 5px;
-            border: 1px solid #ddd;
-        }
-        #clubList div:hover {
-            background-color: #f1f1f1;
-        }
     </style>
 </head>
 <body>
-    <h1>Welcome to your dashboard!</h1>
-    <a href="#" id="openProfile">Profile</a>
-    <button onclick="window.location.href='../dashboard/home.php'">Home</button>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Dashboard</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#" id="toggleDarkMode">Toggle Dark Mode</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../form/logout.php">Log Out</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
 
-    <!-- The Modal -->
+    <div class="container">
+        <h1 class="dashboard-header">Welcome to Your Dashboard!</h1>
+        <p>Your personal hub for managing your football career. Update your profile, find professional agents, and explore opportunities.</p>
+
+        <a href="#" id="openProfile" class="btn btn-info">Create my profile</a>
+
+        <h2 class="section-title mt-4">Find an Agent</h2>
+        <p class="lead">👉 Find our agents here to help you with contract negotiations, club transfers, and career advice.</p>
+        <button class="btn btn-primary" onclick="window.location.href='../dashboard/home.php'">Agents</button>
+    </div>
+
+    <!-- Profile Modal -->
     <div id="profileModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
@@ -108,24 +152,15 @@ if (!isset($_SESSION['user_id'])) {
     <script>
         // Get the modal
         var modal = document.getElementById("profileModal");
-
-        // Get the button that opens the modal
         var btn = document.getElementById("openProfile");
-
-        // Get the <span> element that closes the modal
         var span = document.getElementsByClassName("close")[0];
 
-        // When the user clicks the button, open the modal 
         btn.onclick = function() {
             modal.style.display = "block";
         }
-
-        // When the user clicks on <span> (x), close the modal
         span.onclick = function() {
             modal.style.display = "none";
         }
-
-        // When the user clicks anywhere outside of the modal, close it
         window.onclick = function(event) {
             if (event.target == modal) {
                 modal.style.display = "none";
@@ -148,7 +183,6 @@ if (!isset($_SESSION['user_id'])) {
             xhr.send();
         }
 
-        // Set club name from the list
         document.getElementById("clubList").addEventListener("click", function(e) {
             if (e.target && e.target.nodeName == "DIV") {
                 document.getElementById("club").value = e.target.textContent;
@@ -156,30 +190,17 @@ if (!isset($_SESSION['user_id'])) {
             }
         });
 
-        // Validate club name and age before submitting the form
         document.getElementById("profileForm").addEventListener("submit", function(e) {
-            var clubName = document.getElementById("club").value;
             var age = document.getElementById("age").value;
-
-            // Validate age
             if (age < 18) {
                 e.preventDefault();
                 alert("Age cannot be less than 18.");
                 return;
             }
+        });
 
-            // Validate club name
-            var xhr = new XMLHttpRequest();
-            xhr.onreadystatechange = function() {
-                if (this.readyState == 4 && this.status == 200) {
-                    if (this.responseText.trim() !== "valid") {
-                        e.preventDefault();
-                        alert("The club name must be present in the clubs table.");
-                    }
-                }
-            };
-            xhr.open("GET", "../processes/validate_club.php?club=" + clubName, false);
-            xhr.send();
+        document.getElementById('toggleDarkMode').addEventListener('click', function() {
+            document.body.classList.toggle('dark-mode');
         });
     </script>
 </body>
