@@ -1,5 +1,5 @@
 <?php
-include '../classes/database.php'; // Update the path to your database connection file
+include '../classes/database.php'; //database connection file
 
 session_start();
 
@@ -97,7 +97,7 @@ try {
         <h2>Potential Clubs</h2>
         <input type="text" id="searchClubs" class="form-control mb-2" placeholder="Search Clubs">
         <div id="clubsTable">
-            <!-- Clubs table will be populated by AJAX -->
+           
         </div>
 
         <h2>Add Agent</h2>

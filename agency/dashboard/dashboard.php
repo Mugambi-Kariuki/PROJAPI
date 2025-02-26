@@ -24,7 +24,7 @@ require_once "../classes/database.php";
 $db = new Database();
 $conn = $db->getConnection();
 
-// Debugging: Check database connection
+// Check database connection
 if (!$conn) {
     error_log("Database connection failed: " . $conn->connect_error);
     die("Database connection failed: " . $conn->connect_error);
