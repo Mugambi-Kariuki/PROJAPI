@@ -12,6 +12,46 @@ require_once "../classes/database.php";
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
+class Agent {
+    private $conn;
+    private $agent_id;
+
+    public function __construct($conn, $agent_id) {
+        $this->conn = $conn;
+        $this->agent_id = $agent_id;
+    }
+
+    public function fetchDetails() {
+        $stmt = $this->conn->prepare("SELECT full_name, contact_number, email, charge_fee, nationality FROM agents WHERE agent_id = ?");
+        $stmt->bind_param("i", $this->agent_id);
+        $stmt->execute();
+        return $stmt->get_result()->fetch_assoc();
+    }
+
+    public function fetchBookings() {
+        $stmt = $this->conn->prepare("SELECT 
+                                        b.booking_id, 
+                                        u.name AS customer_name, 
+                                        b.target_club, 
+                                        b.years, 
+                                        b.expected_salary, 
+                                        b.created_at, 
+                                        b.booking_status 
+                                    FROM bookings b
+                                    JOIN user u ON b.user_id = u.id
+                                    WHERE b.agent_id = ?");
+        $stmt->bind_param("i", $this->agent_id);
+        $stmt->execute();
+        return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function updateBookingStatus($booking_id, $status) {
+        $stmt = $this->conn->prepare("UPDATE bookings SET booking_status = ? WHERE booking_id = ? AND agent_id = ?");
+        $stmt->bind_param("sii", $status, $booking_id, $this->agent_id);
+        $stmt->execute();
+    }
+}
+
 $db = new Database();
 $conn = $db->getConnection();
 
@@ -20,58 +60,17 @@ if (!$conn) {
 }
 
 $agent_id = $_SESSION['agent_id'];
+$agent = new Agent($conn, $agent_id);
 
-// Handle booking status update
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['booking_id']) && isset($_POST['action'])) {
     $booking_id = $_POST['booking_id'];
     $action = $_POST['action'];
     $status = ($action == 'approve') ? 'approved' : 'rejected';
-
-    $stmt = $conn->prepare("UPDATE bookings SET booking_status = ? WHERE booking_id = ? AND agent_id = ?");
-    if (!$stmt) {
-        die("Prepare failed: " . $conn->error);
-    }
-    $stmt->bind_param("sii", $status, $booking_id, $agent_id);
-    if (!$stmt->execute()) {
-        die("Execute failed: " . $stmt->error);
-    }
+    $agent->updateBookingStatus($booking_id, $status);
 }
 
-// Fetch agent details
-$stmt = $conn->prepare("SELECT full_name, contact_number, email, charge_fee, nationality FROM agents WHERE agent_id = ?");
-if (!$stmt) {
-    die("Prepare failed: " . $conn->error);
-}
-$stmt->bind_param("i", $agent_id);
-$stmt->execute();
-$result = $stmt->get_result();
-if (!$result) {
-    die("Execute failed: " . $stmt->error);
-}
-$agent = $result->fetch_assoc();
-
-// Fetch agent bookings with user details
-$stmt = $conn->prepare("SELECT 
-                            b.booking_id, 
-                            u.name AS customer_name, 
-                            b.target_club, 
-                            b.years, 
-                            b.expected_salary, 
-                            b.created_at, 
-                            b.booking_status 
-                        FROM bookings b
-                        JOIN user u ON b.user_id = u.id
-                        WHERE b.agent_id = ?");
-if (!$stmt) {
-    die("Prepare failed: " . $conn->error);
-}
-$stmt->bind_param("i", $agent_id);
-$stmt->execute();
-$result = $stmt->get_result();
-if (!$result) {
-    die("Execute failed: " . $stmt->error);
-}
-$bookings = $result->fetch_all(MYSQLI_ASSOC);
+$agent_details = $agent->fetchDetails();
+$bookings = $agent->fetchBookings();
 ?>
 
 <!DOCTYPE html>
@@ -98,15 +97,15 @@ $bookings = $result->fetch_all(MYSQLI_ASSOC);
     </nav>
 
     <div class="container mt-4">
-        <h1>Welcome, <?php echo htmlspecialchars($agent['full_name']); ?></h1>
+        <h1>Welcome, <?php echo htmlspecialchars($agent_details['full_name']); ?></h1>
         
         <div class="card mt-4">
             <div class="card-header"><h3>Agent Details</h3></div>
             <div class="card-body">
-                <p><strong>Contact:</strong> <?php echo htmlspecialchars($agent['contact_number']); ?></p>
-                <p><strong>Email:</strong> <?php echo htmlspecialchars($agent['email']); ?></p>
-                <p><strong>Charge Fee:</strong> <?php echo htmlspecialchars($agent['charge_fee']); ?></p>
-                <p><strong>Nationality:</strong> <?php echo htmlspecialchars($agent['nationality']); ?></p>
+                <p><strong>Contact:</strong> <?php echo htmlspecialchars($agent_details['contact_number']); ?></p>
+                <p><strong>Email:</strong> <?php echo htmlspecialchars($agent_details['email']); ?></p>
+                <p><strong>Charge Fee:</strong> <?php echo htmlspecialchars($agent_details['charge_fee']); ?></p>
+                <p><strong>Nationality:</strong> <?php echo htmlspecialchars($agent_details['nationality']); ?></p>
             </div>
         </div>
 

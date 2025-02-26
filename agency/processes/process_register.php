@@ -11,86 +11,111 @@ require "../vendor/autoload.php"; // PHPMailer
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
+class User {
+    private $conn;
+    private $name;
+    private $email;
+    private $password;
+    private $verification_code;
+
+    public function __construct($conn, $name, $email, $password) {
+        $this->conn = $conn;
+        $this->name = trim($name);
+        $this->email = trim($email);
+        $this->password = $password;
+        $this->verification_code = rand(100000, 999999);
+    }
+
+    public function validate() {
+        if (empty($this->name) || empty($this->email) || empty($this->password)) {
+            throw new Exception("All fields are required!");
+        } elseif (!filter_var($this->email, FILTER_VALIDATE_EMAIL)) {
+            throw new Exception("Invalid email format!");
+        }
+    }
+
+    public function register() {
+        $this->validate();
+        $hashedPassword = password_hash($this->password, PASSWORD_DEFAULT);
+
+        $stmt = $this->conn->prepare("INSERT INTO user (name, email, password) VALUES (?, ?, ?)");
+        if ($stmt === false) {
+            throw new Exception("Error preparing statement: " . $this->conn->error);
+        }
+        $stmt->bind_param("sss", $this->name, $this->email, $hashedPassword);
+
+        if ($stmt->execute()) {
+            $user_id = $stmt->insert_id;
+            $stmt = $this->conn->prepare("INSERT INTO user_verification (user_id, verification_code) VALUES (?, ?)");
+            if (!$stmt) {
+                throw new Exception("Prepare statement failed: " . $this->conn->error);
+            }
+            $stmt->bind_param("is", $user_id, $this->verification_code);
+            if (!$stmt->execute()) {
+                throw new Exception("Execute statement failed: " . $stmt->error);
+            }
+            return $user_id;
+        } else {
+            throw new Exception("Error: " . $stmt->error);
+        }
+    }
+
+    public function getVerificationCode() {
+        return $this->verification_code;
+    }
+
+    public function getEmail() {
+        return $this->email;
+    }
+}
+
+class Mailer {
+    private $mail;
+
+    public function __construct() {
+        $this->mail = new PHPMailer(true);
+        $this->mail->isSMTP();
+        $this->mail->Host = "smtp.gmail.com";
+        $this->mail->SMTPAuth = true;
+        $this->mail->Username = "caleb.kariuki@strathmore.edu";
+        $this->mail->Password = "vbfbayghqizgwxux";
+        $this->mail->SMTPSecure = "tls";
+        $this->mail->Port = 587;
+        $this->mail->setFrom('caleb.kariuki@strathmore.edu', 'Footy Agency');
+    }
+
+    public function sendVerificationEmail($email, $verification_code) {
+        try {
+            $this->mail->addAddress($email);
+            $this->mail->Subject = "Your Verification Code";
+            $this->mail->Body = "Your verification code is: $verification_code";
+            $this->mail->send();
+        } catch (Exception $e) {
+            throw new Exception("Failed to send email: " . $this->mail->ErrorInfo);
+        }
+    }
+}
+
 // database connection instance
 $db = new Database();
 $conn = $db->getConnection();
 
 // Handle form submission
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $name = trim($_POST['name']);
-    $email = trim($_POST['email']);
-    $password = $_POST['password'];
-    $verification_code = rand(100000, 999999); // Generate a random verification code
+    try {
+        $user = new User($conn, $_POST['name'], $_POST['email'], $_POST['password']);
+        $user_id = $user->register();
 
-    // Basic validation
-    if (empty($name) || empty($email) || empty($password)) {
-        die("All fields are required!");
-    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        die("Invalid email format!");
-    } else {
-        // Hash the password
-        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+        $mailer = new Mailer();
+        $mailer->sendVerificationEmail($user->getEmail(), $user->getVerificationCode());
 
-        // Insert data into database
-        $stmt = $conn->prepare("INSERT INTO user (name, email, password) VALUES (?, ?, ?)");
-        if ($stmt === false) {
-            die("Error preparing statement: " . $conn->error);
-        }
-        $stmt->bind_param("sss", $name, $email, $hashedPassword);
-
-        if ($stmt->execute()) {
-            $user_id = $stmt->insert_id;
-
-            // Insert verification code
-            $stmt = $conn->prepare("INSERT INTO user_verification (user_id, verification_code) VALUES (?, ?)");
-            if (!$stmt) {
-                error_log("Prepare statement failed: " . $conn->error);
-                die("Prepare statement failed: " . $conn->error);
-            }
-            $stmt->bind_param("is", $user_id, $verification_code);
-            if (!$stmt->execute()) {
-                error_log("Execute statement failed: " . $stmt->error);
-                die("Execute statement failed: " . $stmt->error);
-            }
-            error_log("Verification code inserted successfully.");
-
-            // Log successful insertion
-            error_log("Inserted verification code $verification_code for user_id: $user_id");
-
-            // Send verification email
-            $mail = new PHPMailer(true);
-            try {
-                $mail->isSMTP();
-                $mail->Host = "smtp.gmail.com"; 
-                $mail->SMTPAuth = true;
-                $mail->Username = "caleb.kariuki@strathmore.edu";
-                $mail->Password = "vbfbayghqizgwxux";
-                $mail->SMTPSecure = "tls";
-                $mail->Port = 587;
-
-                $mail->setFrom('caleb.kariuki@strathmore.edu', 'Footy Agency');
-                $mail->addAddress($email);
-                $mail->Subject = "Your Verification Code";
-                $mail->Body = "Your verification code is: $verification_code";
-
-                $mail->send();
-                error_log("Sent verification code: $verification_code to email: $email");
-            } catch (Exception $e) {
-                error_log("Email Error: " . $mail->ErrorInfo);
-                die("Failed to send email.");
-            }
-
-            // Redirect to verification page
-            session_start();
-            $_SESSION['user_id'] = $user_id;
-            $_SESSION['email'] = $email; // Store email in session for sending verification code
-            header("Location: ../form/verification.php");
-            exit();
-        } else {
-            echo "Error: " . $stmt->error;
-        }
-
-        $stmt->close();
+        session_start();
+        $_SESSION['user_id'] = $user_id;
+        $_SESSION['email'] = $user->getEmail();
+        header("Location: ../form/verification.php");
+        exit();
+    } catch (Exception $e) {
+        die($e->getMessage());
     }
 }
 

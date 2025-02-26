@@ -10,6 +10,22 @@ if (!isset($_SESSION['admin_id'])) {
     exit();
 }
 
+class Transfer {
+    private $conn;
+
+    public function __construct($conn) {
+        $this->conn = $conn;
+    }
+
+    public function fetchAll() {
+        $result = $this->conn->query("SELECT * FROM transfers");
+        if (!$result) {
+            throw new Exception("Failed to fetch transfers: " . $this->conn->error);
+        }
+        return $result;
+    }
+}
+
 try {
     $database = new Database();
     $conn = $database->getConnection();
@@ -18,13 +34,8 @@ try {
         throw new Exception("Connection failed: " . $conn->connect_error);
     }
 
-    // Fetch all transfers
-    echo "Fetching all transfers...<br>";
-    $transfers = $conn->query("SELECT * FROM transfers");
-    if (!$transfers) {
-        throw new Exception("Failed to fetch transfers: " . $conn->error);
-    }
-    echo "Transfers fetched successfully.<br>";
+    $transfer = new Transfer($conn);
+    $transfers = $transfer->fetchAll();
 } catch (Exception $e) {
     error_log($e->getMessage());
     die("An error occurred: " . $e->getMessage());

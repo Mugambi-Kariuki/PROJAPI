@@ -17,27 +17,35 @@ if (!isset($_GET['agent_id'])) {
     exit;
 }
 
-$agent_id = $_GET['agent_id'];
+class Agent {
+    private $conn;
 
-// Fetch agent details
-function getAgentDetails($agent_id) {
-    $database = new Database();
-    $conn = $database->getConnection();
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
+    public function __construct($conn) {
+        $this->conn = $conn;
     }
-    $query = "SELECT agent_id, full_name FROM agents WHERE agent_id = ?";
-    $stmt = $conn->prepare($query);
-    $stmt->bind_param("i", $agent_id);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    if ($result->num_rows == 0) {
-        die("Agent not found.");
+
+    public function getDetails($agent_id) {
+        $stmt = $this->conn->prepare("SELECT agent_id, full_name FROM agents WHERE agent_id = ?");
+        $stmt->bind_param("i", $agent_id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        if ($result->num_rows == 0) {
+            throw new Exception("Agent not found.");
+        }
+        return $result->fetch_assoc();
     }
-    return $result->fetch_assoc();
 }
 
-$agent = getAgentDetails($agent_id);
+$database = new Database();
+$conn = $database->getConnection();
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+$agent_id = $_GET['agent_id'];
+$agent = new Agent($conn);
+$agent_details = $agent->getDetails($agent_id);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -51,8 +59,8 @@ $agent = getAgentDetails($agent_id);
     <h2>Book an Agent</h2>
     <form id="bookingForm">
         <label for="agent">Selected Agent:</label>
-        <input type="text" name="agent_name" value="<?php echo htmlspecialchars($agent['full_name']); ?>" readonly><br>
-        <input type="hidden" name="agent_id" value="<?php echo $agent['agent_id']; ?>">
+        <input type="text" name="agent_name" value="<?php echo htmlspecialchars($agent_details['full_name']); ?>" readonly><br>
+        <input type="hidden" name="agent_id" value="<?php echo $agent_details['agent_id']; ?>">
         
         <label for="club">Select Target Club:</label>
         <input type="text" id="clubSearch" placeholder="Search for a club...">

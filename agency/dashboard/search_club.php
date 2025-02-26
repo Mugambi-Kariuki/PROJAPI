@@ -1,40 +1,50 @@
 <?php
-include '../classes/database.php'; // Ensure the correct path to your database connection file
+include '../classes/database.php'; // Update the path to your database connection file
 
-if (!isset($_GET['q'])) {
-    die("Search term not provided");
+class Club {
+    private $conn;
+
+    public function __construct($conn) {
+        $this->conn = $conn;
+    }
+
+    public function search($search) {
+        $stmt = $this->conn->prepare("SELECT club_id, club_name, location FROM clubs WHERE club_name LIKE ?");
+        $searchTerm = "%" . $search . "%";
+        $stmt->bind_param("s", $searchTerm);
+        $stmt->execute();
+        return $stmt->get_result();
+    }
 }
 
-$search = trim($_GET['q']);
+if (isset($_GET['search'])) {
+    $search = $_GET['search'];
 
-try {
-    $database = new Database();
-    $conn = $database->getConnection();
+    try {
+        $database = new Database();
+        $conn = $database->getConnection();
 
-    if ($conn->connect_error) {
-        throw new Exception("Connection failed: " . $conn->connect_error);
-    }
-
-    // Search for clubs by name
-    $stmt = $conn->prepare("SELECT name FROM clubs WHERE name LIKE ? LIMIT 10");
-    $searchTerm = "%" . $search . "%";
-    $stmt->bind_param("s", $searchTerm);
-    $stmt->execute();
-    $result = $stmt->get_result();
-
-    if ($result->num_rows > 0) {
-        while ($club = $result->fetch_assoc()) {
-            echo "<div onclick='selectClub(\"" . addslashes($club['name']) . "\")'>" . htmlspecialchars($club['name']) . "</div>";
+        if ($conn->connect_error) {
+            throw new Exception("Connection failed: " . $conn->connect_error);
         }
-    } else {
-        echo "<div>No clubs found</div>";
-    }
 
-} catch (Exception $e) {
-    error_log($e->getMessage());
-    die("An error occurred: " . $e->getMessage());
-} finally {
-    $stmt->close();
-    $conn->close();
+        $club = new Club($conn);
+        $result = $club->search($search);
+
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                echo "<button class='btn btn-outline-secondary mt-2'>" . htmlspecialchars($row['club_name']) . "</button>";
+            }
+        } else {
+            echo "No clubs found.";
+        }
+
+        $conn->close();
+    } catch (Exception $e) {
+        error_log($e->getMessage());
+        echo "An error occurred: " . $e->getMessage();
+    }
+} else {
+    echo "Invalid search query.";
 }
 ?>

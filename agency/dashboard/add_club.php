@@ -5,6 +5,23 @@ if (!isset($_POST['club_name']) || !isset($_POST['location'])) {
     die("Name and location are required");
 }
 
+class Club {
+    private $conn;
+
+    public function __construct($conn) {
+        $this->conn = $conn;
+    }
+
+    public function add($club_name, $location) {
+        $stmt = $this->conn->prepare("INSERT INTO clubs (club_name, location) VALUES (?, ?)");
+        $stmt->bind_param("ss", $club_name, $location);
+        $stmt->execute();
+        if ($stmt->affected_rows <= 0) {
+            throw new Exception("Failed to add club");
+        }
+    }
+}
+
 $club_name = $_POST['club_name'];
 $location = $_POST['location'];
 
@@ -16,16 +33,10 @@ try {
         throw new Exception("Connection failed: " . $conn->connect_error);
     }
 
-    // Add new club
-    $stmt = $conn->prepare("INSERT INTO clubs (club_name, location) VALUES (?, ?)");
-    $stmt->bind_param("ss", $club_name, $location);
-    $stmt->execute();
+    $club = new Club($conn);
+    $club->add($club_name, $location);
 
-    if ($stmt->affected_rows > 0) {
-        echo "Club added successfully";
-    } else {
-        throw new Exception("Failed to add club");
-    }
+    echo "Club added successfully";
 } catch (Exception $e) {
     error_log($e->getMessage());
     die("An error occurred: " . $e->getMessage());

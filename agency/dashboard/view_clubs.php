@@ -9,6 +9,22 @@ if (!isset($_SESSION['admin_id'])) {
     exit();
 }
 
+class Club {
+    private $conn;
+
+    public function __construct($conn) {
+        $this->conn = $conn;
+    }
+
+    public function fetchAll() {
+        $result = $this->conn->query("SELECT club_id, club_name, location FROM clubs");
+        if (!$result) {
+            throw new Exception("Failed to fetch clubs: " . $this->conn->error);
+        }
+        return $result;
+    }
+}
+
 try {
     $database = new Database();
     $conn = $database->getConnection();
@@ -17,11 +33,8 @@ try {
         throw new Exception("Connection failed: " . $conn->connect_error);
     }
 
-    // Fetch all clubs
-    $clubs = $conn->query("SELECT club_id, club_name, location FROM clubs");
-    if (!$clubs) {
-        throw new Exception("Failed to fetch clubs: " . $conn->error);
-    }
+    $club = new Club($conn);
+    $clubs = $club->fetchAll();
 } catch (Exception $e) {
     error_log($e->getMessage());
     die("An error occurred: " . $e->getMessage());
@@ -123,11 +136,20 @@ try {
         function searchClub() {
             var search = document.getElementById('search').value;
             var xhr = new XMLHttpRequest();
-            xhr.open('GET', 'search_club.php?search=' + search, true);
+            xhr.open('GET', 'search_club.php?search=' + encodeURIComponent(search), true);
             xhr.onreadystatechange = function () {
-                if (xhr.readyState == 4 && xhr.status == 200) {
-                    document.getElementById('searchResults').innerHTML = xhr.responseText;
+                if (xhr.readyState == 4) {
+                    if (xhr.status == 200) {
+                        document.getElementById('searchResults').innerHTML = xhr.responseText;
+                    } else {
+                        document.getElementById('searchResults').innerHTML = 'An error occurred while searching for clubs.';
+                        console.error('Error: ' + xhr.statusText);
+                    }
                 }
+            };
+            xhr.onerror = function () {
+                document.getElementById('searchResults').innerHTML = 'An error occurred while searching for clubs.';
+                console.error('Request failed');
             };
             xhr.send();
         }
@@ -144,6 +166,12 @@ try {
                 }
             };
             xhr.send(formData);
+        });
+
+        document.getElementById('searchResults').addEventListener('click', function(event) {
+            if (event.target && event.target.nodeName == "BUTTON") {
+                document.getElementById('search').value = event.target.textContent;
+            }
         });
     </script>
 </body>

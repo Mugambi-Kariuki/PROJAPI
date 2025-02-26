@@ -10,6 +10,24 @@ if (!isset($_SESSION['user_id'])) {
 }
 
 require_once "../classes/database.php";
+
+class User {
+    private $conn;
+    private $user_id;
+
+    public function __construct($conn, $user_id) {
+        $this->conn = $conn;
+        $this->user_id = $user_id;
+    }
+
+    public function fetchDetails() {
+        $stmt = $this->conn->prepare("SELECT name, age, club, position, nationality, salary FROM footballers WHERE user_id = ?");
+        $stmt->bind_param("i", $this->user_id);
+        $stmt->execute();
+        return $stmt->get_result()->fetch_assoc();
+    }
+}
+
 $db = new Database();
 $conn = $db->getConnection();
 
@@ -18,13 +36,8 @@ if (!$conn) {
 }
 
 $user_id = $_SESSION['user_id'];
-
-// Fetch user details from footballers table
-$stmt = $conn->prepare("SELECT name, age, club, position, nationality, salary FROM footballers WHERE user_id = ?");
-$stmt->bind_param("i", $user_id);
-$stmt->execute();
-$result = $stmt->get_result();
-$user = $result->fetch_assoc();
+$user = new User($conn, $user_id);
+$user_details = $user->fetchDetails();
 ?>
 
 <!DOCTYPE html>
@@ -100,6 +113,13 @@ $user = $result->fetch_assoc();
             $("#closeSidebar").click(function() {
                 $("#sidebar").removeClass("show");
             });
+
+            $("#logoutButton").click(function(event) {
+                event.preventDefault();
+                if (confirm("Are you sure you want to logout?")) {
+                    window.location.href = $(this).attr('href');
+                }
+            });
         });
     </script>
 </head>
@@ -118,7 +138,7 @@ $user = $result->fetch_assoc();
                     <button id="openSidebar" class="btn btn-info mr-2">My Profile</button>
                 </li>
                 <li class="nav-item">
-                    <a href="../processes/logout.php" class="btn btn-danger">Logout</a>
+                    <a href="../processes/logout.php" id="logoutButton" class="btn btn-danger">Logout</a>
                 </li>
             </ul>
         </div>
@@ -170,12 +190,12 @@ $user = $result->fetch_assoc();
     <div id="sidebar">
         <button id="closeSidebar">&times;</button>
         <h3>My Profile</h3>
-        <p><strong>Name:</strong> <?php echo htmlspecialchars($user['name']); ?></p>
-        <p><strong>Age:</strong> <?php echo htmlspecialchars($user['age']); ?></p>
-        <p><strong>Club:</strong> <?php echo htmlspecialchars($user['club']); ?></p>
-        <p><strong>Position:</strong> <?php echo htmlspecialchars($user['position']); ?></p>
-        <p><strong>Nationality:</strong> <?php echo htmlspecialchars($user['nationality']); ?></p>
-        <p><strong>Salary:</strong> <?php echo htmlspecialchars($user['salary']); ?></p>
+        <p><strong>Name:</strong> <?php echo htmlspecialchars($user_details['name']); ?></p>
+        <p><strong>Age:</strong> <?php echo htmlspecialchars($user_details['age']); ?></p>
+        <p><strong>Club:</strong> <?php echo htmlspecialchars($user_details['club']); ?></p>
+        <p><strong>Position:</strong> <?php echo htmlspecialchars($user_details['position']); ?></p>
+        <p><strong>Nationality:</strong> <?php echo htmlspecialchars($user_details['nationality']); ?></p>
+        <p><strong>Salary:</strong> <?php echo htmlspecialchars($user_details['salary']); ?></p>
     </div>
 
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

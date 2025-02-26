@@ -9,24 +9,8 @@ if (!isset($_SESSION['admin_id'])) {
     exit();
 }
 
-class Player {
-    private $conn;
-
-    public function __construct($conn) {
-        $this->conn = $conn;
-    }
-
-    public function delete($player_id) {
-        $stmt = $this->conn->prepare("DELETE FROM footballers WHERE id = ?");
-        $stmt->bind_param("i", $player_id);
-        if (!$stmt->execute()) {
-            throw new Exception("Failed to delete player: " . $this->conn->error);
-        }
-    }
-}
-
-if (isset($_GET['id'])) {
-    $player_id = $_GET['id'];
+if (isset($_GET['club_id'])) {
+    $club_id = $_GET['club_id'];
 
     try {
         $database = new Database();
@@ -36,11 +20,17 @@ if (isset($_GET['id'])) {
             throw new Exception("Connection failed: " . $conn->connect_error);
         }
 
-        $player = new Player($conn);
-        $player->delete($player_id);
+        // Delete the club
+        $stmt = $conn->prepare("DELETE FROM clubs WHERE club_id = ?");
+        $stmt->bind_param("i", $club_id);
 
-        header('Location: view_players.php');
-        exit();
+        if ($stmt->execute()) {
+            header('Location: view_clubs.php');
+        } else {
+            throw new Exception("Failed to delete club: " . $stmt->error);
+        }
+
+        $stmt->close();
     } catch (Exception $e) {
         error_log($e->getMessage());
         die("An error occurred: " . $e->getMessage());
@@ -48,7 +38,6 @@ if (isset($_GET['id'])) {
         $conn->close(); // Ensure the connection is closed
     }
 } else {
-    header('Location: view_players.php');
-    exit();
+    die("Invalid request.");
 }
 ?>

@@ -2033,3 +2033,4 @@ Stack trace:
 [25-Feb-2025 06:53:49 UTC] Verification code deleted.
 [25-Feb-2025 06:53:49 UTC] Redirecting to ../form/login.php
 [25-Feb-2025 06:55:38 UTC] User ID from session: 27
+[25-Feb-2025 15:47:15 UTC] User ID from session: 24

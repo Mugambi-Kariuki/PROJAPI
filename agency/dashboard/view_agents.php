@@ -9,6 +9,22 @@ if (!isset($_SESSION['admin_id'])) {
     exit();
 }
 
+class Agent {
+    private $conn;
+
+    public function __construct($conn) {
+        $this->conn = $conn;
+    }
+
+    public function fetchAll() {
+        $result = $this->conn->query("SELECT * FROM agents");
+        if (!$result) {
+            throw new Exception("Failed to fetch agents: " . $this->conn->error);
+        }
+        return $result;
+    }
+}
+
 try {
     $database = new Database();
     $conn = $database->getConnection();
@@ -17,11 +33,8 @@ try {
         throw new Exception("Connection failed: " . $conn->connect_error);
     }
 
-    // Fetch all agents
-    $agents = $conn->query("SELECT * FROM agents");
-    if (!$agents) {
-        throw new Exception("Failed to fetch agents: " . $conn->error);
-    }
+    $agent = new Agent($conn);
+    $agents = $agent->fetchAll();
 } catch (Exception $e) {
     error_log($e->getMessage());
     die("An error occurred: " . $e->getMessage());

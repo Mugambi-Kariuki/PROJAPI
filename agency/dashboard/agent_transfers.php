@@ -12,6 +12,43 @@ require_once "../classes/database.php";
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
+class Transfer {
+    private $conn;
+    private $agent_id;
+
+    public function __construct($conn, $agent_id) {
+        $this->conn = $conn;
+        $this->agent_id = $agent_id;
+    }
+
+    public function getTotalTransfers() {
+        $stmt = $this->conn->prepare("SELECT COUNT(*) AS total_transfers FROM transfers WHERE agent_id = ?");
+        $stmt->bind_param("i", $this->agent_id);
+        $stmt->execute();
+        return $stmt->get_result()->fetch_assoc()['total_transfers'];
+    }
+
+    public function getSuccessfulTransfers() {
+        $stmt = $this->conn->prepare("SELECT COUNT(*) AS successful_transfers FROM transfers WHERE agent_id = ? AND status = 'successful'");
+        $stmt->bind_param("i", $this->agent_id);
+        $stmt->execute();
+        return $stmt->get_result()->fetch_assoc()['successful_transfers'];
+    }
+
+    public function getPendingTransfers() {
+        $stmt = $this->conn->prepare("SELECT t.transfer_id, t.user_id, t.status, 
+                                       c_from.club_name AS from_club, 
+                                       c_to.club_name AS to_club 
+                                FROM transfers t
+                                JOIN clubs c_from ON t.transferred_from = c_from.club_id
+                                JOIN clubs c_to ON t.transferred_to = c_to.club_id
+                                WHERE t.agent_id = ? AND t.status = 'pending'");
+        $stmt->bind_param("i", $this->agent_id);
+        $stmt->execute();
+        return $stmt->get_result();
+    }
+}
+
 $db = new Database();
 $conn = $db->getConnection();
 
@@ -20,36 +57,12 @@ if (!$conn) {
 }
 
 $agent_id = $_SESSION['user_id'];
+$transfer = new Transfer($conn, $agent_id);
 
-// Fetch total transfers
-$stmt = $conn->prepare("SELECT COUNT(*) AS total_transfers FROM transfers WHERE agent_id = ?");
-$stmt->bind_param("i", $agent_id);
-$stmt->execute();
-$result = $stmt->get_result();
-$total_transfers = $result->fetch_assoc()['total_transfers'];
-
-// Fetch successful transfers
-$stmt = $conn->prepare("SELECT COUNT(*) AS successful_transfers FROM transfers WHERE agent_id = ? AND status = 'successful'");
-$stmt->bind_param("i", $agent_id);
-$stmt->execute();
-$result = $stmt->get_result();
-$successful_transfers = $result->fetch_assoc()['successful_transfers'];
-
-// Calculate success rate
+$total_transfers = $transfer->getTotalTransfers();
+$successful_transfers = $transfer->getSuccessfulTransfers();
 $success_rate = $total_transfers > 0 ? ($successful_transfers / $total_transfers) * 100 : 0;
-
-// Fetch pending transfers with club details
-$stmt = $conn->prepare("SELECT t.transfer_id, t.user_id, t.status, 
-                               c_from.club_name AS from_club, 
-                               c_to.club_name AS to_club 
-                        FROM transfers t
-                        JOIN clubs c_from ON t.transferred_from = c_from.club_id
-                        JOIN clubs c_to ON t.transferred_to = c_to.club_id
-                        WHERE t.agent_id = ? AND t.status = 'pending'");
-
-$stmt->bind_param("i", $agent_id);
-$stmt->execute();
-$pending_transfers = $stmt->get_result();
+$pending_transfers = $transfer->getPendingTransfers();
 ?>
 
 <!DOCTYPE html>
