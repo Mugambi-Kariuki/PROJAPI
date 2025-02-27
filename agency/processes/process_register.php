@@ -4,9 +4,8 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-// Correct the path to the Database class file
-require_once '../classes/database.php'; //database connection
-require "../vendor/autoload.php"; // PHPMailer
+require_once '../classes/database.php';
+require "../vendor/autoload.php"; 
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -96,11 +95,10 @@ class Mailer {
     }
 }
 
-// database connection instance
+
 $db = new Database();
 $conn = $db->getConnection();
 
-// Handle form submission
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     try {
         $user = new User($conn, $_POST['name'], $_POST['email'], $_POST['password']);

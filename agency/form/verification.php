@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once "../classes/database.php";
-require "../vendor/autoload.php"; // PHPMailer
+require "../vendor/autoload.php"; 
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -77,7 +77,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->execute();
         error_log("Verification code deleted.");
 
-        // Log redirection
+        //  redirection
         error_log("Redirecting to ../form/login.php");
         header("Location: ../form/login.php");
         exit();
@@ -87,7 +87,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 
-// Send verification code email if requested
+// Send verification code email 
 if (isset($_POST['resend'])) {
     $email = $_SESSION['email'];
     $verification_code = rand(100000, 999999);
@@ -205,7 +205,7 @@ if (isset($_POST['resend'])) {
     <script>
         $(document).ready(function() {
             $('#verificationForm').on('submit', function(e) {
-                e.preventDefault(); // Prevent the form from submitting the traditional way
+                e.preventDefault(); 
                 $.ajax({
                     type: 'POST',
                     url: 'verification.php',
@@ -214,7 +214,7 @@ if (isset($_POST['resend'])) {
                         if (response.includes('Invalid verification code')) {
                             $('#error-message').show();
                         } else {
-                            window.location.href = '../form/login.php'; // Redirect to login page
+                            window.location.href = '../form/login.php';
                         }
                     }
                 });

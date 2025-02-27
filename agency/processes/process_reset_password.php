@@ -118,7 +118,7 @@ function sendResetEmail($email, $resetLink) {
     $mail = new PHPMailer(true);
 
     try {
-        // SMTP Configuration
+       
         $mail->isSMTP();
         $mail->Host = 'smtp.yourdomain.com'; // Replace with your SMTP host
         $mail->SMTPAuth = true;

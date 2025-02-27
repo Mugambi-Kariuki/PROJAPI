@@ -1,5 +1,5 @@
 <?php
-include '../classes/database.php'; // Update the path to your database connection file
+include '../classes/database.php'; 
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $name = $_POST['name'];
@@ -22,8 +22,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if ($conn->connect_error) {
             throw new Exception("Connection failed: " . $conn->connect_error);
         }
-
-        // Update the column names to match your database schema
         $stmt = $conn->prepare("INSERT INTO agents (full_name, email, contact_number, charge_fee, nationality, password_hash) VALUES (?, ?, ?, ?, ?, ?)");
         $stmt->bind_param("ssssss", $name, $email, $contact_number, $charge_fee, $nationality, $password);
 
