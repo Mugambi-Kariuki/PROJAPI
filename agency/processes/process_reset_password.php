@@ -1,6 +1,6 @@
 <?php
 require_once '../classes/database.php';
-require_once '../vendor/autoload.php'; // Ensure PHPMailer is installed via Composer
+require_once '../vendor/autoload.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -14,7 +14,6 @@ try {
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $email = trim($_POST['email']);
 
-        // Validate email format
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             echo "Invalid email format";
             exit;
@@ -28,15 +27,13 @@ try {
         }
 
         // Generate a secure reset token
-        $token = bin2hex(random_bytes(50)); // Generates a 100-character token
+        $token = bin2hex(random_bytes(50));
 
-        // Save the token in the database with an expiration time
         if (!savePasswordResetToken($email, $token)) {
             echo "Failed to generate reset token.";
             exit;
         }
 
-        // Send the reset link to the user's email
         $resetLink = "http://yourdomain.com/agency/form/new_password.php?token=" . $token;
 
         if (sendResetEmail($email, $resetLink)) {
@@ -49,8 +46,6 @@ try {
     error_log("Exception: " . $e->getMessage());
     echo "Internal server error";
 }
-
-// Function to fetch user by email
 function getUserByEmail($email) {
     try {
         $database = new Database();
@@ -113,27 +108,25 @@ function savePasswordResetToken($email, $token) {
     }
 }
 
-// Function to send email using PHPMailer
+//send email using PHPMailer
 function sendResetEmail($email, $resetLink) {
     $mail = new PHPMailer(true);
 
     try {
        
         $mail->isSMTP();
-        $mail->Host = 'smtp.yourdomain.com'; // Replace with your SMTP host
+        $mail->Host = 'smtp.yourdomain.com'; 
         $mail->SMTPAuth = true;
         $mail->Username = "caleb.kariuki@strathmore.edu";
         $mail->Password = "vbfbayghqizgwxux";
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-        $mail->Port = 587; // Use the correct port
+        $mail->Port = 587; 
 
-        // Enable verbose debug output
         $mail->SMTPDebug = 2;
         $mail->Debugoutput = function($str, $level) {
             error_log("SMTP Debug level $level; message: $str");
         };
 
-        // Email Headers
         $mail->setFrom('caleb.kariuki@strathmore.edu', 'Footy Agency');
         $mail->addAddress($email);
         $mail->isHTML(true);
