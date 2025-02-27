@@ -1,4 +1,4 @@
-<?php
+<?php/*
 session_start();
 require_once "../classes/database.php"; // Ensure the correct path
 
@@ -40,5 +40,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     header("Location: ../dashboard/home.php");
     exit();
-}
+}*/
 ?>
