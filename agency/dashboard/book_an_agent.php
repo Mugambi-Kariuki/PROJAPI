@@ -39,7 +39,7 @@ function getAgentDetails($agent_id) {
 
 $agent = getAgentDetails($agent_id);
 
-// Process booking
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $user_id = $_SESSION['user_id'];
     $agent_id = $_POST['agent_id'];

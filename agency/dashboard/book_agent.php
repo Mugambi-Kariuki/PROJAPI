@@ -1,5 +1,5 @@
 <?php
-include '../classes/database.php'; //database connection file
+include '../classes/database.php'; //database connection
 
 session_start();
 
@@ -168,7 +168,7 @@ try {
             xhr.send(formData);
         });
 
-        // AJAX search for clubs
+        // AJAX search
         document.getElementById('searchClubs').addEventListener('input', function() {
             var query = this.value;
             var xhr = new XMLHttpRequest();
@@ -181,7 +181,7 @@ try {
             xhr.send();
         });
 
-        // Initial load of clubs
+        //load of clubs
         document.getElementById('searchClubs').dispatchEvent(new Event('input'));
     </script>
 </body>
