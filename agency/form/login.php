@@ -24,9 +24,9 @@
             justify-content: flex-start;
             padding: 20px;
             background: url('https://img.freepik.com/free-photo/black-man-with-soccer-ball-pointing-with-finger_23-2148203602.jpg?uid=R184749194&ga=GA1.1.185349345.1737984667&semt=ais_hybrid') no-repeat center;
-            background-size: cover; /* Ensures the image covers the available space */
+            background-size: cover; 
             width: 100%;
-            height: 160vh; /* Increase the height */
+            height: 160vh; 
         }
         .login-form {
             background: rgba(255, 255, 255, 0.9);
@@ -37,10 +37,10 @@
             max-width: 350px;
             text-align: center;
             margin-left: 50px;
-            transition: transform 0.3s ease; /* Add transition for hover effect */
+            transition: transform 0.3s ease; 
         }
         .login-form:hover {
-            transform: scale(1.05); /* Scale up the form on hover */
+            transform: scale(1.05);
         }
         .footer {
             text-align: center;
@@ -56,7 +56,7 @@
         }
     </style>
 </head>
-<body class="dark-mode"> <!-- Enforce dark mode by default -->
+<body class="dark-mode">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="#">Dashboard</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -72,12 +72,12 @@
     </nav>
 
     <div class="content">
-        <div class="login-form dark-mode"> <!-- Apply dark mode to the form -->
+        <div class="login-form dark-mode"> 
             <h1>Player Login</h1>
             <?php if (isset($error)): ?>
                 <div class="alert alert-danger"><?php echo $error; ?></div>
             <?php endif; ?>
-            <form method="post" action="../processes/process_login.php"> <!-- Add action attribute -->
+            <form method="post" action="../processes/process_login.php"> 
                 <div class="form-group">
                     <label for="email">Email:</label>
                     <input type="email" class="form-control" id="email" name="email" required>
@@ -87,8 +87,8 @@
                     <input type="password" class="form-control" id="password" name="password" required>
                 </div>
                 <button type="submit" class="btn btn-primary btn-block">Login</button>
-                <a href="user_registration.php" class="btn btn-secondary btn-block">Register</a> <!-- Add registration button -->
-                <a href="reset_password.php" class="btn btn-link btn-block">Forgot Password?</a> <!-- Add reset password button -->
+                <a href="user_registration.php" class="btn btn-secondary btn-block">Register</a> 
+                <a href="reset_password.php" class="btn btn-link btn-block">Forgot Password?</a> 
             </form>
         </div>
     </div>

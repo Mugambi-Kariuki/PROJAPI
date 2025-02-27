@@ -53,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         .login-container {
             position: relative;
             width: 100%;
-            height: calc(100vh - 200px); /* Adjust height to fit between header and footer */
+            height: calc(100vh - 200px);
             display: flex;
             align-items: center;
             justify-content: center;
