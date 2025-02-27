@@ -58,22 +58,32 @@ try {
             <thead class="table-dark">
                 <tr>
                     <th>ID</th>
-                    <th>Booking Date</th>
-                    <th>Client Name</th>
+                    <th>Agent ID</th>
+                    <th>User ID</th>
+                    <th>Target Club</th>
+                    <th>Years</th>
+                    <th>Expected Salary</th>
+                    <th>Created At</th>
+                    <th>Status</th>
                     <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
                 <?php while ($booking = $bookings->fetch_assoc()): ?>
                     <tr class="table-light">
-                        <td><?= $booking['id'] ?></td>
-                        <td><?= $booking['booking_date'] ?></td>
-                        <td><?= $booking['client_name'] ?></td>
+                        <td><?= $booking['booking_id'] ?></td>
+                        <td><?= $booking['agent_id'] ?></td>
+                        <td><?= $booking['user_id'] ?></td>
+                        <td><?= $booking['target_club'] ?></td>
+                        <td><?= $booking['years'] ?></td>
+                        <td><?= $booking['expected_salary'] ?></td>
+                        <td><?= $booking['created_at'] ?></td>
+                        <td><?= $booking['booking_status'] ?></td>
                         <td>
-                            <a href="edit_booking.php?id=<?= $booking['id'] ?>" class="btn btn-warning btn-sm">
+                            <a href="edit_booking.php?id=<?= $booking['booking_id'] ?>" class="btn btn-warning btn-sm">
                                 <i class="fas fa-pen"></i> Edit
                             </a>
-                            <a href="delete_booking.php?id=<?= $booking['id'] ?>" class="btn btn-danger btn-sm">
+                            <a href="delete_booking.php?id=<?= $booking['booking_id'] ?>" class="btn btn-danger btn-sm">
                                 <i class="fas fa-trash"></i> Delete
                             </a>
                         </td>

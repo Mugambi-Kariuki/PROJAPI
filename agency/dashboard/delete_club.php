@@ -1,5 +1,5 @@
 <?php
-include '../classes/database.php'; // Update the path to your database connection file
+include '../classes/database.php'; // database connection file
 
 session_start();
 
@@ -35,7 +35,7 @@ if (isset($_GET['club_id'])) {
         error_log($e->getMessage());
         die("An error occurred: " . $e->getMessage());
     } finally {
-        $conn->close(); // Ensure the connection is closed
+        $conn->close(); //close connection
     }
 } else {
     die("Invalid request.");

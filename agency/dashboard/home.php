@@ -158,7 +158,7 @@ $user_details = $user->fetchDetails();
                     $statusColor = isset($row['status']) && $row['status'] == 'Occupied' ? 'red' : 'green';
                     $statusText = isset($row['status']) && $row['status'] == 'Occupied' ? "Sorry, I'm busy. Try again later!" : 'Free';
                     $successRate = isset($row['success_rate']) ? $row['success_rate'] : 'N/A';
-                    $bookLink = isset($row['status']) && $row['status'] == 'Occupied' ? 'Sorry, am busy, check me out later' : "
+                    $bookLink = isset($row['status']) && $row['status'] == 'Occupied' ? '' : "
                         <a href='book_an_agent.php?agent_id={$row['agent_id']}' class='btn btn-primary'>
                             Book Agent
                         </a>";

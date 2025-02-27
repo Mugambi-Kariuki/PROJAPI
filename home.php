@@ -1,0 +1,6 @@
+// ...existing code...
+if (!isset($_SESSION['player_id'])) {
+    // header('Location: unauthorized.php'); // Remove this line to prevent redirection to unauthorized access page
+    // exit();
+}
+// ...existing code...

@@ -62,7 +62,7 @@ error_log("User verified, displaying dashboard");
 <body>
     <h1>Welcome to your dashboard!</h1>
     <a href="#" id="openProfile">Profile</a>
-    <a href="../processes/logout.php">Logout</a> <!-- Logout button -->
+    <a href="../processes/logout.php">Logout</a>
 
     <?php include "profile_form.php"; ?>
 

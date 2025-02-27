@@ -44,6 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <title>Admin Login</title>
     <style>
         body.dark-mode {
@@ -89,6 +90,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
+                    <a class="nav-link" href="../index.php">
+                        <i class="fas fa-home"></i> Home
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="#" id="toggleDarkMode">Toggle Dark Mode</a>
                 </li>
                 
@@ -98,14 +104,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <div class="d-flex flex-column min-vh-100">
         <div class="d-flex">
-            <div class="sidebar bg-dark p-3">
-                <h4>Menu</h4>
-                <ul class="nav flex-column">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">My Profile</a>
-                    </li>
-                </ul>
-            </div>
+            
             <div class="content p-4">
                 <h1>Admin Login</h1>
                 <div class="login-image">

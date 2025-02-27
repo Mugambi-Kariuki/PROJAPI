@@ -17,35 +17,56 @@ if (!isset($_GET['agent_id'])) {
     exit;
 }
 
-class Agent {
-    private $conn;
-
-    public function __construct($conn) {
-        $this->conn = $conn;
-    }
-
-    public function getDetails($agent_id) {
-        $stmt = $this->conn->prepare("SELECT agent_id, full_name FROM agents WHERE agent_id = ?");
-        $stmt->bind_param("i", $agent_id);
-        $stmt->execute();
-        $result = $stmt->get_result();
-        if ($result->num_rows == 0) {
-            throw new Exception("Agent not found.");
-        }
-        return $result->fetch_assoc();
-    }
-}
-
-$database = new Database();
-$conn = $database->getConnection();
-
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
 $agent_id = $_GET['agent_id'];
-$agent = new Agent($conn);
-$agent_details = $agent->getDetails($agent_id);
+
+// Fetch agent details
+function getAgentDetails($agent_id) {
+    $database = new Database();
+    $conn = $database->getConnection();
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+    $query = "SELECT agent_id, full_name FROM agents WHERE agent_id = ?";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("i", $agent_id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    if ($result->num_rows == 0) {
+        die("Agent not found.");
+    }
+    return $result->fetch_assoc();
+}
+
+$agent = getAgentDetails($agent_id);
+
+// Process booking
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $user_id = $_SESSION['user_id'];
+    $agent_id = $_POST['agent_id'];
+    $target_club = $_POST['target_club'];
+    $years = $_POST['years'];
+    $expected_salary = $_POST['expected_salary'];
+
+    $database = new Database();
+    $conn = $database->getConnection();
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    $query = "INSERT INTO booking (agent_id, user_id, target_club, years, expected_salary) VALUES (?, ?, ?, ?, ?)";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("iisid", $agent_id, $user_id, $target_club, $years, $expected_salary);
+
+    if ($stmt->execute()) {
+        echo "Booking successful.";
+    } else {
+        echo "Error: " . $stmt->error;
+    }
+
+    $stmt->close();
+    $conn->close();
+    exit;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -59,8 +80,8 @@ $agent_details = $agent->getDetails($agent_id);
     <h2>Book an Agent</h2>
     <form id="bookingForm">
         <label for="agent">Selected Agent:</label>
-        <input type="text" name="agent_name" value="<?php echo htmlspecialchars($agent_details['full_name']); ?>" readonly><br>
-        <input type="hidden" name="agent_id" value="<?php echo $agent_details['agent_id']; ?>">
+        <input type="text" name="agent_name" value="<?php echo htmlspecialchars($agent['full_name']); ?>" readonly><br>
+        <input type="hidden" name="agent_id" value="<?php echo $agent['agent_id']; ?>">
         
         <label for="club">Select Target Club:</label>
         <input type="text" id="clubSearch" placeholder="Search for a club...">
@@ -112,17 +133,16 @@ $agent_details = $agent->getDetails($agent_id);
         
         $('#bookingForm').submit(function(e) {
             e.preventDefault();
-            console.log('Form submitted');
             $.ajax({
-                url: 'process_booking.php',
+                url: '',
                 method: 'POST',
                 data: $(this).serialize(),
                 success: function(response) {
-                    console.log('Booking response:', response);
                     alert(response);
                 },
                 error: function(jqXHR, textStatus, errorThrown) {
                     console.error('Error processing booking:', textStatus, errorThrown);
+                    alert('Error processing booking. Please try again.');
                 }
             });
         });

@@ -23,7 +23,7 @@ try {
         throw new Exception("Connection failed: " . $conn->connect_error);
     }
 
-    // Fetch agent details
+    // agent details
     $stmt = $conn->prepare("SELECT * FROM agents WHERE agent_id = ?");
     $stmt->bind_param("i", $agent_id);
     $stmt->execute();
@@ -155,7 +155,6 @@ try {
         }
 
         document.getElementById('bookAgentForm').addEventListener('submit', function(event) {
-            // Remove the event.preventDefault() to allow the form to submit normally
             // event.preventDefault();
             var formData = new FormData(this);
             var xhr = new XMLHttpRequest();

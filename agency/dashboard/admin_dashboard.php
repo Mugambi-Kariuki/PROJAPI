@@ -78,19 +78,34 @@ try {
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Admin Dashboard</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#" id="toggleDarkMode">Toggle Dark Mode</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../processes/logout.php">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
     <div class="container">
         <h2>Summary</h2>
         <h2>Details</h2>
-        <button class="btn btn-primary" onclick="location.href='view_users.php'">View Users</button>
-        <button class="btn btn-primary" onclick="location.href='view_agents.php'">View Agents</button>
+        <button class="btn btn-secondary" onclick="location.href='view_users.php'">View Users</button>
+        <button class="btn btn-info" onclick="location.href='view_agents.php'">View Agents</button>
         <button class="btn btn-primary" onclick="location.href='view_players.php'">View Players</button>
-        <button class="btn btn-primary" onclick="location.href='view_bookings.php'">View Bookings</button>
-        <button class="btn btn-primary" onclick="location.href='view_clubs.php'">View Clubs</button>
-        <button class="btn btn-primary" onclick="location.href='view_transfers.php'">View Transfers</button>
+        <button class="btn btn-danger" onclick="location.href='view_bookings.php'">View Bookings</button>
+        <button class="btn btn-success" onclick="location.href='view_clubs.php'">View Clubs</button>
         
         <div class="dropdown">
-            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                Download Reports
+            <button class="btn btn-maroon dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fas fa-download"></i> Download Reports
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <li><a class="dropdown-item" href="download_report.php">Download Combined Report</a></li>
@@ -99,7 +114,6 @@ try {
                 <li><a class="dropdown-item" href="download_players_report.php">Download Players Report</a></li>
                 <li><a class="dropdown-item" href="download_bookings_report.php">Download Bookings Report</a></li>
                 <li><a class="dropdown-item" href="download_clubs_report.php">Download Clubs Report</a></li>
-                <li><a class="dropdown-item" href="download_transfers_report.php">Download Transfers Report</a></li>
             </ul>
         </div>
 
@@ -108,29 +122,25 @@ try {
         <canvas id="playersChart" width="400" height="100"></canvas>
         <canvas id="bookingsChart" width="400" height="100"></canvas>
         <canvas id="clubsChart" width="400" height="100"></canvas>
-        <canvas id="transfersChart" width="400" height="100"></canvas>
         <p>Total Users: <?= $totalUsers ?></p>
         <p>Total Agents: <?= $totalAgents ?></p>
         <p>Total Players: <?= $totalPlayers ?></p>
         <p>Total Bookings: <?= $totalBookings ?></p>
         <p>Total Clubs: <?= $totalClubs ?></p>
-        <p>Total Transfers: <?= $totalTransfers ?></p>
     </div>
-
+        
     <script>
         const usersData = <?= $totalUsers ?>;
         const agentsData = <?= $totalAgents ?>;
         const playersData = <?= $totalPlayers ?>;
         const bookingsData = <?= $totalBookings ?>;
         const clubsData = <?= $totalClubs ?>;
-        const transfersData = <?= $totalTransfers ?>;
 
         const ctxUsers = document.getElementById('usersChart').getContext('2d');
         const ctxAgents = document.getElementById('agentsChart').getContext('2d');
         const ctxPlayers = document.getElementById('playersChart').getContext('2d');
         const ctxBookings = document.getElementById('bookingsChart').getContext('2d');
         const ctxClubs = document.getElementById('clubsChart').getContext('2d');
-        const ctxTransfers = document.getElementById('transfersChart').getContext('2d');
 
         new Chart(ctxUsers, {
             type: 'bar',
@@ -225,27 +235,6 @@ try {
                     data: [clubsData],
                     backgroundColor: 'rgba(255, 159, 64, 0.2)',
                     borderColor: 'rgba(255, 159, 64, 1)',
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
-            }
-        });
-
-        new Chart(ctxTransfers, {
-            type: 'bar',
-            data: {
-                labels: ['Transfers'],
-                datasets: [{
-                    label: 'Total Transfers',
-                    data: [transfersData],
-                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                    borderColor: 'rgba(255, 99, 132, 1)',
                     borderWidth: 1
                 }]
             },

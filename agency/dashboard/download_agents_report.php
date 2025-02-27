@@ -4,7 +4,7 @@ ini_set('display_errors', 1);
 ini_set('log_errors', 1);
 ini_set('error_log', __DIR__ . '/error_log.txt');
 
-require '../vendor/autoload.php'; // Updated path
+require '../vendor/autoload.php'; 
 include '../classes/database.php';
 
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
@@ -27,14 +27,13 @@ try {
 
     $spreadsheet = new Spreadsheet();
     $sheet = $spreadsheet->getActiveSheet();
-    $sheet->setTitle('Agents Report'); // Set the sheet title
-
+    $sheet->setTitle('Agents Report');
     $result = $conn->query("SELECT * FROM agents");
     if (!$result) {
         throw new Exception("Failed to fetch agents: " . $conn->error);
     }
 
-    // Set column headers
+    //column headers
     $sheet->setCellValue('A1', 'Agent ID');
     $sheet->setCellValue('B1', 'Name');
 
@@ -48,13 +47,13 @@ try {
 
     $fileName = 'agents_report_' . date('Y-m-d_H-i-s') . '.xlsx';
 
-    // Set correct headers for downloading
+    //headers for downloading
     header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
     header('Content-Disposition: attachment; filename="' . $fileName . '"');
     header('Cache-Control: max-age=0');
 
     $writer = new Xlsx($spreadsheet);
-    $writer->save('php://output'); // Direct output instead of saving
+    $writer->save('php://output'); //output first instead of saving
     exit();
 } catch (Exception $e) {
     error_log($e->getMessage());
