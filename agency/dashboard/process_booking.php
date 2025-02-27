@@ -8,14 +8,12 @@ if (!isset($_SESSION['user_id'])) {
     exit;
 }
 
-// Get form data
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $agent_id = $_POST['agent_id'];
     $target_club = $_POST['target_club'];
     $years = $_POST['years'];
     $expected_salary = $_POST['expected_salary'];
 
-    // Insert booking into database
     $database = new Database();
     $conn = $database->getConnection();
     if ($conn->connect_error) {

@@ -30,13 +30,12 @@ try {
     $sheet->setTitle('Players Report');
     $spreadsheet->setActiveSheetIndex(0); // Ensure active sheet is set
 
-    // Fetch data
     $result = $conn->query("SELECT * FROM footballers");
     if (!$result) {
         throw new Exception("Failed to fetch players: " . $conn->error);
     }
 
-    // Fetch column names
+   
     $fields = $result->fetch_fields();
     $col = 'A';
     foreach ($fields as $field) {

@@ -1,5 +1,5 @@
 <?php
-include '../classes/database.php'; // Update the path to your database connection file
+include '../classes/database.php'; 
 
 class Club {
     private $conn;
